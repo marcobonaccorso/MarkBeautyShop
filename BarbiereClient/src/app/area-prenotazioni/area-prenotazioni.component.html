@@ -191,7 +191,7 @@
     </div>
     <!-- Area Prenotazioni-->
     <div class="BottonePrenotaAppuntamento">
-        <br> <br> &nbsp;<button class="btn btn-primary" (click)="ShowHidden()">Clicca qui per completare il
+        <br> <br> &nbsp;<button class="btn btn-primary" (click)="ShowHidden()">Clicca qui per compilare il
             form.</button>
     </div> <br><br><br>
     <div class="form" *ngIf="showHidden && !preloader">
@@ -205,6 +205,12 @@
             <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
             <button class="btn btn-primary" (click)="ricerca()">cerca</button>&nbsp;
         </div>
+        <br>
+        <small id="emailHelp" class="form-text text-muted">I tuoi dati resteranno privati.</small>
+        <br>
+        <!-- <label for="exampleFormControlTextarea1">Aggiungi delle note particolari</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> -->
+      </div>
         <h2 *ngIf="messaggio">{{messaggio}}</h2>
         <br> <br> <br>
         <br>
@@ -282,7 +288,7 @@
         </table>
         <br>
 
-    </div>
+    
     <br> <br>
     <div *ngIf="preloader">
         <!--server spento o non funzionante se compare fisso-->
