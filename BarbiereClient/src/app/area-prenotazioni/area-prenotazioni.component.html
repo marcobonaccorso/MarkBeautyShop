@@ -200,10 +200,10 @@
         <input type="date" [(ngModel)]="prenotazione.dataPrenotazione"> &nbsp;
         <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione"> &nbsp;
         <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto"> &nbsp;
-        <button class="btn btn-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"> Prenota</button>
+        <button class="btn btn-outline-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"> Prenota</button>
         <div class="Ricerca">
             <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
-            <button class="btn btn-primary" (click)="ricerca()">cerca</button>&nbsp;
+            <button class="btn btn-outline-primary" (click)="ricerca()">cerca</button>&nbsp;
         </div>
         <br>
         <small id="emailHelp" class="form-text text-muted">I tuoi dati resteranno privati.</small>
@@ -242,7 +242,7 @@
         <h3>Errore. Impossibile effettuare questa modifica:</h3>
         <h3>Non puoi svuotare una cella e salvare, annulla l'operazione per proseguire.</h3>
     </div>
-    <div class="NoSearch" *ngIf="noSearch">
+    <div class="alert alert-danger" role="alert" *ngIf="noSearch">
         <h3>Errore: campo di ricerca non compilato, oppure dato non trovato oppure server offline</h3>
     </div>
     <div class="Sorry" *ngIf="showDel">
@@ -257,7 +257,7 @@
     </div>
     <br>
     <div class="Scelta">
-        <button class="ButtonConferma" (click)="conferma()"
+        <button class="btn btn-success" (click)="conferma()"
             *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
         <button class="btn btn-danger" (click)="annulla()"
             *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
