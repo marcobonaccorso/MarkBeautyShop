@@ -210,85 +210,85 @@
         <br>
         <!-- <label for="exampleFormControlTextarea1">Aggiungi delle note particolari</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> -->
-      </div>
-        <h2 *ngIf="messaggio">{{messaggio}}</h2>
-        <br> <br> <br>
-        <br>
-        <!--Messaggi su schermo-->
-        <div class="Thanks" *ngIf="showAdd">
-            <!--prenotazione aggiunta-->
-            <h3>Prenotazione effettuata.</h3>
-        </div>
-        <!-- <div class="NoAdd" *ngIf="noAdd">
+    </div>
+    <h2 *ngIf="messaggio">{{messaggio}}</h2>
+    <br> <br> <br>
+    <br>
+    <!--Messaggi su schermo-->
+    <div class="Thanks" *ngIf="showAdd">
+        <!--prenotazione aggiunta-->
+        <h3>Prenotazione effettuata.</h3>
+    </div>
+    <!-- <div class="NoAdd" *ngIf="noAdd">
             <h3>Errore: uno o più campi non sono stati compilati, oppure server offline.</h3>
         </div> -->
-        <div class="alert alert-danger" role="alert" *ngIf="noAdd">
-            <h3>Errore: uno o più campi non sono stati compilati, oppure server offline.</h3>
-        </div>
+    <div class="alert alert-danger" role="alert" *ngIf="noAdd">
+        <h3>Errore: uno o più campi non sono stati compilati, oppure server offline.</h3>
+    </div>
 
-        <div class="Search" *ngIf="showSearch">
-            <!--prenotazione aggiunta-->
-            <h3>Ricerca completata.</h3>
-        </div>
-        <div class="Mod" *ngIf="showMod">
-            <!--modifica confermata-->
-            <h3>Prenotazione modificata.</h3>
-        </div>
-        <div class="AnnullaMod" *ngIf="showNoMod">
-            <!--modifica annullata-->
-            <h3>Operazione annullata</h3>
-        </div>
-        <div class="NoMod" *ngIf="noMod">
-            <h3>Errore. Impossibile effettuare questa modifica:</h3>
-            <h3>Non puoi svuotare una cella e salvare, annulla l'operazione per proseguire.</h3>
-        </div>
-        <div class="NoSearch" *ngIf="noSearch">
-            <h3>Errore: campo di ricerca non compilato, oppure dato non trovato oppure server offline</h3>
-        </div>
-        <div class="Sorry" *ngIf="showDel">
-            <!--Prenotazione eliminata-->
-            <h3>Prenotazione disdetta.</h3>
-        </div>
-        <div class="StaiEliminando" *ngIf="staiEliminando">
-            <h3>Stai eliminando un dato</h3>
-        </div>
-        <div class="StaiModificando" *ngIf="staiModificando">
-            <h3> Stai modificando un dato</h3>
-        </div>
-        <br>
-        <div class="Scelta">
-            <button class="ButtonConferma" (click)="conferma()"
-                *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
-            <button class="ButtonAnnulla" (click)="annulla()"
-                *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
-        </div>
-        <br>
-        <table class="TabellaPrenotazioni">
-            <tr>
-                <th>Cliente </th>
-                <th>Data prenotazione</th>
-                <th>Ora prenotazione</th>
-                <th>Tipo di servizio</th>
-                <th>Modifica</th>
-                <th>Elimina</th>
-            </tr>
+    <div class="Search" *ngIf="showSearch">
+        <!--prenotazione aggiunta-->
+        <h3>Ricerca completata.</h3>
+    </div>
+    <div class="Mod" *ngIf="showMod">
+        <!--modifica confermata-->
+        <h3>Prenotazione modificata.</h3>
+    </div>
+    <div class="AnnullaMod" *ngIf="showNoMod">
+        <!--modifica annullata-->
+        <h3>Operazione annullata</h3>
+    </div>
+    <div class="NoMod" *ngIf="noMod">
+        <h3>Errore. Impossibile effettuare questa modifica:</h3>
+        <h3>Non puoi svuotare una cella e salvare, annulla l'operazione per proseguire.</h3>
+    </div>
+    <div class="NoSearch" *ngIf="noSearch">
+        <h3>Errore: campo di ricerca non compilato, oppure dato non trovato oppure server offline</h3>
+    </div>
+    <div class="Sorry" *ngIf="showDel">
+        <!--Prenotazione eliminata-->
+        <h3>Prenotazione disdetta.</h3>
+    </div>
+    <div class="StaiEliminando" *ngIf="staiEliminando">
+        <h3>Stai eliminando un dato</h3>
+    </div>
+    <div class="StaiModificando" *ngIf="staiModificando">
+        <h3> Stai modificando un dato</h3>
+    </div>
+    <br>
+    <div class="Scelta">
+        <button class="ButtonConferma" (click)="conferma()"
+            *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
+        <button class="btn btn-danger" (click)="annulla()"
+            *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
+    </div>
+    <br>
+    <table class="TabellaPrenotazioni">
+        <tr>
+            <th>Cliente </th>
+            <th>Data prenotazione</th>
+            <th>Ora prenotazione</th>
+            <th>Tipo di servizio</th>
+            <th>Modifica</th>
+            <th>Elimina</th>
+        </tr>
 
-            <tr *ngFor="let p of prenotazioni">
-                <td>Il sig. {{p.cliente}} verrà</td>
-                <td>il giorno {{p.dataPrenotazione}}</td>
-                <td>alle ore {{p.ora}}</td>
-                <td> per {{p.tipoDiServizio}}</td>
-                <td>
-                    <button class="btn btn-warning" (click)="modifica(p)">Modifica</button>
-                </td>
-                <td>
-                    <button class="BottonDeletePrenotation" (click)="elimina(p)">Elimina</button>
-                </td>
-            </tr>
-        </table>
-        <br>
+        <tr *ngFor="let p of prenotazioni">
+            <td>Il sig. {{p.cliente}} verrà</td>
+            <td>il giorno {{p.dataPrenotazione}}</td>
+            <td>alle ore {{p.ora}}</td>
+            <td> per {{p.tipoDiServizio}}</td>
+            <td>
+                <button class="btn btn-warning" (click)="modifica(p)">Modifica</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" (click)="elimina(p)">Elimina</button>
+            </td>
+        </tr>
+    </table>
+    <br>
 
-    
+
     <br> <br>
     <div *ngIf="preloader">
         <!--server spento o non funzionante se compare fisso-->
