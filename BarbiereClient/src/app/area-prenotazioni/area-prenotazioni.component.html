@@ -14,10 +14,12 @@
         </div>
     </header>
     <div class="logo">
-        <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo sinistro" style="float: left">
-        <img src="https://image.freepik.com/premium-vector/workplace-beauty-salon-interior-horizontal_48369-23905.jpg" class="img-fluid"
-            alt="immagine sala">
-        <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo destro" style="float:right">
+        <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo sinistro"
+            style="float: left">
+        <img src="https://image.freepik.com/premium-vector/workplace-beauty-salon-interior-horizontal_48369-23905.jpg"
+            class="img-fluid" alt="immagine sala">
+        <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo destro"
+            style="float:right">
     </div>
     <br> <br>
     <div class="intestazione">
@@ -187,7 +189,7 @@
     </div>
     <br>
     <div class="Contatti">
-        <h3> <ins>Per prenotare un appuntamento, compila il form sottostante.</ins></h3>
+        <h3> Per prenotare un appuntamento, compila il form sottostante.</h3>
     </div>
     <!-- Area Prenotazioni-->
     <div class="BottonePrenotaAppuntamento">
@@ -210,6 +212,31 @@
         <br>
         <!-- <label for="exampleFormControlTextarea1">Aggiungi delle note particolari</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> -->
+
+        <table class="TabellaPrenotazioni">
+            <tr>
+                <th>Cliente </th>
+                <th>Data prenotazione</th>
+                <th>Ora prenotazione</th>
+                <th>Tipo di servizio</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
+            </tr>
+
+            <tr *ngFor="let p of prenotazioni">
+                <td>Il sig. {{p.cliente}} verrà</td>
+                <td>il giorno {{p.dataPrenotazione}}</td>
+                <td>alle ore {{p.ora}}</td>
+                <td> per {{p.tipoDiServizio}}</td>
+                <td>
+                    <button class="btn btn-warning" (click)="modifica(p)">Modifica</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="elimina(p)">Elimina</button>
+                </td>
+            </tr>
+        </table>
+
     </div>
     <h2 *ngIf="messaggio">{{messaggio}}</h2>
     <br> <br> <br>
@@ -263,29 +290,7 @@
             *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
     </div>
     <br>
-    <table class="TabellaPrenotazioni">
-        <tr>
-            <th>Cliente </th>
-            <th>Data prenotazione</th>
-            <th>Ora prenotazione</th>
-            <th>Tipo di servizio</th>
-            <th>Modifica</th>
-            <th>Elimina</th>
-        </tr>
 
-        <tr *ngFor="let p of prenotazioni">
-            <td>Il sig. {{p.cliente}} verrà</td>
-            <td>il giorno {{p.dataPrenotazione}}</td>
-            <td>alle ore {{p.ora}}</td>
-            <td> per {{p.tipoDiServizio}}</td>
-            <td>
-                <button class="btn btn-warning" (click)="modifica(p)">Modifica</button>
-            </td>
-            <td>
-                <button class="btn btn-danger" (click)="elimina(p)">Elimina</button>
-            </td>
-        </tr>
-    </table>
     <br>
 
 
