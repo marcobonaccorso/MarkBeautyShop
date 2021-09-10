@@ -1,0 +1,129 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="gestione-appuntamenti-estetica.component.css">
+</head>
+
+<body>
+    <button class="bottonBack" (click)="indietro()">Indietro</button> <br> <br>
+    <br><br>
+    <div class="intestazioneEstetica">
+        <h2>Prenota qui il tuo appuntamento per una rimessa a nuovo!</h2>
+    </div>
+    <br> <br>
+    <div class="immaginiEstetica">
+        <img src="https://static5.depositphotos.com/1004673/429/v/600/depositphotos_4290242-stock-illustration-abstract-pink-background.jpg">
+    </div>
+    <br> <br>
+    <!--tabella servizi estetica-->
+    <table class="TabellaServiziEstetica">
+        <tr>
+            <td>Servizio</td>
+            <td> Prezzo</td>
+
+        </tr>
+        <tr>
+            <td>Manicure</td>
+            <td>15€</td>
+        </tr>
+        <tr>
+            <td>Manicure (solo smalto)</td>
+            <td>8€</td>
+        </tr>
+        <tr>
+            <td>Sopracciglia ricrescita</td>
+            <td>5€</td>
+        </tr>
+        <tr>
+            <td>Baffetti</td>
+            <td>5€</td>
+        </tr>
+        <tr>
+            <td>Pedicure</td>
+            <td>25€</td>
+        </tr>
+    </table>
+    <br> <br>
+    <table class="Novità">
+        <tr>
+            <td>Servizio</td>
+            <td>Prezzo</td>
+        </tr>
+        <tr>
+            <td>Color motion</td>
+            <td>40€</td>
+        </tr>
+        <tr>
+            <td>
+                Contourning
+            </td>
+            <td>25€</td>
+        </tr>
+    </table>
+    <br> <br>
+    <button class="PrendiAppuntamento" (click)="ShowForm()">Prenota appuntamento</button>
+    <br> <br>
+    <!-- form -->
+    <div class="form" *ngIf="showHidden">
+        <input type="text" [(ngModel)]="prenotazioneEstetica.cliente" placeholder="nome e cognome"> &nbsp;
+        <input type="date" [(ngModel)]="prenotazioneEstetica.dataPrenotazione" placeholder="data prenotazione"> &nbsp;
+        <input type="time" [(ngModel)]="prenotazioneEstetica.ora" placeholder="ora prenotazione"> &nbsp;
+        <input type="text" [(ngModel)]="prenotazioneEstetica.tipoDiServizio" placeholder="tipo di servizio"> &nbsp;
+        <button class="bottonAddPrenotation" (click)="aggiungiPrenotazioneEstetica()" *ngIf="stato == 'V'">aggiungi prenotazione</button>
+        <br>
+        <div class="Scelta">
+            <button class="ButtonConferma" (click)="conferma()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
+            <button class="ButtonAnnulla" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
+        </div>
+        <br>
+        <!--Messaggi su schermo-->
+        <div class="Thanks" *ngIf="showAdd">
+            <!--prenotazione aggiunta-->
+            <h3>Prenotazione effettuata.</h3>
+        </div>
+        <div class="Mod" *ngIf="showMod">
+            <!--modifica confermata-->
+            <h3>Prenotazione modificata.</h3>
+        </div>
+
+        <div class="AnnullaMod" *ngIf="showNoMod">
+            <!--modifica annullata-->
+            <h3>Operazione annullata</h3>
+        </div>
+        <div class="Sorry" *ngIf="showDel">
+            <!--Prenotazione eliminata-->
+            <h3>Prenotazione disdetta.</h3>
+        </div>
+        <div class="StaiEliminando" *ngIf="staiEliminando">
+            <h3>Stai eliminando un dato</h3>
+        </div>
+        <div class="StaiModificando" *ngIf="staiModificando">
+            <h3> Stai modificando un dato</h3>
+        </div>
+        <br> <br>
+        <br>
+        <table class="tabellaPrenotazioni">
+            <tr>
+                <th>Cliente </th>
+                <th>Data prenotazione</th>
+                <th>ora prenotazione</th>
+                <th>tipo di servizio</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
+            </tr>
+
+            <tr *ngFor="let p of  prenotazioniEstetica">
+                <td>La sig.ra. {{p.cliente}} verrà</td>
+                <td>il giorno {{p.dataPrenotazione}}</td>
+                <td>alle ore {{p.ora}}</td>
+                <td> per {{p.tipoDiServizio}}</td>
+                <td> <button class="ButtonModifica" (click)="modifica(p)">Modifica</button></td>
+                <td> <button class="BottonDeletePrenotation" (click)="elimina(p)">elimina</button></td>
+            </tr>
+        </table>
+        <br> <br>
+    </div>
+    <br> <br>
+</body>
+
+</html>

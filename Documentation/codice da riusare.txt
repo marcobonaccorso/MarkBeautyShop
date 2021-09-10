@@ -1,0 +1,31 @@
+ <div class="DescrizioneTabellaServizi">
+        <p>The Mark's Barber Shop offre i seguenti trattamenti: </p>
+    </div>
+    <br>
+    <table class="TabellaServizi">
+        <tr>
+            <td>tipo di servizio</td>
+            <td>servizio</td>
+            <td>prezzo</td>
+        </tr>
+        <tr>
+            <td>servizio completo</td>
+            <td> shampoo/taglio/barba</td>
+            <td>25€</td>
+        </tr>
+        <tr>
+            <td>servizio dimezzato</td>
+            <td>shampoo,taglio di capelli e trattamento alla barba</td>
+            <td>18€</td>
+        </tr>
+        <tr>
+            <td> Servizio barba</td>
+            <td> Cura e trattamento con i nostri prodotti per barbe lunghe</td>
+            <td>13€</td>
+        </tr>
+        <tr>
+            <td> Servizio tinta</td>
+            <td> Shampoo e tintura dei capelli con colore a scelta</td>
+            <td>15€</td>
+        </tr>
+    </table>

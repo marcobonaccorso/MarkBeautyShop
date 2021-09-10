@@ -1,0 +1,372 @@
+aggiungiPrenotazione() {
+
+    let dto = new PrenotazioneDto();
+    dto.prenotazioneDto = this.prenotazione;
+    this.http.post<ListaPrenotazioniDto>(this.url + "aggiungi"
+      , dto).subscribe(c =>
+        this.prenotazioni = c.listaPrenotazioniDto
+      );
+    this.prenotazione = new Prenotazione();
+    this.showAdd = !this.showAdd;
+    this.showDel = false;
+  }
+
+
+ aggiorna() {
+    this.http.get<ListaPrenotazioniDto>(this.url + "aggiorna"
+    ).subscribe(c => 
+      this.prenotazioni = c.listaPrenotazioniDto;
+    );
+    this.showAdd = false;
+    this.showDel = false;
+  }
+
+
+elimina(p: Prenotazione) {
+    let dto = new PrenotazioneDto();
+    dto.prenotazioneDto = p;
+    this.http.post<ListaPrenotazioniDto>(this.url + "elimina"
+      , dto).subscribe(c =>
+        this.prenotazioni = c.listaPrenotazioniDto
+      );
+    this.showDel = !this.showDel;
+    this.showAdd = false;
+  }
+
+------------------------------------------------------------------------------------
+Controller
+------------------------------------------------------------------------------------
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.example.BarbiereServer.controller;
+
+import com.example.BarbiereServer.dto.ListaPrenotazioniDto;
+import com.example.BarbiereServer.dto.PrenotazioneDto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import com.example.BarbiereServer.service.PrenotazioneService;
+
+/**
+ *
+ * @author marco
+ */
+@CrossOrigin("*")
+/* concetto di sicurezza che consente di limitare le risorse implementate nei browser web.*/
+@RestController
+/*utilizzata per creare servizi Web RESTful utilizzando Spring MVC.
+ */
+public class PrenotazioneController {
+
+    @Autowired
+            /*specifica di Spring che definisce le dipendenze tra bean, 
+            sollevando lo sviluppatore da doverle definire esplicitamente. */
+            
+    PrenotazioneService barberShopService;
+
+    @RequestMapping("aggiungi")
+    @ResponseBody
+    public ListaPrenotazioniDto aggiungi(@RequestBody PrenotazioneDto dto) {
+        return barberShopService.aggiungi(dto.getPrenotazioneDto());
+    }
+
+    @RequestMapping("elimina")
+    @ResponseBody
+    public ListaPrenotazioniDto elimina(@RequestBody PrenotazioneDto dto) {
+        return barberShopService.elimina(dto.getPrenotazioneDto());
+    }
+
+    @RequestMapping("aggiorna")
+    @ResponseBody
+    public ListaPrenotazioniDto aggiorna() {
+        return barberShopService.aggiorna();
+    }
+}
+
+------------------------------------------------------------------------------------
+service impl
+------------------------------------------------------------------------------------
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.example.BarbiereServer.service.impl;
+
+import com.example.BarbiereServer.dto.ListaPrenotazioniEsteticaDto;
+import com.example.BarbiereServer.model.PrenotazioneEstetica;
+import com.example.BarbiereServer.repository.PrenotazioneEsteticaRepository;
+import com.example.BarbiereServer.service.PrenotazioneEsteticaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ *
+ * @author marco
+ */
+@Service
+public class PrenotazioneEsteticaServiceImpl implements PrenotazioneEsteticaService {
+
+    @Autowired
+    PrenotazioneEsteticaRepository prenotazioneEsteticaRepository;
+
+    @Override
+    public ListaPrenotazioniEsteticaDto aggiungi(PrenotazioneEstetica pE) {
+        pE = prenotazioneEsteticaRepository.save(pE);
+        return aggiorna();
+    }
+
+    @Override
+    public ListaPrenotazioniEsteticaDto elimina(PrenotazioneEstetica pE) {
+        prenotazioneEsteticaRepository.delete(pE);
+        return aggiorna();
+    }
+
+    @Override
+    public ListaPrenotazioniEsteticaDto aggiorna() {
+        return new ListaPrenotazioniEsteticaDto(prenotazioneEsteticaRepository.findAll());
+    }
+
+}
+
+
+------------------------------------------------------------------------------------
+
+service
+------------------------------------------------------------------------------------
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.example.BarbiereServer.service;
+
+import com.example.BarbiereServer.dto.ListaPrenotazioniDto;
+import com.example.BarbiereServer.model.Prenotazione;
+
+/**
+ *
+ * @author marco
+ */
+public interface PrenotazioneService {
+    
+    ListaPrenotazioniDto aggiungi(Prenotazione p);
+    ListaPrenotazioniDto elimina(Prenotazione p);
+    ListaPrenotazioniDto aggiorna();
+}
+
+------------------------------------------------------------------------------------
+repository
+------------------------------------------------------------------------------------
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.example.BarbiereServer.repository;
+
+import com.example.BarbiereServer.model.Prenotazione;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+/**
+ *
+ * @author marco
+ */
+@Repository
+public interface PrenotazioneRepository extends JpaRepository<Prenotazione, Long> {
+    
+}
+
+------------------------------------------------------------------------------------
+model
+------------------------------------------------------------------------------------
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.example.BarbiereServer.model;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+/**
+ *
+ * @author marco
+ */
+@Entity
+public class Prenotazione implements Serializable {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+    @Column
+    private String cliente;
+    @Column
+    private LocalDate dataPrenotazione;
+    @Column
+    private String ora;
+    @Column
+    private String tipoDiServizio;
+
+    public Prenotazione() {
+    }
+
+    public Prenotazione(String cliente, LocalDate dataPrenotazione, String ora, String tipoDiServizio) {
+        this.cliente = cliente;
+        this.dataPrenotazione = dataPrenotazione;
+        this.ora = ora;
+        this.tipoDiServizio = tipoDiServizio;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public LocalDate getDataPrenotazione() {
+        return dataPrenotazione;
+    }
+
+    public void setDataPrenotazione(LocalDate dataPrenotazione) {
+        this.dataPrenotazione = dataPrenotazione;
+    }
+
+    public String getOra() {
+        return ora;
+    }
+
+    public void setOra(String ora) {
+        this.ora = ora;
+    }
+
+    public String getTipoDiServizio() {
+        return tipoDiServizio;
+    }
+
+    public void setTipoDiServizio(String tipoDiServizio) {
+        this.tipoDiServizio = tipoDiServizio;
+    }
+
+    @Override
+    public String toString() {
+        return "Prenotazione{" + "id=" + id + ", cliente=" + cliente + ", dataPrenotazione=" + dataPrenotazione + ", ora=" + ora + ", tipoDiServizio=" + tipoDiServizio + '}';
+    }
+
+    
+
+}
+------------------------------------------------------------------------------------
+dto
+------------------------------------------------------------------------------------
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.example.BarbiereServer.dto;
+
+import com.example.BarbiereServer.model.Prenotazione;
+
+/**
+ *
+ * @author marco
+ */
+public class PrenotazioneDto {
+
+    Prenotazione prenotazioneDto;
+
+    public PrenotazioneDto() {
+    }
+
+    public PrenotazioneDto(Prenotazione prenotazioneDto) {
+        this.prenotazioneDto = prenotazioneDto;
+    }
+
+    public Prenotazione getPrenotazioneDto() {
+        return prenotazioneDto;
+    }
+
+    public void setPrenotazioneDto(Prenotazione prenotazioneDto) {
+        this.prenotazioneDto = prenotazioneDto;
+    }
+
+    @Override
+    public String toString() {
+        return "PrenotazioneDto{" + "prenotazioneDto=" + prenotazioneDto + '}';
+    }
+
+}
+
+
+---------------------------------------------------------------------------------------------------------------
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.example.BarbiereServer.dto;
+
+import com.example.BarbiereServer.model.Prenotazione;
+import java.util.List;
+
+/**
+ *
+ * @author marco
+ */
+public class ListaPrenotazioniDto {
+
+    List<Prenotazione> listaPrenotazioniDto;
+
+    public ListaPrenotazioniDto() {
+    }
+
+    public ListaPrenotazioniDto(List<Prenotazione> listaPrenotazioniDto) {
+        this.listaPrenotazioniDto = listaPrenotazioniDto;
+    }
+
+    public List<Prenotazione> getListaPrenotazioniDto() {
+        return listaPrenotazioniDto;
+    }
+
+    public void setListaPrenotazioniDto(List<Prenotazione> listaPrenotazioniDto) {
+        this.listaPrenotazioniDto = listaPrenotazioniDto;
+    }
+
+    @Override
+    public String toString() {
+        return "ListaPrenotazioniDto{" + "listaPrenotazioniDto=" + listaPrenotazioniDto + '}';
+    }
+
+}
+

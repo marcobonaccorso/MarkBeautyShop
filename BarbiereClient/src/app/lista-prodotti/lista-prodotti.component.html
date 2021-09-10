@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="lista-prodotti.component.css">
+</head>
+<hr>
+
+<body>
+    <button class="bottonBack" (click)="indietro()">Indietro</button> <br> <br>
+    <div class="categoriaCapelli"></div>
+    <p>CATEGORIA CAPELLI</p>
+    <div class="form">
+        <input type="text" [(ngModel)]="prodotto.nome" placeholder="nome prodotto"> &nbsp;
+        <input type="number" [(ngModel)]="prodotto.prezzo" placeholder="prezzo del prodotto"> &nbsp;
+        <button class="bottonAddProduct" (click)="aggiungiProdotto()">aggiungi prodotto</button>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <table class="tabellaProdottiCapelli">
+        <tr>
+            <th>Prodotto </th>
+            <th>Prezzo</th>
+            <th>Gestisci</th>
+        </tr>
+
+        <tr *ngFor="let p of prodotti">
+            <td>BULLFROG-{{p.nome}}</td>
+            <td>{{p.prezzo}} €</td>
+            <td> <button class="BottonDeleteProduct" (click)="eliminaProdotto(p)">Elimina prodotto</button></td>
+        </tr>
+    </table>
+
+    <hr>
+    <br>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="area-personale.component.css">
+</head>
+<hr>
+
+<body>
+    <button class="BottonBack" (click)="indietro()">Indietro</button>
+    <br> <br>
+    <div class="intestazione">
+        <h1>Area Personale</h1>
+    </div>
+    <hr>
+    <div class="logo">
+        <img src="https://static.vecteezy.com/ti/vettori-gratis/t2/539084-design-del-marchio-barbershop-vettoriale.jpg" alt="logo">
+    </div>
+    <hr>
+    <div class="paragrafo">
+        <p><strong><h2> Elenco delle prenotazioni di oggi</h2></strong></p>
+    </div>
+    <br>
+    <div class="formAppuntamenti">
+        &nbsp; <input type="text" [(ngModel)]="appuntamento.nome" placeholder="nome prenotatore"> &nbsp;
+        <!-- <input type="text" [(ngModel)]="appuntamento.cognome" placeholder="cognome prenotatore"> &nbsp; -->
+        <input type="date" [(ngModel)]="appuntamento.dataAppuntamento" placeholder="data appuntamento"> &nbsp;
+        <button class="BottonAdd" (click)="aggiungiAppuntamento()">aggiungi prenotazione</button>
+    </div>
+    <br>
+    <hr>
+    <table class="tabellaAppuntamenti">
+        <tr>
+            <th>Cliente </th>
+            <!-- <th>cognome</th> -->
+            <th>data appuntamento</th>
+            <th>Gestisci</th>
+        </tr>
+
+        <tr *ngFor="let p of appuntamenti">
+            <td>{{p.nome}}</td>
+            <!-- <td>{{p.cognome}}</td> -->
+            <td>{{p.dataAppuntamento}}</td>
+            <td> <button class="ButtonDeleteApp" (click)="eliminaAppuntamento(p)">elimina appuntamento</button></td>
+        </tr>
+    </table>
+    <br> <br>
+</body>
+
+</html>

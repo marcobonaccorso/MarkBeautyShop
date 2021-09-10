@@ -1,0 +1,294 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="area-prenotazioni.component.css">
+</head>
+
+<body>
+    <button class="btn btn-primary" (click)="indietro()">Indietro</button> <br> <br>
+    <header>
+        <div class="HeadOfHeader">
+            <h1>MARK'S BEAUTY SHOP</h1>
+            <h1>Area Uomo</h1>
+            <h2> Di Marco Bonaccorso</h2>
+        </div>
+    </header>
+    <div class="logo">
+        <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" alt="logo sinistro" style="float: left">
+        <img src="https://image.freepik.com/premium-vector/workplace-beauty-salon-interior-horizontal_48369-23905.jpg"
+            alt="immagine sala">
+        <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" alt="logo destro" style="float:right">
+    </div>
+    <br> <br>
+    <div class="intestazione">
+        <strong>
+            <h1>The Mark's Barber Shop offre i seguenti trattamenti: </h1>
+        </strong>
+        <h1> <strong> Attenzione: alcune celle della tabella sono interattive, fai click su di esse per consultare i
+                contenuti!</strong></h1>
+    </div>
+    <br> <br>
+    <table class="TabellaServizi">
+        <tr>
+            <td>servizio</td>
+            <td>prezzo</td>
+        </tr>
+        <tr>
+            <td><button class="BottoneTaglio" (click)="Taglio()">Taglio</button></td>
+            <td>20€</td>
+        </tr>
+        <tr>
+            <td>Taglio bimbo (fino a 12 anni)</td>
+            <td>15€</td>
+        </tr>
+        <tr>
+            <td> Taglio + shampoo</td>
+            <td>22€</td>
+        </tr>
+        <tr>
+            <td> Rasatura capelli a macchinetta</td>
+            <td>10€</td>
+        </tr>
+        <tr>
+            <td>
+                Rasatura capelli a lametta
+            </td>
+            <td>
+                12€
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Rasatura barba a lametta
+            </td>
+            <td>
+                8€
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Sfoltitura barba
+            </td>
+            <td>
+                7€
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Trattamento Barba
+            </td>
+            <td>
+                10€
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Shampoo
+            </td>
+            <td>
+                5€
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Disegno sopracciglie
+            </td>
+            <td>
+                5€
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Trattamento sopracciglia
+            </td>
+            <td>
+                5€
+            </td>
+        </tr>
+    </table>
+    <br>
+    <hr>
+    <br>
+    <div class="Abbonamenti">
+        <table class="TabellaAbbonamenti">
+            <tr>
+                <td>
+                    Abbonamenti per 10 servizi
+                </td>
+                <td>
+                    Prezzo
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Taglio capelli
+                </td>
+                <td>
+                    160€
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Taglio bimbo
+                </td>
+                <td>
+                    120€
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Taglio + Shampoo
+                </td>
+                <td>
+                    180€
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Rasatura capelli a macchinetta
+                </td>
+                <td>
+                    80€
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Rasatura capelli a lametta
+                </td>
+                <td>
+                    90€
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Rasatura barba a lametta
+                </td>
+                <td>
+                    80€
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Sfoltitura barba
+                </td>
+                <td>
+                    55€
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Trattamento barba
+                </td>
+                <td>
+                    80€
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div class="Contatti">
+        <h3> <ins>Per prenotare un appuntamento, compila il form sottostante.</ins></h3>
+    </div>
+    <!-- Area Prenotazioni-->
+    <div class="BottonePrenotaAppuntamento">
+        <br> <br> &nbsp;<button class="btn btn-primary" (click)="ShowHidden()">Clicca qui per completare il
+            form.</button>
+    </div> <br><br><br>
+    <div class="form" *ngIf="showHidden && !preloader">
+        <br> &nbsp;
+        <input type="text" [(ngModel)]="prenotazione.cliente" placeholder="inserisci nome"> &nbsp;
+        <input type="date" [(ngModel)]="prenotazione.dataPrenotazione"> &nbsp;
+        <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione"> &nbsp;
+        <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto"> &nbsp;
+        <button class="btn btn-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"> Prenota</button>
+        <div class="Ricerca">
+            <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
+            <button class="btn btn-primary" (click)="ricerca()">cerca</button>&nbsp;
+        </div>
+        <h2 *ngIf="messaggio">{{messaggio}}</h2>
+        <br> <br> <br>
+        <br>
+        <!--Messaggi su schermo-->
+        <div class="Thanks" *ngIf="showAdd">
+            <!--prenotazione aggiunta-->
+            <h3>Prenotazione effettuata.</h3>
+        </div>
+        <!-- <div class="NoAdd" *ngIf="noAdd">
+            <h3>Errore: uno o più campi non sono stati compilati, oppure server offline.</h3>
+        </div> -->
+        <div class="alert alert-danger" role="alert" *ngIf="noAdd">
+            <h3>Errore: uno o più campi non sono stati compilati, oppure server offline.</h3>
+        </div>
+
+        <div class="Search" *ngIf="showSearch">
+            <!--prenotazione aggiunta-->
+            <h3>Ricerca completata.</h3>
+        </div>
+        <div class="Mod" *ngIf="showMod">
+            <!--modifica confermata-->
+            <h3>Prenotazione modificata.</h3>
+        </div>
+        <div class="AnnullaMod" *ngIf="showNoMod">
+            <!--modifica annullata-->
+            <h3>Operazione annullata</h3>
+        </div>
+        <div class="NoMod" *ngIf="noMod">
+            <h3>Errore. Impossibile effettuare questa modifica:</h3>
+            <h3>Non puoi svuotare una cella e salvare, annulla l'operazione per proseguire.</h3>
+        </div>
+        <div class="NoSearch" *ngIf="noSearch">
+            <h3>Errore: campo di ricerca non compilato, oppure dato non trovato oppure server offline</h3>
+        </div>
+        <div class="Sorry" *ngIf="showDel">
+            <!--Prenotazione eliminata-->
+            <h3>Prenotazione disdetta.</h3>
+        </div>
+        <div class="StaiEliminando" *ngIf="staiEliminando">
+            <h3>Stai eliminando un dato</h3>
+        </div>
+        <div class="StaiModificando" *ngIf="staiModificando">
+            <h3> Stai modificando un dato</h3>
+        </div>
+        <br>
+        <div class="Scelta">
+            <button class="ButtonConferma" (click)="conferma()"
+                *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
+            <button class="ButtonAnnulla" (click)="annulla()"
+                *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
+        </div>
+        <br>
+        <table class="TabellaPrenotazioni">
+            <tr>
+                <th>Cliente </th>
+                <th>Data prenotazione</th>
+                <th>Ora prenotazione</th>
+                <th>Tipo di servizio</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
+            </tr>
+
+            <tr *ngFor="let p of prenotazioni">
+                <td>Il sig. {{p.cliente}} verrà</td>
+                <td>il giorno {{p.dataPrenotazione}}</td>
+                <td>alle ore {{p.ora}}</td>
+                <td> per {{p.tipoDiServizio}}</td>
+                <td>
+                    <button class="btn btn-warning" (click)="modifica(p)">Modifica</button>
+                </td>
+                <td>
+                    <button class="BottonDeletePrenotation" (click)="elimina(p)">Elimina</button>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+    </div>
+    <br> <br>
+    <div *ngIf="preloader">
+        <!--server spento o non funzionante se compare fisso-->
+        In attesa della risposta dal server...
+    </div>
+
+</body>
+
+</html>

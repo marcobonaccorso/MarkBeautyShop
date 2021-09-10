@@ -1,0 +1,260 @@
+header {
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(87, 21, 87);
+    color: gold;
+    font-size: 15px;
+}
+
+body {
+    background-color: rgb(194, 121, 194);
+}
+
+table,
+th,
+td {
+    border: 3px solid whitesmoke;
+    color: rgb(195, 255, 0);
+    margin: auto;
+    font-weight: bold;
+    background-color: rgb(87, 21, 87);
+}
+
+.Scelta {
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(194, 121, 194);
+    color: black;
+    font-size: 15px;
+}
+
+.Ricerca {
+    float: right;
+}
+
+
+/*Messaggi su schermo */
+
+.Thanks {
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+    border: 5px solid gold;
+    background-color: rgb(87, 21, 87);
+    color: white;
+    font: bold;
+}
+
+.Mod {
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+    border: 5px solid gold;
+    background-color: rgb(87, 21, 87);
+    color: white;
+    font: bold;
+}
+
+.Search {
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+    border: 5px solid gold;
+    background-color: rgb(87, 21, 87);
+    color: white;
+    font: bold;
+}
+
+.StaiModificando {
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+    border: 5px solid gold;
+    background-color: rgb(87, 21, 87);
+    color: white;
+    font: bold;
+}
+
+.StaiEliminando {
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+    border: 5px solid red;
+    background-color: rgb(170, 0, 0);
+    color: white;
+    font: bold;
+}
+
+.AnnullaMod {
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+    border: 5px solid red;
+    background-color: rgb(170, 0, 0);
+    color: white;
+    font: bold;
+}
+
+.Sorry {
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+    border: 5px solid red;
+    background-color: rgb(170, 0, 0);
+    color: white;
+    font: bold;
+}
+
+
+/* celle interattive della tabella*/
+
+.Colore {
+    border: none;
+    background-color: inherit;
+    padding: 4px 4px;
+    font-size: 13px;
+    cursor: pointer;
+    color: gold;
+    font-weight: bold;
+}
+
+
+/*bottoni */
+
+.bottonBack {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #000;
+    user-select: none;
+    padding: .8em 2em;
+    outline: none;
+    background-color: rgb(87, 21, 87);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 50%, rgba(0, 0, 0, 0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+}
+
+.bottonAddPrenotation {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #000;
+    user-select: none;
+    padding: .8em 2em;
+    outline: none;
+    background-color: rgb(161, 194, 17);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 50%, rgba(0, 0, 0, 0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+}
+
+.ButtonSearch {
+    position: relative;
+    color: rgb(161, 194, 17);
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #000;
+    user-select: none;
+    padding: .8em 2em;
+    outline: none;
+    background-color: rgb(56, 20, 56);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 50%, rgba(0, 0, 0, 0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+}
+
+.ButtonConferma {
+    margin: auto;
+    position: relative;
+    color: rgb(161, 194, 17);
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #000;
+    user-select: none;
+    padding: .8em 2em;
+    outline: none;
+    background-color: rgb(56, 20, 56);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 50%, rgba(0, 0, 0, 0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+}
+
+.ButtonAnnulla {
+    margin: auto;
+    position: relative;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px red;
+    user-select: none;
+    padding: .8em 2em;
+    outline: none;
+    background-color: rgb(170, 0, 0);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 50%, rgba(0, 0, 0, 0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+}
+
+.ButtonModifica {
+    position: relative;
+    color: gold;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #000;
+    user-select: none;
+    padding: .8em 2em;
+    outline: none;
+    background: rgb(56, 20, 56);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 50%, rgba(0, 0, 0, 0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+}
+
+.BottonDeletePrenotation {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #000;
+    user-select: none;
+    padding: .8em 2em;
+    outline: none;
+    background-color: rgb(255, 0, 0);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 50%, rgba(0, 0, 0, 0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+}
+
+.PrendiAppuntamento {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #000;
+    user-select: none;
+    padding: .8em 2em;
+    outline: none;
+    background-color: rgb(87, 21, 87);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 50%, rgba(0, 0, 0, 0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
+}
