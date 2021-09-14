@@ -207,11 +207,18 @@
             <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
             <button class="btn btn-outline-primary" (click)="ricerca()">cerca</button>&nbsp;
         </div>
+        <div class="Scelta">
+            <button class="btn btn-success" (click)="conferma()"
+                *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
+            <button class="btn btn-danger" (click)="annulla()"
+                *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
+        </div>
         <br>
         <small id="emailHelp" class="form-text text-muted">I tuoi dati resteranno privati.</small>
         <br>
         <!-- <label for="exampleFormControlTextarea1">Aggiungi delle note particolari</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> -->
+     
 
         <table class="TabellaPrenotazioni">
             <tr>
@@ -283,12 +290,7 @@
         <h3> Stai modificando un dato</h3>
     </div>
     <br>
-    <div class="Scelta">
-        <button class="btn btn-success" (click)="conferma()"
-            *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
-        <button class="btn btn-danger" (click)="annulla()"
-            *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
-    </div>
+ 
     <br>
 
     <br>
