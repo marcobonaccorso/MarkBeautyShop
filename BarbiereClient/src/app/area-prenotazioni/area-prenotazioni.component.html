@@ -209,7 +209,7 @@
         </div>
         <br> <br> <br>
          <!--Messaggi su schermo-->
-    <div class="Thanks" *ngIf="showAdd">
+    <div class="alert alert-success" role="alert" style="text-align: center;" *ngIf="showAdd">
         <!--prenotazione aggiunta-->
         <h3>Prenotazione effettuata.</h3>
     </div>
@@ -221,7 +221,7 @@
     </div>
 
     <div class="Search" *ngIf="showSearch">
-        <!--prenotazione aggiunta-->
+        <!--ricerca effettuata-->
         <h3>Ricerca completata.</h3>
     </div>
     <div class="NotFoundSearch" *ngIf="notFoundSearch">

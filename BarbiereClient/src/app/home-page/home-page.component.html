@@ -5,7 +5,15 @@
 </head>
 
 <body>
+    <div class="topnav">
 
+        <a href="">Chi siamo</a>
+        <a href="app-sezione-acquisti">Sezione acquisti</a>
+        <a href="app-area-prenotazioni">Area Uomo</a>
+        <a href="app-sezione-donna">Area donna</a>
+        <a class="#fondo">Contatti </a>
+
+    </div>
     <header>
         <div class="HeadOfHeader">
             <h1>MARK'S BEAUTY SHOP</h1>
@@ -18,12 +26,11 @@
         <div class="sloganUno">
             <h3>“Scopri quello che The Mark's beauty shop può offrirti. Dal semplice taglio, alla barba a tanti altri
                 trattamenti di bellezza”</h3>
-
         </div>
         <div class="logo">
-            <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo sinistro"
+            <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" alt="logo sinistro"
                 style="float: left">
-            <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo destro"
+            <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" alt="logo destro"
                 style="float:right">
         </div>
         <br>
@@ -32,7 +39,7 @@
 
     <br><br>
     <div class="Storia">
-        <h3> The Mark's barber shop nasce a Roma nel 2021 dall’intuizione e dal sogno del suo ideatore Marco Bonaccorso.
+        <h3> The Mark's beauty shop nasce a Roma nel 2021 dall’intuizione e dal sogno del suo ideatore Marco Bonaccorso.
             Il negozio si trova in Via Cipro 100, ad un passo da San Pietro e dai Musei Vaticani ed è composto da due
             piani: al piano terra c'è la
             sezione maschile e al piano superiore c'è la sezione femminile.</h3>
@@ -82,14 +89,14 @@
         </table>
     </div>
     <br>
-    <button class="btn btn-primary" (click)="AreaUomo()">Vai all'area UOMO</button>
-    <button class="btn btn-primary" (click)="AreaDonna()" style="float: right">Vai all'area DONNA</button>
+    <!-- <button class="btn btn-primary btn-lg" (click)="AreaUomo()">Vai all'area UOMO</button>
+    <button class="btn btn-primary btn-lg" (click)="AreaDonna()" style="float: right">Vai all'area DONNA</button>
     <br><br>
     <div class="bottoneSezioneAcquisti">
-        <button class="btn btn-primary" (click)="SezioneAcquisti()">Dai un'occhiata ai nostri prodotti</button>
-    </div>
+        <button class="btn btn-primary btn-lg" (click)="SezioneAcquisti()">Dai un'occhiata ai nostri prodotti</button>
+    </div> -->
     <br><br><br>
-    <div class="SezioneMaschileStoria">
+    <div class="btn btn-light">
         <h3> Sezione maschile: divenuto nel corso degli anni un vero e proprio punto di riferimento per i cultori del
             grooming, The Mark's barber shop offre servizi barba e capelli di altissima qualità. Ogni dettaglio è curato
             per accompagnarvi in un’esperienza
@@ -99,11 +106,11 @@
             The Mark's barber shop offre inoltre ai propri clienti una linea completa di prodotti ed accessori Bullfrog
             che contribuiscono a rendere il grooming un vero e proprio culto old school.
         </h3>
-        <button class="btn btn-outline-primary" (click)="MostraSottotitoliUomo()">View subtitles</button>
+        <button class="btn btn-info" (click)="MostraSottotitoliUomo()">View subtitles</button>
         <br><br><br>
     </div>
     <br><br><br>
-    <div class="btn btn-outline-primary" *ngIf="storySubtitle">
+    <div class="btn btn-info" *ngIf="storySubtitle">
         <h4>The Mark's barber shop was born in Rome in 2021 from the intuition and dream of its creator Marco
             Bonaccorso. The shop is located in Via Cipro 100, a stone's throw from San Pietro and the Vatican Museums
             and consists of two floors: on the ground
@@ -119,7 +126,7 @@
         </h4>
     </div>
     <br><br><br><br>
-    <div class="StoricoFemminile">
+    <div class="btn btn-light">
         <h3>Sezione femminile: per la sezione femminile sono previsti servizi parrucchieri ed estetici di ogni genere e
             con prodotti di ottima qualità.
             <br> Come lavoriamo? Semplice:
@@ -130,12 +137,11 @@
             <br>Verificare insieme quale sia la strada più giusta da prendere in modo da mantenere la salute dei capelli
             e sopratutto dare comodità e bellezza.
         </h3>
-        <button class="btn btn-outline-primary" (click)="MostraSottotitoliDonna()">View subtitles</button>
+        <button class="btn btn-info" (click)="MostraSottotitoliDonna()">View subtitles</button>
         <br><br><br><br>
     </div>
     <br><br>
-
-    <div class="btn btn-outline-primary" *ngIf="englishSubtitleWomanSection">
+    <div class="btn btn-info" *ngIf="englishSubtitleWomanSection">
         <h4>Women's section: for the women's section there are hairdressing and beauty services of all kinds and with
             excellent quality products. How we work? Simple: Understanding the customer's desire well To understand if
             the desire is brought to the health
@@ -147,7 +153,13 @@
     <div class="sloganDue">
         <h2>Entri che sei in crisi esistenziale,esci che sei un incanto universale!</h2>
     </div>
-    <br> <br><br><br><br><br>
+    <br>
+    <div class="ContattiNegozio">
+        <a name="#fondo"></a>
+        Indirizzo:Via Cipro 100, 00136 Roma RM<br>
+        Tel. cell: +39 328 236 5019
+    </div>
+    <br><br><br><br><br>
 </body>
 
 </html>
