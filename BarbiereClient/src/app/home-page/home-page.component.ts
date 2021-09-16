@@ -41,4 +41,6 @@ export class HomePageComponent implements OnInit {
   MostraSottotitoliDonna(){
     this.englishSubtitleWomanSection=!this.englishSubtitleWomanSection;
   }
+
+  
 }
