@@ -30,7 +30,8 @@ export class AreaPrenotazioniComponent implements OnInit {
   showNoMod = false; //variabile che mostra l'annullamento di una modifica
   showNoDel = false; //eliminazione annullata
   showSearch = false; //ricerca effettuata
-  noSearch = false; //Errore: campo di ricerca non compilato o dato non trovato
+  noSearch = false; //Errore: campo di ricerca non compilato 
+  notFoundSearch = false; // dato non trovato
   search = "";
   // stati possibili: Aggiungi, Modifica, Rimozione, Visualizza, Transitorio
   stato = "V";
@@ -65,6 +66,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showSearch = false;
     this.noMod = false;
     this.noSearch = false;
+    this.notFoundSearch = false;
     this.resetPreloader();
     switch (this.stato) {
       case "A":
@@ -96,6 +98,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.staiEliminando = false;
     this.noSearch = false;
     this.showSearch = false;
+    this.notFoundSearch = false;
     this.prenotazione = new Prenotazione();
 
   }
@@ -116,6 +119,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showNoDel = false;
     this.showSearch = false;
     this.noSearch = false;
+    this.notFoundSearch = false;
   }
 
   elimina(pre: Prenotazione) {
@@ -133,6 +137,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showNoMod = false;
     this.showSearch = false;
     this.noSearch = false;
+    this.notFoundSearch = false;
   }
 
   aggiungi() {
@@ -150,6 +155,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showNoDel = false;
     this.showSearch = false;
     this.noSearch = false;
+    this.notFoundSearch = false;
   }
 
   //bottoni
@@ -166,6 +172,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showSearch = false;
     this.noSearch = false;
     this.noMod = false;
+    this.notFoundSearch = false;
   }
 
   ShowHidden(): void {
@@ -182,6 +189,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showSearch = false; //ricerca effettuata
     this.noSearch = false; //Errore: campo di ricerca non compilato o dato non trovato
     this.search = "";
+    this.notFoundSearch = false;
   }
 
   aggiungiPrenotazione() {
@@ -202,6 +210,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.showSearch = false;
       this.noSearch = false;
       this.noMod = false;
+      this.notFoundSearch = false;
     } else {
       this.http.post<ListaPrenotazioniDto>(this.url + "aggiungi"
         , dto).subscribe(c =>
@@ -217,6 +226,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.showSearch = false;
       this.noSearch = false;
       this.noMod = false;
+      this.notFoundSearch = false;
     }
   }
   salvaModifica() {
@@ -237,6 +247,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.showNoDel = false;
       this.showSearch = false;
       this.noSearch = false;
+      this.notFoundSearch = false;
     } else {
       this.http.post<ListaPrenotazioniDto>(this.url + "modificaPrenotazione"
         , dto).subscribe(c => {
@@ -255,6 +266,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.showNoDel = false;
       this.showSearch = false;
       this.noSearch = false;
+      this.notFoundSearch = false;
     }
   }
 
@@ -280,6 +292,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showNoDel = false;
     this.noSearch = false;
     this.showSearch = false;
+    this.notFoundSearch = false;
   }
 
 
@@ -288,7 +301,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     let criterio = new CriterioRicercaDto();
     criterio.stringa = this.search;
     if (this.search == "") {
-      console.log("errore:campo di ricerca vuoto o dato non trovato");
+      console.log("errore:campo di ricerca vuoto");
       this.aggiorna();
       this.noSearch = true; //messaggio errore
       this.preloader = false;
@@ -302,6 +315,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.showDel = false;
       this.showNoDel = false;
       this.showSearch = false;
+      this.notFoundSearch = false;
       this.search = "";
     }
     else {
@@ -321,8 +335,26 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.showNoDel = false;
       this.showSearch = true;
       this.noSearch = false;
+      this.notFoundSearch = false;
       this.search = "";
     }
+    // if (this.prenotazione.cliente == "" || this.prenotazione.ora == "" || this.prenotazione.tipoDiServizio == "") {
+    //   console.log("errore:dato non trovato");
+    //   this.notFoundSearch = true;
+    //   this.preloader = false;
+    //   this.showAdd = false;
+    //   this.showNoMod = false;
+    //   this.noMod = false;
+    //   this.showMod = false;
+    //   this.staiModificando = false;
+    //   this.staiEliminando = false;
+    //   this.showDel = false;
+    //   this.noAdd = false;
+    //   this.showNoDel = false;
+    //   this.showSearch = true;
+    //   this.noSearch = false;
+    //   this.search = "";
+    // }
   }
 
   //altro
