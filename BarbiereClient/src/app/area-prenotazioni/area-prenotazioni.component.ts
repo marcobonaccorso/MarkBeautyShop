@@ -39,10 +39,10 @@ export class AreaPrenotazioniComponent implements OnInit {
   preloader = false;
   messaggio = "";
 
-  constructor(private http: HttpClient, 
+  constructor(private http: HttpClient,
     private router: Router,
     private toastr: ToastrService
-    ) {
+  ) {
     this.aggiorna();
   }
 
@@ -180,6 +180,7 @@ export class AreaPrenotazioniComponent implements OnInit {
   }
 
   ShowHidden(): void {
+    this.aggiorna();
     this.showHidden = !this.showHidden;
     this.showAdd = false; //variabile che fa comparire il messaggio di ringraziamento dopo aver prenotato
     this.noAdd = false; //errore:form non compilato
