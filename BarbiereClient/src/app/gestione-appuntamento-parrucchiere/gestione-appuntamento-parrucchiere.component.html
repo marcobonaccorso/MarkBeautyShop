@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <button class="bottonBack" (click)="indietro()">Indietro</button> <br> <br>
+    <button class="btn btn-primary" (click)="indietro()">Indietro</button> <br> <br>
     <header>
         <h3> &nbsp;Prenota qui il tuo appuntamento.</h3>
     </header>
@@ -91,7 +91,7 @@
         </tr>
     </table>
     <br><br>
-    <button class="PrendiAppuntamento" (click)="ShowForm()">Prenota appuntamento</button>
+    <button class="btn btn-outline-primary" (click)="ShowForm()">Prenota appuntamento</button>
     <br><br>
     <!-- form -->
     <div class="form" *ngIf="showHidden">
@@ -99,16 +99,16 @@
         <input type="date" [(ngModel)]="prenotazioneParrucchiere.dataPrenotazione" placeholder="data prenotazione"> &nbsp;
         <input type="time" [(ngModel)]="prenotazioneParrucchiere.ora" placeholder="ora prenotazione"> &nbsp;
         <input type="text" [(ngModel)]="prenotazioneParrucchiere.tipoDiServizio" placeholder="tipo di servizio"> &nbsp;
-        <button class="bottonAddPrenotation" (click)="aggiungiPrenotazioneParrucchiere()" *ngIf="stato == 'V'">aggiungi prenotazione</button>
+        <button class="btn btn-outline-primary" (click)="aggiungiPrenotazioneParrucchiere()" *ngIf="stato == 'V'">aggiungi prenotazione</button>
         <div class="Ricerca">
             <input type="text" [(ngModel)]="cerca" placeholder="ricerca">&nbsp;&nbsp;
-            <button class="ButtonSearch" (click)="ricerca()">Cerca</button>&nbsp;
+            <button class="btn btn-outline-primary" (click)="ricerca()">Cerca</button>&nbsp;
         </div>
         <br>
         <br>
         <div class="Scelta">
-            <button class="ButtonConferma" (click)="conferma()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
-            <button class="ButtonAnnulla" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
+            <button class="btn btn-success" (click)="conferma()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
+            <button class="btn btn-danger" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
         </div>
         <br>
         <!--Messaggi su schermo-->
@@ -153,8 +153,8 @@
                 <td>il giorno {{p.dataPrenotazione}}</td>
                 <td>alle ore {{p.ora}}</td>
                 <td> per {{p.tipoDiServizio}}</td>
-                <td> <button class="ButtonModifica" (click)="modifica(p)">Modifica</button></td>
-                <td> <button class="BottonDeletePrenotation" (click)="elimina(p)">elimina</button></td>
+                <td> <button class="btn btn-warning" (click)="modifica(p)">Modifica</button></td>
+                <td> <button class="btn btn-danger" (click)="elimina(p)">elimina</button></td>
             </tr>
         </table>
         <br> <br>

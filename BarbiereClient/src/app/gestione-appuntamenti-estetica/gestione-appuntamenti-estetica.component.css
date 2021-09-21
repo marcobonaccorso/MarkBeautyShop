@@ -1,29 +1,32 @@
 header {
     padding: 10px;
     text-align: center;
-    background-color: rgb(87, 21, 87);
+    background-color: rgb(115, 115, 209);
     color: gold;
     font-size: 15px;
 }
 
 body {
-    background-color: rgb(194, 121, 194);
+    background-color: white;
 }
 
-table,
 th,
 td {
-    border: 3px solid whitesmoke;
-    color: gold;
-    margin: auto;
+    padding: 8px;
+    text-align: left;
+    color: black;
     font-weight: bold;
-    background-color: rgb(87, 21, 87);
+    font-family: 'Lobster', cursive;
+    border-bottom: 7px solid rgb(231, 9, 9);
 }
 
+table {
+    margin: auto;
+}
 .Scelta {
     padding: 10px;
     text-align: center;
-    background-color: rgb(194, 121, 194);
+    background-color: white;
     color: black;
     font-size: 15px;
 }
@@ -37,7 +40,7 @@ td {
 .intestazioneEstetica {
     padding: 10px;
     text-align: center;
-    background-color: rgb(87, 21, 87);
+    background-color: rgb(115, 115, 209);
     color: gold;
     font-size: 15px;
 }
