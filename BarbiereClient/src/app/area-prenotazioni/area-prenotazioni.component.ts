@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppuntamentoDto } from '../entities/appuntamento-dto';
 import { CriterioRicercaDto } from '../entities/criterio-ricerca-dto';
-import { ListaAppuntamentiDto } from '../entities/lista-appuntamenti-dto';
 import { ListaPrenotazioniDto } from '../entities/lista-prenotazioni-dto';
 import { Prenotazione } from '../entities/prenotazione';
 import { PrenotazioneDto } from '../entities/prenotazione-dto';
@@ -348,23 +346,6 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.notFoundSearch = false;
       this.search = "";
     }
-    // if (this.prenotazione.cliente == "" || this.prenotazione.ora == "" || this.prenotazione.tipoDiServizio == "") {
-    //   console.log("errore:dato non trovato");
-    //   this.notFoundSearch = true;
-    //   this.preloader = false;
-    //   this.showAdd = false;
-    //   this.showNoMod = false;
-    //   this.noMod = false;
-    //   this.showMod = false;
-    //   this.staiModificando = false;
-    //   this.staiEliminando = false;
-    //   this.showDel = false;
-    //   this.noAdd = false;
-    //   this.showNoDel = false;
-    //   this.showSearch = true;
-    //   this.noSearch = false;
-    //   this.search = "";
-    // }
   }
 
   //altro
