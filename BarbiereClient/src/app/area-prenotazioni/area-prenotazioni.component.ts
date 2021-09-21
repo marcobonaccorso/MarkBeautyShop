@@ -221,6 +221,7 @@ export class AreaPrenotazioniComponent implements OnInit {
         , dto).subscribe(c =>
           this.prenotazioni = c.listaPrenotazioniDto
         );
+      this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.showAdd = true;
       this.toastr.success('Prenotazione effettuata');
@@ -260,6 +261,7 @@ export class AreaPrenotazioniComponent implements OnInit {
           this.prenotazioni = c.listaPrenotazioniDto;
           this.stato = "V";
         });
+      this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.preloader = false;
       this.showMod = true;
@@ -285,6 +287,7 @@ export class AreaPrenotazioniComponent implements OnInit {
         this.prenotazioni = c.listaPrenotazioniDto;
         this.stato = "V";
       });
+    this.aggiorna();
     this.prenotazione = new Prenotazione();
     this.preloader = false;
     this.showAdd = false;
@@ -328,6 +331,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.http.post<ListaPrenotazioniDto>(this.url + "ricerca", criterio)
         .subscribe(r => this.prenotazioni = r.listaPrenotazioniDto
         );
+      this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.preloader = false;
       this.showAdd = false;
@@ -367,6 +371,7 @@ export class AreaPrenotazioniComponent implements OnInit {
 
   resetPreloader() {
     console.log("metodo resetPreloader");
+    this.aggiorna();
     this.preloader = true;
     this.messaggio = "";
     this.noMod = false;
