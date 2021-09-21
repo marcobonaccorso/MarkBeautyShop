@@ -18,7 +18,8 @@ import { GestioneAppuntamentiEsteticaComponent } from './gestione-appuntamenti-e
 import { AreaColoriComponent } from './area-colori/area-colori.component';
 import { TaglioPiegaDonnaComponent } from './taglio-piega-donna/taglio-piega-donna.component';
 import { TaglioUomoComponent } from './taglio-uomo/taglio-uomo.component';
-
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,8 @@ import { TaglioUomoComponent } from './taglio-uomo/taglio-uomo.component';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    ToastrModule.forRoot(), // ToastrModule added
     AppRoutingModule,
     FormsModule,
     HttpClientModule

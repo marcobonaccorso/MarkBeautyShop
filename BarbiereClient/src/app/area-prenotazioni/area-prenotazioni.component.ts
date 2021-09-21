@@ -7,6 +7,7 @@ import { ListaAppuntamentiDto } from '../entities/lista-appuntamenti-dto';
 import { ListaPrenotazioniDto } from '../entities/lista-prenotazioni-dto';
 import { Prenotazione } from '../entities/prenotazione';
 import { PrenotazioneDto } from '../entities/prenotazione-dto';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-area-prenotazioni',
@@ -38,7 +39,10 @@ export class AreaPrenotazioniComponent implements OnInit {
   preloader = false;
   messaggio = "";
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, 
+    private router: Router,
+    private toastr: ToastrService
+    ) {
     this.aggiorna();
   }
 
@@ -218,6 +222,7 @@ export class AreaPrenotazioniComponent implements OnInit {
         );
       this.prenotazione = new Prenotazione();
       this.showAdd = true;
+      this.toastr.success('Prenotazione effettuata');
       this.noAdd = false;
       this.showDel = false;
       this.showNoDel = false;
