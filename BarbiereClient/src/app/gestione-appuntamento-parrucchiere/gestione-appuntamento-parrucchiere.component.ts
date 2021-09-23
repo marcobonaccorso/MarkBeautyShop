@@ -19,15 +19,19 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
   prenotazioniParrucchiere: PrenotazioneParrucchiere[] = [];
   url = "http://localhost:8080/";
   cerca = "";
-  showHidden = false;//mostra-nascondi form CRUD
+  showHidden = false;
   showAdd = false; //variabile che fa comparire il messaggio di ringraziamento dopo aver prenotato
+  noAdd = false; //errore:form non compilato
   showDel = false; //variabile che mostra il messaggio di dispiacere se un appuntamento viene disdetto
   showMod = false;//variabile che mostra la modifica di una prenotazione
+  noMod = false;//variabile che impedisce di modificare una cella svuotandola.
   staiModificando = false;
   staiEliminando = false;
   showNoMod = false; //variabile che mostra l'annullamento di una modifica
   showNoDel = false; //eliminazione annullata
-  showSearch = false;
+  showSearch = false; //ricerca effettuata
+  noSearch = false; //Errore: campo di ricerca non compilato 
+  notFoundSearch = false; // dato non trovato
   // stati possibili: Aggiungi, Modifica, Rimozione, Visualizza, Transitorio
   stato = "V";
   preloader = false;
@@ -53,9 +57,13 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
   conferma() {
     console.log("siamo in conferma");
     this.showHidden = true;
+    this.noAdd = false;
     this.showAdd = false;
-    this.showSearch =false;
     this.showDel = false;
+    this.showSearch = false;
+    this.noMod = false;
+    this.noSearch = false;
+    this.notFoundSearch = false;
     this.resetPreloader();
     switch (this.stato) {
       case "A":
@@ -77,13 +85,18 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
     console.log("siamo nello stato annulla");
     this.prenotazioneParrucchiere = this.prenotazionePrecedente;
     this.stato = "V";
+    this.noAdd = false;
+    this.showAdd = false;
     this.showAdd = false;
     this.showNoMod = true;
+    this.noMod = false;
     this.showMod = false;
     this.showNoDel = true;
     this.staiModificando = false;
-    this.showSearch =false;
     this.staiEliminando = false;
+    this.noSearch = false;
+    this.showSearch = false;
+    this.notFoundSearch = false;
     this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
   }
 
@@ -92,16 +105,20 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
   modifica(pr: PrenotazioneParrucchiere) {
     console.log("siamo nello stato di modifica");
     this.stato = "M";
+    this.prenotazioneParrucchiere = Object.assign({}, pr);
     console.log("Stai modificando un dato.");
     this.showAdd = false;
     this.showDel = false;
     this.staiModificando = true;
+    this.showMod = false;
+    this.noMod = false;
     this.staiEliminando = false;
-    this.prenotazioneParrucchiere = Object.assign({}, pr);
-    this.prenotazionePrecedente = pr;
+    this.noAdd = false;
     this.showNoMod = false;
     this.showNoDel = false;
-    this.showSearch =false;
+    this.showSearch = false;
+    this.noSearch = false;
+    this.notFoundSearch = false;
   }
 
   elimina(pre: PrenotazioneParrucchiere) {
@@ -109,13 +126,17 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
     this.prenotazioneParrucchiere = pre;
     this.prenotazionePrecedente = pre;
     this.showAdd = false;
-    this.showMod=false;
     this.staiModificando = false;
     this.staiEliminando = true;
     this.showDel = false;
+    this.noAdd = false;
     this.showNoDel = false;
+    this.showMod = false;
+    this.noMod = false;
     this.showNoMod = false;
-    this.showSearch =false;
+    this.showSearch = false;
+    this.noSearch = false;
+    this.notFoundSearch = false;
   }
 
   aggiungi() {
@@ -124,19 +145,36 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
     this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
     this.prenotazionePrecedente = new PrenotazioneParrucchiere();
     this.showAdd = false;
+    this.noAdd = false;
     this.showDel = false;
     this.staiModificando = false;
     this.staiEliminando = false;
     this.showNoMod = false;
+    this.noMod = false;
     this.showNoDel = false;
-    this.showSearch =false;
+    this.showSearch = false;
+    this.noSearch = false;
+    this.notFoundSearch = false;
   }
 
 
   //bottoni
 
   ShowForm() {
+    this.aggiorna();
     this.showHidden = !this.showHidden;
+    this.showAdd = false; //variabile che fa comparire il messaggio di ringraziamento dopo aver prenotato
+    this.noAdd = false; //errore:form non compilato
+    this.showDel = false; //variabile che mostra il messaggio di dispiacere se un appuntamento viene disdetto
+    this.showMod = false;//variabile che mostra la modifica di una prenotazione
+    this.noMod = false;//variabile che impedisce di modificare una cella svuotandola.
+    this.staiModificando = false;
+    this.staiEliminando = false;
+    this.showNoMod = false; //variabile che mostra l'annullamento di una modifica
+    this.showNoDel = false; //eliminazione annullata
+    this.showSearch = false; //ricerca effettuata
+    this.noSearch = false; //Errore: campo di ricerca non compilato o dato non trovato
+    this.notFoundSearch = false;
   }
 
 
@@ -149,26 +187,48 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
     this.staiEliminando = false;
     this.showAdd = false;
     this.showDel = false;
-    this.showSearch =false;
+    this.showSearch = false;
+    this.noSearch = false;
+    this.noMod = false;
+    this.notFoundSearch = false;
   }
 
   aggiungiPrenotazioneParrucchiere() {
     console.log("siamo in aggiungiPrenotazione");
     let dto = new PrenotazioneParrucchiereDto();
     dto.prenotazioneParrucchiereDto = this.prenotazioneParrucchiere;
-    this.http.post<ListaPrenotazioniParrucchiereDto>(this.url + "aggiungiPrenotazioneParrucchiere"
-      , dto).subscribe(c =>
-        this.prenotazioniParrucchiere = c.listaPrenotazioniParrucchiereDto
-      );
-    this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
-    this.showAdd = true;
-    this.showDel = false;
-    this.showNoDel = false;
-    this.showMod = false;
-    this.staiModificando = false;
-    this.staiEliminando = false;
-    this.showNoMod = false;
-    this.showSearch =false;
+    if (this.prenotazioneParrucchiere.cliente == "" || this.prenotazioneParrucchiere.dataPrenotazione == null
+      || this.prenotazioneParrucchiere.ora == "" || this.prenotazioneParrucchiere.tipoDiServizio == "") {
+      console.log("errore: form non compilato correttamente");
+      this.noAdd = true;
+      this.showAdd = false;
+      this.showDel = false;
+      this.showNoDel = false;
+      this.showMod = false;
+      this.noMod = false;
+      this.showNoMod = false;
+      this.showSearch = false;
+      this.noSearch = false;
+      this.noMod = false;
+      this.notFoundSearch = false;
+    } else {
+      this.http.post<ListaPrenotazioniParrucchiereDto>(this.url + "aggiungiPrenotazioneParrucchiere"
+        , dto).subscribe(c =>
+          this.prenotazioniParrucchiere = c.listaPrenotazioniParrucchiereDto
+        );
+      this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
+      this.aggiorna();
+      this.showAdd = true;
+      this.noAdd = false;
+      this.showDel = false;
+      this.showNoDel = false;
+      this.showMod = false;
+      this.showNoMod = false;
+      this.showSearch = false;
+      this.noSearch = false;
+      this.noMod = false;
+      this.notFoundSearch = false;
+    }
   }
 
 
@@ -176,20 +236,45 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
     console.log("siamo nel metodo salvaModifica");
     let dto = new PrenotazioneParrucchiereDto();
     dto.prenotazioneParrucchiereDto = this.prenotazioneParrucchiere;
-    this.http.post<ListaPrenotazioniParrucchiereDto>(this.url + "modificaPrenotazioneParrucchiere"
-      , dto).subscribe(c => {
-        this.prenotazioniParrucchiere = c.listaPrenotazioniParrucchiereDto
-        this.stato = "V";
-      });
-    this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
-    this.preloader = false;
-    this.showMod = true;
-    this.staiModificando = false;
-    this.staiEliminando = false;
-    this.showNoMod = false;
-    this.showDel = false;
-    this.showNoDel = false;
-    this.showSearch =false;
+    console.log("Inizia la modifica");
+    if (this.prenotazioneParrucchiere.cliente == "" ||
+      this.prenotazioneParrucchiere.dataPrenotazione == null ||
+      this.prenotazioneParrucchiere.ora == "" ||
+      this.prenotazioneParrucchiere.tipoDiServizio == "") {
+      console.log("errore: impossibile modificare");
+      this.noMod = true;
+      this.preloader = false;
+      this.showMod = false;
+      this.noAdd = false;
+      this.staiModificando = false;
+      this.staiEliminando = false;
+      this.showNoMod = false;
+      this.showDel = false;
+      this.showNoDel = false;
+      this.showSearch = false;
+      this.noSearch = false;
+      this.notFoundSearch = false;
+    } else {
+      this.http.post<ListaPrenotazioniParrucchiereDto>(this.url + "modificaPrenotazioneParrucchiere"
+        , dto).subscribe(c => {
+          this.prenotazioniParrucchiere = c.listaPrenotazioniParrucchiereDto
+          this.stato = "V";
+        });
+      this.aggiorna();
+      this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
+      this.preloader = false;
+      this.showMod = true;
+      this.noMod = false;
+      this.noAdd = false;
+      this.staiModificando = false;
+      this.staiEliminando = false;
+      this.showNoMod = false;
+      this.showDel = false;
+      this.showNoDel = false;
+      this.showSearch = false;
+      this.noSearch = false;
+      this.notFoundSearch = false;
+    }
   }
 
   eliminaPrenotazione() {
@@ -202,15 +287,20 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
         this.stato = "V";
       });
     this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
+    this.aggiorna();
     this.preloader = false;
     this.showAdd = false;
     this.showNoMod = false;
     this.showMod = false;
+    this.noMod = false;
     this.staiModificando = false;
     this.staiEliminando = false;
     this.showDel = true;
+    this.noAdd = false;
     this.showNoDel = false;
-    this.showSearch =false;
+    this.noSearch = false;
+    this.showSearch = false;
+    this.notFoundSearch = false;
   }
 
   ricerca() {
