@@ -91,22 +91,26 @@
         </tr>
     </table>
     <br><br>
-    <button class="btn btn-outline-primary" (click)="ShowForm()">Prenota appuntamento</button>
+    <div class="bottoneAppuntamento">
+        <button class="btn btn-outline-primary" (click)="ShowForm()">Prenota appuntamento</button>
+    </div>
     <br><br>
     <!-- form -->
     <div class="form" *ngIf="showHidden">
         <input type="text" [(ngModel)]="prenotazioneParrucchiere.cliente" placeholder="nome e cognome"> &nbsp;
-        <input type="date" [(ngModel)]="prenotazioneParrucchiere.dataPrenotazione" placeholder="data prenotazione"> &nbsp;
+        <input type="date" [(ngModel)]="prenotazioneParrucchiere.dataPrenotazione" placeholder="data prenotazione">
+        &nbsp;
         <input type="time" [(ngModel)]="prenotazioneParrucchiere.ora" placeholder="ora prenotazione"> &nbsp;
         <input type="text" [(ngModel)]="prenotazioneParrucchiere.tipoDiServizio" placeholder="tipo di servizio"> &nbsp;
-        <button class="btn btn-outline-primary" (click)="aggiungiPrenotazioneParrucchiere()" *ngIf="stato == 'V'">aggiungi prenotazione</button>
+        <button class="btn btn-outline-primary" (click)="aggiungiPrenotazioneParrucchiere()"
+            *ngIf="stato == 'V'">aggiungi prenotazione</button>
         <div class="Ricerca">
             <input type="text" [(ngModel)]="cerca" placeholder="ricerca">&nbsp;&nbsp;
             <button class="btn btn-outline-primary" (click)="ricerca()">Cerca</button>&nbsp;
         </div>
-        <br>
-         <!--Messaggi su schermo-->
-         <div class="alert alert-success" role="alert" style="text-align: center;" *ngIf="showAdd">
+        <br> 
+        <!--Messaggi su schermo-->
+        <div class="alert alert-success" role="alert" style="text-align: center;" *ngIf="showAdd">
             <!--prenotazione aggiunta-->
             <h3>Prenotazione effettuata.</h3>
         </div>
@@ -148,11 +152,13 @@
         </div>
         <br>
         <div class="Scelta">
-            <button class="btn btn-success" (click)="conferma()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
-            <button class="btn btn-danger" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
+            <button class="btn btn-success" (click)="conferma()"
+                *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
+            <button class="btn btn-danger" (click)="annulla()"
+                *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
         </div>
         <br>
-       
+
         <br> <br>
         <table class="tabellaPrenotazioni">
             <tr>

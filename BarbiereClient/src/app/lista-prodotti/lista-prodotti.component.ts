@@ -15,7 +15,24 @@ export class ListaProdottiComponent implements OnInit {
   prodotto = new ProdottoCapelli();
   prodotti: ProdottoCapelli[] = [];
   url = "http://localhost:8080/";
+  showAdd = false; //variabile che fa comparire il messaggio di ringraziamento dopo aver prenotato
+  noAdd = false; //errore:form non compilato
+  showDel = false; //variabile che mostra il messaggio di dispiacere se un appuntamento viene disdetto
+  showMod = false;//variabile che mostra la modifica di una prenotazione
+  noMod = false;//variabile che impedisce di modificare una cella svuotandola.
+  staiModificando = false;
+  staiEliminando = false;
+  showNoMod = false; //variabile che mostra l'annullamento di una modifica
+  showNoDel = false; //eliminazione annullata
+  showSearch = false; //ricerca effettuata
+  noSearch = false; //Errore: campo di ricerca non compilato 
+  notFoundSearch = false; // dato non trovato
   search = "";
+  // stati possibili: Aggiungi, Modifica, Rimozione, Visualizza, Transitorio
+  stato = "V";
+  preloader = false;
+  messaggio = "";
+
 
   constructor(private http: HttpClient, private router: Router) {
     this.aggiorna();
@@ -28,6 +45,10 @@ export class ListaProdottiComponent implements OnInit {
     this.router.navigateByUrl("/app-sezione-acquisti");
   }
   //bottoni
+
+  conferma(){}
+
+  annulla(){}
 
   aggiungiProdotto() {
     let dto = new ProdottoCapelliDto();
