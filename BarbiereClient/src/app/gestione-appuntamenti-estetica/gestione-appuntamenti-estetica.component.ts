@@ -16,6 +16,7 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
   prenotazionePrecedente = new PrenotazioneEstetica();
   prenotazioniEstetica: PrenotazioneEstetica[] = [];
   url = "http://localhost:8080/";
+  search = "";
   showHidden = false;
   showAdd = false; //variabile che fa comparire il messaggio di ringraziamento dopo aver prenotato
   showDel = false; //variabile che mostra il messaggio di dispiacere se un appuntamento viene disdetto
@@ -103,7 +104,7 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
     this.showAdd = false;
     this.staiModificando = false;
     this.staiEliminando = true;
-    this.showMod=false;
+    this.showMod = false;
     this.showDel = false;
     this.showNoDel = false;
     this.showNoMod = false;
@@ -180,6 +181,8 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
     this.showNoDel = false;
   }
 
+  ricerca() { }
+
   aggiorna() {
     this.http.get<ListaPrenotazioniEsteticaDto>(this.url + "aggiornaPrenotazioneEstetica"
     ).subscribe(c =>
@@ -187,15 +190,15 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
     );
     this.showAdd = false;
     this.showDel = false;
-    this.staiModificando=false;
-    this.staiEliminando=false;
+    this.staiModificando = false;
+    this.staiEliminando = false;
   }
 
   ShowForm() {
     this.showHidden = !this.showHidden;
   }
-   //altro
-   resetPreloader() {
+  //altro
+  resetPreloader() {
     console.log("metodo resetPreloader");
     this.preloader = true;
     this.messaggio = "";

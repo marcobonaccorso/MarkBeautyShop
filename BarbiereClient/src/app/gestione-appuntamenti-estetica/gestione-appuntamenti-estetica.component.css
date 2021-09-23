@@ -12,6 +12,11 @@ body {
 
 }
 
+.bottoneAppuntamento{
+    text-align: center;
+    margin: auto;
+}
+
 th,
 td {
     padding: 8px;

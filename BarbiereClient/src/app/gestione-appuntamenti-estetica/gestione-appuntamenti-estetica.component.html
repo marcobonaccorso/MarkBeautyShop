@@ -62,7 +62,9 @@
         </tr>
     </table>
     <br> <br>
-    <button class="btn btn-outline-primary" (click)="ShowForm()">Prenota appuntamento</button>
+    <div class="bottoneAppuntamento">
+        <button class="btn btn-outline-primary" (click)="ShowForm()">Prenota appuntamento</button>
+    </div>
     <br> <br>
     <!-- form -->
     <div class="form" *ngIf="showHidden">
@@ -72,6 +74,10 @@
         <input type="text" [(ngModel)]="prenotazioneEstetica.tipoDiServizio" placeholder="tipo di servizio"> &nbsp;
         <button class="btn btn-outline-primary" (click)="aggiungiPrenotazioneEstetica()" *ngIf="stato == 'V'">aggiungi
             prenotazione</button>
+            <div class="Ricerca" style="float: right;">
+                <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
+                <button class="btn btn-outline-primary" (click)="ricerca()">cerca</button>&nbsp;
+            </div>
         <br>
         <div class="Scelta">
             <button class="btn btn-success" (click)="conferma()"
