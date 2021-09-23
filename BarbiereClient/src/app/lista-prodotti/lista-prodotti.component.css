@@ -55,19 +55,33 @@
 /* body e i suoi elementi */
 
 body {
-    background-color: #00ff9d;
+    background: rgb(255, 255, 255);
+        opacity: 0.9;
+        background-image: url("https://pro2-bar-s3-cdn-cf5.myportfolio.com/491904c6aeb501a4774be5b09fbf1c78/63d4212c-a42a-4fea-9331-bd355faea4a3_rw_1200.gif?h=0702c76d40f08a03d2c5df4a3ac3ceca");
 }
 
-table,
 th,
 td {
-    border: 1px solid beige;
-    color: white;
-    background-color: black;
+    padding: 8px;
+    text-align: left;
+    color: black;
+    font: bold;
+    font-family: 'Lobster', cursive;
+    border-bottom: 7px solid rgb(231, 9, 9);
 }
 
-.tabellaProdottiCapelli {
+tr:hover {
+    background-color: rgb(101, 159, 226);
+    height: 8px;
+    background-color: rgb(115, 115, 209);
+}
+
+table{
+    margin: auto;
+}
+
+/* .tabellaProdottiCapelli {
     border: 1px solid beige;
     color: white;
     background-color: black;
-}
+} */

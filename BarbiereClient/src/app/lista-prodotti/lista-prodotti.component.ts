@@ -15,6 +15,7 @@ export class ListaProdottiComponent implements OnInit {
   prodotto = new ProdottoCapelli();
   prodotti: ProdottoCapelli[] = [];
   url = "http://localhost:8080/";
+  search = "";
 
   constructor(private http: HttpClient, private router: Router) {
     this.aggiorna();
@@ -48,6 +49,10 @@ export class ListaProdottiComponent implements OnInit {
     this.prodotto = new ProdottoCapelli();
 
   }
+
+  modifica() { }
+
+  ricerca(){}
 
   aggiorna() {
     this.http.get<ListaProdottiCapelliDto>(this.url + "aggiornaDatabase")

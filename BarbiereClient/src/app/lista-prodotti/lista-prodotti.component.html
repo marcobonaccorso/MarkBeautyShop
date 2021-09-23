@@ -6,13 +6,17 @@
 <hr>
 
 <body>
-    <button class="bottonBack" (click)="indietro()">Indietro</button> <br> <br>
+    <button class="btn btn-primary" (click)="indietro()">Indietro</button> <br> <br>
     <div class="categoriaCapelli"></div>
     <p>CATEGORIA CAPELLI</p>
     <div class="form">
         <input type="text" [(ngModel)]="prodotto.nome" placeholder="nome prodotto"> &nbsp;
         <input type="number" [(ngModel)]="prodotto.prezzo" placeholder="prezzo del prodotto"> &nbsp;
-        <button class="bottonAddProduct" (click)="aggiungiProdotto()">aggiungi prodotto</button>
+        <button class="btn btn-primary" (click)="aggiungiProdotto()">aggiungi prodotto</button>
+        <div class="Ricerca" style="float: right;">
+            <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
+            <button class="btn btn-outline-primary" (click)="ricerca()">cerca</button>&nbsp;
+        </div>
     </div>
     <br>
     <hr>
@@ -21,18 +25,20 @@
         <tr>
             <th>Prodotto </th>
             <th>Prezzo</th>
-            <th>Gestisci</th>
+            <th>Modifica</th>
+            <th>Elimina</th>
         </tr>
 
         <tr *ngFor="let p of prodotti">
             <td>BULLFROG-{{p.nome}}</td>
             <td>{{p.prezzo}} €</td>
-            <td> <button class="BottonDeleteProduct" (click)="eliminaProdotto(p)">Elimina prodotto</button></td>
+            <td><button class="btn btn-warning" (click)="modifica(p)">Modifica</button></td>
+            <td> <button class="btn btn-danger" (click)="eliminaProdotto(p)">Elimina</button></td>
         </tr>
     </table>
-
     <hr>
     <br>
+    <p> https://store.womostore.com/it_it/bullfrog/capelli.html</p>
 </body>
 
 </html>

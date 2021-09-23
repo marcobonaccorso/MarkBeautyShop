@@ -200,7 +200,7 @@
         <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione"> &nbsp;
         <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto"> &nbsp;
         <button class="btn btn-outline-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"> Prenota</button>
-        <div class="Ricerca">
+        <div class="Ricerca" style="float: right;">
             <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
             <button class="btn btn-outline-primary" (click)="ricerca()">cerca</button>&nbsp;
         </div>
