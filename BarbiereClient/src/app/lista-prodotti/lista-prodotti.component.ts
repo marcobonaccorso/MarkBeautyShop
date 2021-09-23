@@ -13,6 +13,7 @@ import { ProdottoCapelliDto } from '../entities/prodotto-capelli-dto';
 export class ListaProdottiComponent implements OnInit {
 
   prodotto = new ProdottoCapelli();
+  prodottoPrecedente = new ProdottoCapelli();
   prodotti: ProdottoCapelli[] = [];
   url = "http://localhost:8080/";
   showAdd = false; //variabile che fa comparire il messaggio di ringraziamento dopo aver prenotato
@@ -46,40 +47,224 @@ export class ListaProdottiComponent implements OnInit {
   }
   //bottoni
 
-  conferma(){}
+  conferma() {
+    console.log("siamo in conferma");
+    this.noAdd = false;
+    this.showAdd = false;
+    this.showDel = false;
+    this.showSearch = false;
+    this.noMod = false;
+    this.noSearch = false;
+    this.notFoundSearch = false;
+    switch (this.stato) {
+      case "A":
+        this.statoAggiungiProdotto();
+        break;
+      case "M":
+        this.modifica();
+        break;
+      case "R":
+        this.eliminaProdotto();
+        break;
+      default:
+        console.log("Transizione inattesa!");
+    }
+  }
 
-  annulla(){}
+  annulla() {
+    console.log("siamo nello stato annulla");
+    this.prodotto = this.prodottoPrecedente;
+    this.stato = "V";
+    this.noAdd = false;
+    this.showAdd = false;
+    this.showAdd = false;
+    this.showNoMod = true;
+    this.noMod = false;
+    this.showMod = false;
+    this.showNoDel = true;
+    this.staiModificando = false;
+    this.staiEliminando = false;
+    this.noSearch = false;
+    this.showSearch = false;
+    this.notFoundSearch = false;
+    this.prodotto = new ProdottoCapelli();
+  }
+
+  statoModificaProdotto(pr: ProdottoCapelli) {
+    console.log("siamo nello stato di modifica");
+    this.stato = "M";
+    this.prodotto = Object.assign({}, pr);
+    this.prodottoPrecedente = pr;
+    this.showAdd = false;
+    this.showDel = false;
+    this.staiModificando = true;
+    this.showMod = false;
+    this.noMod = false;
+    this.staiEliminando = false;
+    this.noAdd = false;
+    this.showNoMod = false;
+    this.showNoDel = false;
+    this.showSearch = false;
+    this.noSearch = false;
+    this.notFoundSearch = false;
+  }
+  statoAggiungiProdotto() {
+    console.log("siamo nello stato aggiungi");
+    this.stato = "A";
+    this.prodotto = new ProdottoCapelli();
+    this.prodottoPrecedente = new ProdottoCapelli();
+    this.showAdd = false;
+    this.noAdd = false;
+    this.showDel = false;
+    this.staiModificando = false;
+    this.staiEliminando = false;
+    this.showNoMod = false;
+    this.noMod = false;
+    this.showNoDel = false;
+    this.showSearch = false;
+    this.noSearch = false;
+    this.notFoundSearch = false;
+  }
+
+  statoEliminaProdotto(pre: ProdottoCapelli) {
+    this.stato = "R";
+    this.prodotto = pre;
+    this.prodottoPrecedente = pre;
+    this.showAdd = false;
+    this.staiModificando = false;
+    this.staiEliminando = true;
+    this.showDel = false;
+    this.noAdd = false;
+    this.showNoDel = false;
+    this.showMod = false;
+    this.noMod = false;
+    this.showNoMod = false;
+    this.showSearch = false;
+    this.noSearch = false;
+    this.notFoundSearch = false;
+  }
 
   aggiungiProdotto() {
     let dto = new ProdottoCapelliDto();
     dto.prodottoCapelliDto = this.prodotto;
-    this.http.post<ListaProdottiCapelliDto>(this.url + "aggiungiProdotto"
-      , dto).subscribe(p =>
-        this.prodotti = p.listaProdottiCapelliDto
-      );
-    this.prodotto = new ProdottoCapelli();
+    if (this.prodotto.nome == "" || this.prodotto.prezzo == null
+    ) {
+      console.log("errore: form non compilato");
+      this.noAdd = true;
+      this.showAdd = false;
+      this.showDel = false;
+      this.showNoDel = false;
+      this.showMod = false;
+      this.noMod = false;
+      this.showNoMod = false;
+      this.showSearch = false;
+      this.noSearch = false;
+      this.noMod = false;
+      this.notFoundSearch = false;
+    } else {
+      this.http.post<ListaProdottiCapelliDto>(this.url + "aggiungiProdotto"
+        , dto).subscribe(p =>
+          this.prodotti = p.listaProdottiCapelliDto
+        );
+      this.prodotto = new ProdottoCapelli();
+      this.aggiorna();
+      this.showAdd = true;
+      this.noAdd = false;
+      this.showDel = false;
+      this.showNoDel = false;
+      this.showMod = false;
+      this.showNoMod = false;
+      this.showSearch = false;
+      this.noSearch = false;
+      this.noMod = false;
+      this.notFoundSearch = false;
+    }
   }
 
-  eliminaProdotto(prodottoDaEliminare: ProdottoCapelli) {
+  eliminaProdotto() {
+    console.log("siamo nel meotodo elimina prodotto");
     let dto = new ProdottoCapelliDto();
-    dto.prodottoCapelliDto = prodottoDaEliminare;
+    dto.prodottoCapelliDto = this.prodotto;
     this.http.post<ListaProdottiCapelliDto>(this.url + "eliminaProdotto"
-      , dto).subscribe(p =>
-        this.prodotti = p.listaProdottiCapelliDto
-      );
+      , dto).subscribe(p => {
+        this.prodotti = p.listaProdottiCapelliDto;
+        this.stato = "V";
+      });
     this.prodotto = new ProdottoCapelli();
+    this.preloader = false;
+    this.showAdd = false;
+    this.showNoMod = false;
+    this.showMod = false;
+    this.noMod = false;
+    this.staiModificando = false;
+    this.staiEliminando = false;
+    this.showDel = true;
+    this.noAdd = false;
+    this.showNoDel = false;
+    this.noSearch = false;
+    this.showSearch = false;
+    this.notFoundSearch = false;
 
   }
 
-  modifica() { }
+  modifica() {
+    console.log("siamo nel metodo modifica");
+    let dto = new ProdottoCapelliDto();
+    dto.prodottoCapelliDto = this.prodotto;
+    if (this.prodotto.nome == "" || this.prodotto.prezzo == null
+    ) {
+      console.log("errore: impossibile modificare");
+      this.noMod = true;
+      this.preloader = false;
+      this.showMod = false;
+      this.noAdd = false;
+      this.staiModificando = false;
+      this.staiEliminando = false;
+      this.showNoMod = false;
+      this.showDel = false;
+      this.showNoDel = false;
+      this.showSearch = false;
+      this.noSearch = false;
+      this.notFoundSearch = false;
+    }
+    else {
+      this.http.post<ListaProdottiCapelliDto>(this.url + "modificaProdotto"
+        , dto).subscribe(c => {
+          this.prodotti = c.listaProdottiCapelliDto;
+          this.stato = "V";
+        });
+      this.prodotto = new ProdottoCapelli();
+      this.aggiorna();
+      this.preloader = false;
+      this.showMod = true;
+      this.noMod = false;
+      this.noAdd = false;
+      this.staiModificando = false;
+      this.staiEliminando = false;
+      this.showNoMod = false;
+      this.showDel = false;
+      this.showNoDel = false;
+      this.showSearch = false;
+      this.noSearch = false;
+      this.notFoundSearch = false;
+    }
+  }
 
-  ricerca(){}
+  ricerca() { }
 
   aggiorna() {
     this.http.get<ListaProdottiCapelliDto>(this.url + "aggiornaDatabase")
       .subscribe(p =>
         this.prodotti = p.listaProdottiCapelliDto
       );
+    this.staiModificando = false;
+    this.staiEliminando = false;
+    this.showAdd = false;
+    this.showDel = false;
+    this.showSearch = false;
+    this.noSearch = false;
+    this.noMod = false;
+    this.notFoundSearch = false;
   }
 
 }
