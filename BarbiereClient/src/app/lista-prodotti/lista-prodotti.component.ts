@@ -80,6 +80,7 @@ export class ListaProdottiComponent implements OnInit {
     console.log("siamo nello stato annulla");
     this.prodotto = this.prodottoPrecedente;
     this.stato = "V";
+    this.toastr.show('operazione annullata.');
     this.noAdd = false;
     this.showAdd = false;
     this.showAdd = false;
@@ -98,6 +99,7 @@ export class ListaProdottiComponent implements OnInit {
   modifica(pr: ProdottoCapelli) {
     console.log("siamo nello stato di modifica");
     this.stato = "M";
+    this.toastr.warning('Stai modificando un dato');
     this.prodotto = Object.assign({}, pr);
     this.prodottoPrecedente = pr;
     this.showAdd = false;
@@ -132,6 +134,7 @@ export class ListaProdottiComponent implements OnInit {
   }
 
   elimina(pre: ProdottoCapelli) {
+    this.toastr.warning('Stai eliminando un dato');
     this.stato = "R";
     this.prodotto = pre;
     this.prodottoPrecedente = pre;
@@ -154,9 +157,9 @@ export class ListaProdottiComponent implements OnInit {
     dto.prodottoCapelliDto = this.prodotto;
     if (this.prodotto.nome == "" || this.prodotto.prezzo == null
     ) {
+      this.toastr.error('errore: form non compilato correttamente');
       console.log("errore: form non compilato correttamente");
       this.noAdd = true;
-      this.toastr.error('errore: form non compilato correttamente');
       this.showAdd = false;
       this.showDel = false;
       this.showNoDel = false;
@@ -173,9 +176,8 @@ export class ListaProdottiComponent implements OnInit {
           this.prodotti = p.listaProdottiCapelliDto
         );
       this.prodotto = new ProdottoCapelli();
-      this.aggiorna();
-      this.showAdd = true;
       this.toastr.success('Prodotto aggiunto con successo');
+      this.showAdd = true;
       this.noAdd = false;
       this.showDel = false;
       this.showNoDel = false;
@@ -185,6 +187,8 @@ export class ListaProdottiComponent implements OnInit {
       this.noSearch = false;
       this.noMod = false;
       this.notFoundSearch = false;
+      this.aggiorna();
+
     }
   }
 
@@ -222,8 +226,8 @@ export class ListaProdottiComponent implements OnInit {
     if (this.prodotto.nome == "" || this.prodotto.prezzo == null
     ) {
       console.log("errore: impossibile modificare se il form è vuoto.");
-      this.noMod = true;
       this.toastr.error('errore: impossibile modificare se il form è vuoto.');
+      this.noMod = true;
       this.preloader = false;
       this.showMod = false;
       this.noAdd = false;
