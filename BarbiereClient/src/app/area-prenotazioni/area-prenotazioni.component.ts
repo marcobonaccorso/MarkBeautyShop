@@ -36,6 +36,7 @@ export class AreaPrenotazioniComponent implements OnInit {
   stato = "V";
   preloader = false;
   messaggio = "";
+  showScelta = false;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -61,6 +62,7 @@ export class AreaPrenotazioniComponent implements OnInit {
 
   conferma() {
     console.log("siamo in conferma");
+    this.showScelta = false;
     this.showHidden = true;
     this.noAdd = false;
     this.showAdd = false;
@@ -86,9 +88,11 @@ export class AreaPrenotazioniComponent implements OnInit {
   }
 
   annulla() {
+    this.toastr.show('Operazione annullata.');
     console.log("siamo nello stato annulla");
     this.prenotazione = this.prenotazionePrecedente;
     this.stato = "V";
+    this.showScelta = true;
     this.noAdd = false;
     this.showAdd = false;
     this.showAdd = false;
@@ -106,11 +110,13 @@ export class AreaPrenotazioniComponent implements OnInit {
   }
 
   modifica(pr: Prenotazione) {
+    this.toastr.warning('Stai modificando un dato');
     console.log("siamo nello stato di modifica");
     this.stato = "M";
     this.prenotazione = Object.assign({}, pr);
     this.prenotazionePrecedente = pr;
     this.showAdd = false;
+    this.showScelta = false;
     this.showDel = false;
     this.staiModificando = true;
     this.showMod = false;
@@ -125,12 +131,15 @@ export class AreaPrenotazioniComponent implements OnInit {
   }
 
   elimina(pre: Prenotazione) {
+    this.toastr.warning('Stai modificando un dato');
+    console.log("siamo nello stato elimina");
     this.stato = "R";
     this.prenotazione = pre;
     this.prenotazionePrecedente = pre;
     this.showAdd = false;
     this.staiModificando = false;
     this.staiEliminando = true;
+    this.showScelta = false;
     this.showDel = false;
     this.noAdd = false;
     this.showNoDel = false;
@@ -143,10 +152,12 @@ export class AreaPrenotazioniComponent implements OnInit {
   }
 
   aggiungi() {
+    this.toastr.success('Prenotazione effettuata.');
     console.log("siamo nello stato aggiungi");
     this.stato = "A";
     this.prenotazione = new Prenotazione();
     this.prenotazionePrecedente = new Prenotazione();
+    this.showScelta = true;
     this.showAdd = false;
     this.noAdd = false;
     this.showDel = false;
@@ -162,6 +173,7 @@ export class AreaPrenotazioniComponent implements OnInit {
 
   //bottoni
   aggiorna() {
+    this.showScelta = true;
     this.http.get<ListaPrenotazioniDto>(this.url + "aggiorna"
     ).subscribe(c => {
       this.prenotazioni = c.listaPrenotazioniDto;
@@ -179,6 +191,7 @@ export class AreaPrenotazioniComponent implements OnInit {
 
   ShowHidden(): void {
     this.aggiorna();
+    this.showScelta = true;
     this.showHidden = !this.showHidden;
     this.showAdd = false; //variabile che fa comparire il messaggio di ringraziamento dopo aver prenotato
     this.noAdd = false; //errore:form non compilato
@@ -202,6 +215,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     dto.prenotazioneDto = this.prenotazione;
     if (this.prenotazione.cliente == "" || this.prenotazione.dataPrenotazione == null
       || this.prenotazione.ora == "" || this.prenotazione.tipoDiServizio == "") {
+      this.toastr.error('Errore: form non compilato correttamente.');
       console.log("errore: form non compilato");
       this.noAdd = true;
       this.showAdd = false;
@@ -209,6 +223,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.showNoDel = false;
       this.showMod = false;
       this.noMod = false;
+      this.showScelta = true;
       this.showNoMod = false;
       this.showSearch = false;
       this.noSearch = false;
@@ -240,10 +255,12 @@ export class AreaPrenotazioniComponent implements OnInit {
     dto.prenotazioneDto = this.prenotazione;
     if (this.prenotazione.cliente == "" || this.prenotazione.dataPrenotazione == null
       || this.prenotazione.ora == "" || this.prenotazione.tipoDiServizio == "") {
+      this.toastr.error('Questa azione non è possibile: non puoi svuotare una o più celle e salvare. Premi annulla per proseguire');
       console.log("errore: impossibile modificare");
       this.noMod = true;
       this.preloader = false;
       this.showMod = false;
+      this.showScelta = false;
       this.noAdd = false;
       this.staiModificando = false;
       this.staiEliminando = false;
@@ -259,6 +276,7 @@ export class AreaPrenotazioniComponent implements OnInit {
           this.prenotazioni = c.listaPrenotazioniDto;
           this.stato = "V";
         });
+      this.toastr.success('Modifica salvata correttamente.');
       this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.preloader = false;
@@ -309,7 +327,9 @@ export class AreaPrenotazioniComponent implements OnInit {
     criterio.stringa = this.search;
     if (this.search == "") {
       console.log("errore:campo di ricerca vuoto");
+      this.toastr.error('Errore: il campo di ricerca è vuoto.');
       this.aggiorna();
+      this.showScelta = true;
       this.noSearch = true; //messaggio errore
       this.preloader = false;
       this.showAdd = false;
@@ -332,6 +352,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.preloader = false;
+      this.showScelta = true;
       this.showAdd = false;
       this.showNoMod = false;
       this.noMod = false;
@@ -356,6 +377,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.preloader = true;
     this.messaggio = "";
     this.noMod = false;
+    this.showScelta = true;
     this.showSearch = false;
     this.noAdd = false;
   }

@@ -156,8 +156,7 @@ export class ListaProdottiComponent implements OnInit {
   aggiungiProdotto() {
     let dto = new ProdottoCapelliDto();
     dto.prodottoCapelliDto = this.prodotto;
-    if (this.prodotto.nome == "" || this.prodotto.prezzo == null
-    ) {
+    if (this.prodotto.nome == "" || this.prodotto.prezzo == null) {
       this.toastr.error('errore: form non compilato correttamente');
       console.log("errore: form non compilato correttamente");
       this.noAdd = true;
@@ -224,8 +223,7 @@ export class ListaProdottiComponent implements OnInit {
     console.log("siamo nel metodo modifica");
     let dto = new ProdottoCapelliDto();
     dto.prodottoCapelliDto = this.prodotto;
-    if (this.prodotto.nome == "" || this.prodotto.prezzo == null
-    ) {
+    if (this.prodotto.nome == "" || this.prodotto.prezzo == null) {
       console.log("errore: impossibile modificare se il form è vuoto.");
       this.toastr.error('errore: Non puoi svuotare uno o più campi e salvare. Premi annulla per proseguire.');
       this.noMod = true;

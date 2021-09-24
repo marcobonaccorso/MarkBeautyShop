@@ -200,55 +200,12 @@
         <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione"> &nbsp;
         <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto"> &nbsp;
         <button class="btn btn-outline-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"> Prenota</button>
-        <div class="Ricerca" style="float: right;">
+        <div class="Ricerca" style="float: right;"  *ngIf="showScelta">
             <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
             <button class="btn btn-outline-primary" (click)="ricerca()">cerca</button>&nbsp;
         </div>
         <br> <br> <br>
-        <!--Messaggi su schermo-->
-        <div class="alert alert-success" role="alert" style="text-align: center;" *ngIf="showAdd">
-            <!--prenotazione aggiunta-->
-            <h3>Prenotazione effettuata.</h3>
-        </div>
-        <!-- <div class="NoAdd" *ngIf="noAdd">
-            <h3>Errore: uno o più campi non sono stati compilati, oppure server offline.</h3>
-        </div> -->
-        <div class="alert alert-danger" role="alert" *ngIf="noAdd">
-            <h3>Errore: uno o più campi non sono stati compilati, oppure server offline.</h3>
-        </div>
-
-        <div class="Search" *ngIf="showSearch">
-            <!--ricerca effettuata-->
-            <h3>Ricerca completata.</h3>
-        </div>
-        <div class="alert alert-danger" *ngIf="notFoundSearch">
-            <h3>Errore: dato non trovato.</h3>
-        </div>
-        <div class="Mod" *ngIf="showMod">
-            <!--modifica confermata-->
-            <h3>Prenotazione modificata.</h3>
-        </div>
-        <div class="AnnullaMod" *ngIf="showNoMod">
-            <!--modifica annullata-->
-            <h3>Operazione annullata</h3>
-        </div>
-        <div class="alert alert-danger" *ngIf="noMod">
-            <h3>Errore. Impossibile effettuare questa modifica:</h3>
-            <h3>Non puoi svuotare una cella e salvare, annulla l'operazione per proseguire.</h3>
-        </div>
-        <div class="alert alert-danger" role="alert" *ngIf="noSearch">
-            <h3>Errore: la ricerca non ha prodotto nessun risultato.</h3>
-        </div>
-        <div class="alert alert-danger" *ngIf="showDel">
-            <!--Prenotazione eliminata-->
-            <h3>Prenotazione disdetta.</h3>
-        </div>
-        <div class="alert alert-warning" *ngIf="staiEliminando">
-            <h3>Stai eliminando un dato</h3>
-        </div>
-        <div class="alert alert-warning" *ngIf="staiModificando">
-            <h3> Stai modificando un dato</h3>
-        </div>
+       
         <div class="Scelta">
             <button class="btn btn-success" (click)="conferma()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
             <button class="btn btn-danger" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
