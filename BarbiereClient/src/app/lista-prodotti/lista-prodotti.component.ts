@@ -223,6 +223,7 @@ export class ListaProdottiComponent implements OnInit {
     ) {
       console.log("errore: impossibile modificare se il form è vuoto.");
       this.noMod = true;
+      this.toastr.error('errore: impossibile modificare se il form è vuoto.');
       this.preloader = false;
       this.showMod = false;
       this.noAdd = false;
@@ -244,6 +245,7 @@ export class ListaProdottiComponent implements OnInit {
       this.prodotto = new ProdottoCapelli();
       this.aggiorna();
       this.preloader = false;
+      this.toastr.success('operazione avvenuta con successo');
       this.showMod = true;
       this.noMod = false;
       this.noAdd = false;
