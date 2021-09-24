@@ -61,10 +61,10 @@ export class ListaProdottiComponent implements OnInit {
         this.statoAggiungiProdotto();
         break;
       case "M":
-        this.modifica();
+        this.salvaModifica();
         break;
       case "R":
-        this.eliminaProdotto();
+        this.deleteProdotto();
         break;
       default:
         console.log("Transizione inattesa!");
@@ -90,7 +90,7 @@ export class ListaProdottiComponent implements OnInit {
     this.prodotto = new ProdottoCapelli();
   }
 
-  statoModificaProdotto(pr: ProdottoCapelli) {
+  modifica(pr: ProdottoCapelli) {
     console.log("siamo nello stato di modifica");
     this.stato = "M";
     this.prodotto = Object.assign({}, pr);
@@ -126,7 +126,7 @@ export class ListaProdottiComponent implements OnInit {
     this.notFoundSearch = false;
   }
 
-  statoEliminaProdotto(pre: ProdottoCapelli) {
+  elimina(pre: ProdottoCapelli) {
     this.stato = "R";
     this.prodotto = pre;
     this.prodottoPrecedente = pre;
@@ -181,7 +181,7 @@ export class ListaProdottiComponent implements OnInit {
     }
   }
 
-  eliminaProdotto() {
+  deleteProdotto() {
     console.log("siamo nel meotodo elimina prodotto");
     let dto = new ProdottoCapelliDto();
     dto.prodottoCapelliDto = this.prodotto;
@@ -207,7 +207,7 @@ export class ListaProdottiComponent implements OnInit {
 
   }
 
-  modifica() {
+  salvaModifica() {
     console.log("siamo nel metodo modifica");
     let dto = new ProdottoCapelliDto();
     dto.prodottoCapelliDto = this.prodotto;
