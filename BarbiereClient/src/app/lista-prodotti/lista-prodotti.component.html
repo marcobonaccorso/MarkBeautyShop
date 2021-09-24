@@ -23,8 +23,8 @@
 
   <!--Messaggi su schermo-->
   <div class="alert alert-success" role="alert" style="text-align: center;" *ngIf="showAdd">
-    <!--prenotazione aggiunta-->
-    <h3>Prenotazione effettuata.</h3>
+    <!--prodotto aggiunto-->
+    <h3>Prodotto aggiunto con successo.</h3>
 </div>
 <!-- <div class="NoAdd" *ngIf="noAdd">
     <h3>Errore: uno o più campi non sono stati compilati, oppure server offline.</h3>
@@ -65,7 +65,7 @@
 <div class="alert alert-warning" *ngIf="staiModificando">
     <h3> Stai modificando un dato</h3>
 </div>
-<div class="Scelta">
+<div class="Scelta" style="margin: auto;">
     <button class="btn btn-success" (click)="conferma()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
     <button class="btn btn-danger" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
 </div>

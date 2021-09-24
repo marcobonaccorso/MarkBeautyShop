@@ -79,9 +79,9 @@ tr:hover {
 table{
     margin: auto;
 }
-
-/* .tabellaProdottiCapelli {
-    border: 1px solid beige;
-    color: white;
-    background-color: black;
-} */
+.Scelta {
+    padding: 10px;
+    text-align: center;
+    color: black;
+    font-size: 15px;
+}

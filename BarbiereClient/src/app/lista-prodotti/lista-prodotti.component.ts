@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ListaProdottiCapelliDto } from '../entities/lista-prodotti-capelli-dto';
 import { ProdottoCapelli } from '../entities/prodotto-capelli';
+import { ToastrService } from 'ngx-toastr';
 import { ProdottoCapelliDto } from '../entities/prodotto-capelli-dto';
 
 @Component({
@@ -35,7 +36,11 @@ export class ListaProdottiComponent implements OnInit {
   messaggio = "";
 
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private toastr: ToastrService
+  ) {
     this.aggiorna();
   }
 
@@ -149,8 +154,9 @@ export class ListaProdottiComponent implements OnInit {
     dto.prodottoCapelliDto = this.prodotto;
     if (this.prodotto.nome == "" || this.prodotto.prezzo == null
     ) {
-      console.log("errore: form non compilato");
+      console.log("errore: form non compilato correttamente");
       this.noAdd = true;
+      this.toastr.error('errore: form non compilato correttamente');
       this.showAdd = false;
       this.showDel = false;
       this.showNoDel = false;
@@ -169,6 +175,7 @@ export class ListaProdottiComponent implements OnInit {
       this.prodotto = new ProdottoCapelli();
       this.aggiorna();
       this.showAdd = true;
+      this.toastr.success('Prodotto aggiunto con successo');
       this.noAdd = false;
       this.showDel = false;
       this.showNoDel = false;
@@ -199,6 +206,7 @@ export class ListaProdottiComponent implements OnInit {
     this.staiModificando = false;
     this.staiEliminando = false;
     this.showDel = true;
+    this.toastr.error('prodotto eliminato con successo');
     this.noAdd = false;
     this.showNoDel = false;
     this.noSearch = false;
@@ -213,7 +221,7 @@ export class ListaProdottiComponent implements OnInit {
     dto.prodottoCapelliDto = this.prodotto;
     if (this.prodotto.nome == "" || this.prodotto.prezzo == null
     ) {
-      console.log("errore: impossibile modificare");
+      console.log("errore: impossibile modificare se il form è vuoto.");
       this.noMod = true;
       this.preloader = false;
       this.showMod = false;
