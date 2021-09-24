@@ -5,6 +5,7 @@ import { ListaProdottiCapelliDto } from '../entities/lista-prodotti-capelli-dto'
 import { ProdottoCapelli } from '../entities/prodotto-capelli';
 import { ToastrService } from 'ngx-toastr';
 import { ProdottoCapelliDto } from '../entities/prodotto-capelli-dto';
+import { RicercaProdottoDto } from '../entities/ricerca-prodotto-dto';
 
 @Component({
   selector: 'app-lista-prodotti',
@@ -264,7 +265,54 @@ export class ListaProdottiComponent implements OnInit {
     }
   }
 
-  ricerca() { }
+  ricerca() {
+    console.log("siamo nel metodo ricerca");
+    let ricercaProdotto = new RicercaProdottoDto();
+    ricercaProdotto.ricercaProdottoDto = this.search;
+    if (this.search == "") {
+      console.log("errore:campo di ricerca vuoto");
+      this.aggiorna();
+      this.noSearch = true; //messaggio errore
+      this.preloader = false;
+      this.showAdd = false;
+      this.showNoMod = false;
+      this.noMod = false;
+      this.showMod = false;
+      this.staiModificando = false;
+      this.staiEliminando = false;
+      this.noAdd = false;
+      this.showDel = false;
+      this.showNoDel = false;
+      this.showSearch = false;
+      this.notFoundSearch = false;
+      this.search = "";
+    }
+    else {
+      this.http.post<ListaProdottiCapelliDto>(this.url + "cercaProdotto"
+        , ricercaProdotto).subscribe(c => {
+          this.prodotti = c.listaProdottiCapelliDto;
+          this.stato = "V";
+        });
+      this.prodotto = new ProdottoCapelli();
+      this.aggiorna();
+      this.preloader = false;
+      this.toastr.success('ricerca avvenuta con successo');
+      this.preloader = false;
+      this.showAdd = false;
+      this.showNoMod = false;
+      this.noMod = false;
+      this.showMod = false;
+      this.staiModificando = false;
+      this.staiEliminando = false;
+      this.showDel = false;
+      this.noAdd = false;
+      this.showNoDel = false;
+      this.showSearch = true;
+      this.noSearch = false;
+      this.notFoundSearch = false;
+      this.search = "";
+    }
+  }
 
   aggiorna() {
     this.http.get<ListaProdottiCapelliDto>(this.url + "aggiornaDatabase")
