@@ -20,6 +20,7 @@ import { TaglioPiegaDonnaComponent } from './taglio-piega-donna/taglio-piega-don
 import { TaglioUomoComponent } from './taglio-uomo/taglio-uomo.component';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(), // ToastrModule added
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
     HttpClientModule
   ],
   providers: [],
