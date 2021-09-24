@@ -227,7 +227,7 @@ export class ListaProdottiComponent implements OnInit {
     if (this.prodotto.nome == "" || this.prodotto.prezzo == null
     ) {
       console.log("errore: impossibile modificare se il form è vuoto.");
-      this.toastr.error('errore: impossibile modificare se il form è vuoto.');
+      this.toastr.error('errore: Non puoi svuotare uno o più campi e salvare. Premi annulla per proseguire.');
       this.noMod = true;
       this.preloader = false;
       this.showMod = false;
@@ -270,6 +270,7 @@ export class ListaProdottiComponent implements OnInit {
     let ricercaProdotto = new RicercaProdottoDto();
     ricercaProdotto.ricercaProdottoDto = this.search;
     if (this.search == "") {
+      this.toastr.error('errore: il campo di ricerca è vuoto');
       console.log("errore:campo di ricerca vuoto");
       this.aggiorna();
       this.noSearch = true; //messaggio errore
