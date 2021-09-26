@@ -200,12 +200,13 @@
         <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione"> &nbsp;
         <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto"> &nbsp;
         <button class="btn btn-outline-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"> Prenota</button>
-        <div class="Ricerca" style="float: right;"  *ngIf="showScelta">
+        <div class="Ricerca" style="float: right;" *ngIf="showScelta">
             <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
             <button class="btn btn-outline-primary" (click)="ricerca()">cerca</button>&nbsp;
         </div>
         <br> <br> <br>
-       
+        <h2 *ngIf="messaggio">{{messaggio}}</h2>
+
         <div class="Scelta">
             <button class="btn btn-success" (click)="conferma()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
             <button class="btn btn-danger" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
@@ -235,9 +236,7 @@
             </tr>
         </table>
     </div>
-    <h2 *ngIf="messaggio">{{messaggio}}</h2>
-    <br> <br>
-    <br> <br> <br><br><br><br><br>
+    <br> <br> <br><br><br><br><br><br> <br>
     <div *ngIf="preloader">
         <!--server spento o non funzionante se compare fisso-->
         <img src="https://acegif.com/wp-content/uploads/loading-53.gif" alt="In attesa di risposta dal server...">
