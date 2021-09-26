@@ -225,15 +225,22 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.noMod = false;
       this.showScelta = true;
       this.showNoMod = false;
+      this.preloader = false;
       this.showSearch = false;
       this.noSearch = false;
       this.noMod = false;
       this.notFoundSearch = false;
     } else {
       this.http.post<ListaPrenotazioniDto>(this.url + "aggiungi"
-        , dto).subscribe(c =>
-          this.prenotazioni = c.listaPrenotazioniDto
-        );
+        , dto).subscribe(c => {
+          if (c.errore) {
+            this.messaggio = c.messaggioErrore;
+          } else {
+            this.stato = "V";
+            this.prenotazioni = c.listaPrenotazioniDto;
+            this.preloader = false;
+          }
+        });
       this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.showAdd = true;
@@ -243,6 +250,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.showNoDel = false;
       this.showMod = false;
       this.showNoMod = false;
+      this.preloader = false;
       this.showSearch = false;
       this.noSearch = false;
       this.noMod = false;
@@ -273,8 +281,13 @@ export class AreaPrenotazioniComponent implements OnInit {
     } else {
       this.http.post<ListaPrenotazioniDto>(this.url + "modificaPrenotazione"
         , dto).subscribe(c => {
-          this.prenotazioni = c.listaPrenotazioniDto;
-          this.stato = "V";
+          if (c.errore) {
+            this.messaggio = c.messaggioErrore;
+          } else {
+            this.prenotazioni = c.listaPrenotazioniDto;
+            this.stato = "V";
+            this.preloader = false;
+          }
         });
       this.toastr.success('Modifica salvata correttamente.');
       this.aggiorna();
@@ -302,6 +315,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       , dto).subscribe(c => {
         this.prenotazioni = c.listaPrenotazioniDto;
         this.stato = "V";
+        this.preloader = false;
       });
     this.aggiorna();
     this.prenotazione = new Prenotazione();
@@ -330,6 +344,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.toastr.error('Errore: il campo di ricerca è vuoto.');
       this.aggiorna();
       this.showScelta = true;
+      this.preloader = false;
       this.noSearch = true; //messaggio errore
       this.preloader = false;
       this.showAdd = false;
@@ -366,6 +381,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.noSearch = false;
       this.notFoundSearch = false;
       this.search = "";
+      this.preloader = false;
     }
   }
 
