@@ -6,20 +6,20 @@
 
 <body>
     <button class="btn btn-primary" (click)="indietro()">Indietro</button> <br> <br>
-    <header>
-        <div class="HeadOfHeader">
+    <header *ngIf="!preloader">
+        <div class="HeadOfHeader" *ngIf="!preloader">
             <h1>MARK'S BEAUTY SHOP</h1>
             <h1>Area Uomo</h1>
             <h2> Di Marco Bonaccorso</h2>
         </div>
     </header>
-    <div class="logo">
+    <div class="logo" *ngIf="!preloader">
         <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo sinistro" style="float: left">
         <img src="https://image.freepik.com/premium-vector/workplace-beauty-salon-interior-horizontal_48369-23905.jpg" class="img-fluid" alt="immagine sala">
         <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo destro" style="float:right">
     </div>
     <br> <br>
-    <div class="intestazione">
+    <div class="intestazione" *ngIf="!preloader">
         <strong>
             <h1>The Mark's Barber Shop offre i seguenti trattamenti: </h1>
         </strong>
@@ -27,7 +27,7 @@
                 contenuti!</strong></h1>
     </div>
     <br> <br>
-    <table class="TabellaServizi">
+    <table class="TabellaServizi" *ngIf="!preloader">
         <tr>
             <td>servizio</td>
             <td>prezzo</td>
@@ -108,7 +108,7 @@
     <br>
     <hr>
     <br>
-    <div class="Abbonamenti">
+    <div class="Abbonamenti" *ngIf="!preloader">
         <table class="TabellaAbbonamenti">
             <tr>
                 <td>
@@ -185,11 +185,11 @@
         </table>
     </div>
     <br>
-    <div class="Contatti">
+    <div class="Contatti" *ngIf="!preloader">
         <h3> Per prenotare un appuntamento, compila il form sottostante.</h3>
     </div>
     <!-- Area Prenotazioni-->
-    <div class="BottonePrenotaAppuntamento">
+    <div class="BottonePrenotaAppuntamento" *ngIf="!preloader">
         <br> <br> &nbsp;<button class="btn btn-primary" (click)="ShowHidden()">Clicca qui per compilare il
             form.</button>
     </div> <br><br><br>
@@ -207,13 +207,13 @@
         <br> <br> <br>
         <h2 *ngIf="messaggio">{{messaggio}}</h2>
 
-        <div class="Scelta">
+        <div class="Scelta" *ngIf="!preloader">
             <button class="btn btn-success" (click)="conferma()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Conferma</button>
             <button class="btn btn-danger" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">Annulla</button>
         </div>
         <br>
         <br>
-        <table class="TabellaPrenotazioni">
+        <table class="TabellaPrenotazioni" *ngIf="!preloader">
             <tr>
                 <th>Cliente </th>
                 <th>Data prenotazione</th>
@@ -238,7 +238,7 @@
     </div>
     <br> <br> <br><br><br><br><br><br> <br>
     <div *ngIf="preloader">
-        <!--server spento o non funzionante se compare fisso-->
+        Errore: controllare il server.
         <img src="https://acegif.com/wp-content/uploads/loading-53.gif" alt="In attesa di risposta dal server...">
     </div>
 </body>
