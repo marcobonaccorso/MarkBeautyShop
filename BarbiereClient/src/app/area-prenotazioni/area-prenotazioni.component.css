@@ -28,6 +28,14 @@
         text-align: center;
     }
     
+.storia{
+    margin: auto;
+    border: 10px outset rgb(231, 9, 9);
+    background-color: rgb(141, 141, 141);
+    color: white;
+    font: bold;
+}
+
     th,
     td {
         padding: 8px;
