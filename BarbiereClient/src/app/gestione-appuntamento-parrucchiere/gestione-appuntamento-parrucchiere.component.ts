@@ -320,10 +320,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
   ricerca() {
     let criterioRicercaAppuntamentoParrucchiere = new RicercaAppuntamentoParrucchiereDto();
     criterioRicercaAppuntamentoParrucchiere.ricercaAppuntamentoParrucchiereDto = this.cerca;
-    if (this.prenotazioneParrucchiere.cliente == "" ||
-      this.prenotazioneParrucchiere.dataPrenotazione == null ||
-      this.prenotazioneParrucchiere.ora == "" ||
-      this.prenotazioneParrucchiere.tipoDiServizio == "") {
+    if (this.cerca=="") {
       console.log("Errore: il campo di ricerca è vuoto.");
       this.toastr.error('Errore: il campo di ricerca è vuoto');
     } else {
