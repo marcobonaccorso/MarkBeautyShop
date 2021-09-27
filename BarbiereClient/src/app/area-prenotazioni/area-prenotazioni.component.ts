@@ -17,16 +17,16 @@ export class AreaPrenotazioniComponent implements OnInit {
   prenotazione = new Prenotazione();
   prenotazionePrecedente = new Prenotazione();
   prenotazioni: Prenotazione[] = [];
-  url = "http://localhost:8080/";
+  readonly url = "http://localhost:8080/";
   showHidden = false;
-  showAdd = false; //variabile che fa comparire il messaggio di ringraziamento dopo aver prenotato
-  noAdd = false; //errore:form non compilato
-  showDel = false; //variabile che mostra il messaggio di dispiacere se un appuntamento viene disdetto
-  showMod = false;//variabile che mostra la modifica di una prenotazione
+  showAdd = false; //prenotazione effettuata.
+  noAdd = false; //errore nell'aggiunta.
+  showDel = false; //eliminazione effettuata
+  showMod = false;//modifica effettuata
   noMod = false;//variabile che impedisce di modificare una cella svuotandola.
-  staiModificando = false;
-  staiEliminando = false;
-  showNoMod = false; //variabile che mostra l'annullamento di una modifica
+  staiModificando = false; //stai modificando
+  staiEliminando = false;//stai eliminando
+  showNoMod = false; //modifica annullata
   showNoDel = false; //eliminazione annullata
   showSearch = false; //ricerca effettuata
   noSearch = false; //Errore: campo di ricerca non compilato 
@@ -131,7 +131,7 @@ export class AreaPrenotazioniComponent implements OnInit {
   }
 
   elimina(pre: Prenotazione) {
-    this.toastr.warning('Stai modificando un dato');
+    this.toastr.warning('Stai eliminando un dato');
     console.log("siamo nello stato elimina");
     this.stato = "R";
     this.prenotazione = pre;
