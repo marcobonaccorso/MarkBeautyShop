@@ -3,12 +3,17 @@
 <head>
     <link rel="stylesheet" type="text/css" href="lista-prodotti.component.css">
 </head>
-<hr>
-
 <body>
     <button class="btn btn-primary" (click)="indietro()">Indietro</button> <br> <br>
-    <div class="categoriaCapelli"></div>
-    <p>CATEGORIA CAPELLI</p>
+    <header >
+        <div class="HeadOfHeader" style="text-align: center;">
+            <h1>MARK'S BEAUTY SHOP</h1>
+            <h1>Sezione acquisti</h1>
+            <h2> Di Marco Bonaccorso</h2>
+        </div>
+    </header>
+    <div class="categoriaCapelli"></div> <br>
+   <h1><strong>Categoria capelli</strong></h1> <br>
     <div class="form">
         <input type="text" [(ngModel)]="prodotto.nome" placeholder="nome prodotto"> &nbsp;
         <input type="number" [(ngModel)]="prodotto.prezzo" placeholder="€"> &nbsp;
@@ -83,7 +88,9 @@
     </table>
     <hr>
     <br>
-    <p> https://store.womostore.com/it_it/bullfrog/capelli.html</p>
+
+    <!-- <p> https://store.womostore.com/it_it/bullfrog/capelli.html</p> -->
+
 </body>
 
 </html>

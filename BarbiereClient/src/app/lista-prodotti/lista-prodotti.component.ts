@@ -270,7 +270,6 @@ export class ListaProdottiComponent implements OnInit {
     if (this.search == "") {
       this.toastr.error('errore: il campo di ricerca è vuoto');
       console.log("errore:campo di ricerca vuoto");
-      this.aggiorna();
       this.noSearch = true; //messaggio errore
       this.preloader = false;
       this.showAdd = false;
@@ -293,7 +292,6 @@ export class ListaProdottiComponent implements OnInit {
           this.stato = "V";
         });
       this.prodotto = new ProdottoCapelli();
-      this.aggiorna();
       this.preloader = false;
       this.toastr.success('ricerca avvenuta con successo');
       this.preloader = false;
