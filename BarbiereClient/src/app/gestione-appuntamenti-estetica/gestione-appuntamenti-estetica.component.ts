@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ListaPrenotazioniEsteticaDto } from '../entities/lista-prenotazioni-estetica-dto';
 import { PrenotazioneEstetica } from '../entities/prenotazione-estetica';
 import { PrenotazioneEsteticaDto } from '../entities/prenotazione-estetica-dto';
+import { RicercaAppuntamentoEsteticaDto } from '../entities/ricerca-appuntamento-estetica-dto';
 
 @Component({
   selector: 'app-gestione-appuntamenti-estetica',
@@ -30,7 +32,10 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
   preloader = false;
   messaggio = "";
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient,
+    private router: Router,
+    private toastr: ToastrService
+  ) {
     this.aggiorna();
   }
 
@@ -71,6 +76,7 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
 
   annulla() {
     console.log("siamo nello stato annulla");
+    this.toastr.info('Operazione annullata.')
     this.prenotazioneEstetica = this.prenotazionePrecedente;
     this.stato = "V";
     this.showAdd = false;
@@ -85,6 +91,7 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
 
   modifica(pr: PrenotazioneEstetica) {
     console.log("siamo nello stato di modifica");
+    this.toastr.warning('Stai modificando un dato.');
     this.stato = "M";
     console.log("Stai modificando un dato.");
     this.showAdd = false;
@@ -98,6 +105,7 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
   }
 
   elimina(pre: PrenotazioneEstetica) {
+    this.toastr.warning('Stai eliminando un dato.');
     this.stato = "R";
     this.prenotazioneEstetica = pre;
     this.prenotazionePrecedente = pre;
@@ -127,25 +135,43 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
   aggiungiPrenotazioneEstetica() {
     let dto = new PrenotazioneEsteticaDto();
     dto.prenotazioneEsteticaDto = this.prenotazioneEstetica;
-    this.http.post<ListaPrenotazioniEsteticaDto>(this.url + "aggiungiPrenotazioneEstetica"
-      , dto).subscribe(c =>
-        this.prenotazioniEstetica = c.listaPrenotazioniEsteticaDto
-      );
-    this.prenotazioneEstetica = new PrenotazioneEstetica();
-    this.showAdd = !this.showAdd;
-    this.showDel = false;
-    this.showNoDel = false;
-    this.showMod = false;
-    this.staiModificando = false;
-    this.staiEliminando = false;
-    this.showNoMod = false;
-
+    if (this.prenotazioneEstetica.cliente == "" ||
+      this.prenotazioneEstetica.dataPrenotazione == null ||
+      this.prenotazioneEstetica.ora == "" ||
+      this.prenotazioneEstetica.tipoDiServizio == ""
+    ) {
+      console.log('Errore:form non compilato correttamente.');
+      this.toastr.error('Errore: form non compilato correttamente.');
+    }
+    else {
+      this.http.post<ListaPrenotazioniEsteticaDto>(this.url + "aggiungiPrenotazioneEstetica"
+        , dto).subscribe(c =>
+          this.prenotazioniEstetica = c.listaPrenotazioniEsteticaDto
+        );
+      this.prenotazioneEstetica = new PrenotazioneEstetica();
+      this.showAdd = !this.showAdd;
+      this.showDel = false;
+      this.showNoDel = false;
+      this.showMod = false;
+      this.staiModificando = false;
+      this.staiEliminando = false;
+      this.showNoMod = false;
+    }
   }
 
   salvaModifica() {
     console.log("siamo nel metodo salvaModifica");
     let dto = new PrenotazioneEsteticaDto();
     dto.prenotazioneEsteticaDto = this.prenotazioneEstetica;
+    if (this.prenotazioneEstetica.cliente == "" ||
+    this.prenotazioneEstetica.dataPrenotazione == null ||
+    this.prenotazioneEstetica.ora == "" ||
+    this.prenotazioneEstetica.tipoDiServizio == ""
+  ) {
+    console.log('Errore:impossibile eseguire questa azione.');
+    this.toastr.error('Errore: impossibile eseguire questa operazione, annulla per proseguire.');
+  }
+  else {
     this.http.post<ListaPrenotazioniEsteticaDto>(this.url + "modificaPrenotazioneEstetica"
       , dto).subscribe(c => {
         this.prenotazioniEstetica = c.listaPrenotazioniEsteticaDto
@@ -160,6 +186,7 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
     this.showDel = false;
     this.showNoDel = false;
   }
+}
 
   eliminaPrenotazione() {
     console.log("siamo nel metodo deletePrenotazione");
@@ -170,6 +197,7 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
         this.prenotazioniEstetica = c.listaPrenotazioniEsteticaDto
         this.stato = "V";
       });
+      this.toastr.success('Dato eliminato correttamente.');
     this.prenotazioneEstetica = new PrenotazioneEstetica();
     this.preloader = false;
     this.showAdd = false;
@@ -181,7 +209,32 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
     this.showNoDel = false;
   }
 
-  ricerca() { }
+  ricerca() { 
+
+    let ricercaAppuntamentoEsteticaDto = new RicercaAppuntamentoEsteticaDto();
+    ricercaAppuntamentoEsteticaDto.ricercaAppuntamentoEsteticaDto = this.search;
+    if (this.search=="") {
+      console.log("Errore: il campo di ricerca è vuoto.");
+      this.toastr.error('Errore: il campo di ricerca è vuoto');
+    } else {
+      this.http.post<ListaPrenotazioniEsteticaDto>(this.url + "ricercaAppuntamentoEstetica", ricercaAppuntamentoEsteticaDto)
+        .subscribe(r => this.prenotazioniEstetica = r.listaPrenotazioniEsteticaDto
+        );
+
+      this.prenotazioneEstetica = new PrenotazioneEstetica();
+      this.preloader = false;
+      this.showAdd = false;
+      this.showNoMod = false;
+      this.showMod = false;
+      this.staiModificando = false;
+      this.staiEliminando = false;
+      this.showDel = false;
+      this.showNoDel = false;
+      // this.showSearch = true;
+      this.search = "";
+    }
+  }
+  
 
   aggiorna() {
     this.http.get<ListaPrenotazioniEsteticaDto>(this.url + "aggiornaPrenotazioneEstetica"
