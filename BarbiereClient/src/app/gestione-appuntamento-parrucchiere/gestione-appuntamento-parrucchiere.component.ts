@@ -189,9 +189,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
 
 
   aggiorna() {
-    if(this.showHidden==false){
-      this.toastr.info('Aggiornamento...');
-    }else{
+   
     this.http.get<ListaPrenotazioniParrucchiereDto>(this.url + "aggiornaPrenotazioneParrucchiere"
     ).subscribe(c =>
       this.prenotazioniParrucchiere = c.listaPrenotazioniParrucchiereDto
@@ -204,7 +202,6 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
     this.noSearch = false;
     this.noMod = false;
     this.notFoundSearch = false;
-  }
 }
 
   aggiungiPrenotazioneParrucchiere() {
