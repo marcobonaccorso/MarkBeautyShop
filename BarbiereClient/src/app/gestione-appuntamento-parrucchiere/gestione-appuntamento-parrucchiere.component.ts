@@ -6,6 +6,7 @@ import { ListaPrenotazioniParrucchiereDto } from '../entities/lista-prenotazioni
 import { PrenotazioneParrucchiere } from '../entities/prenotazione-parrucchiere';
 import { PrenotazioneParrucchiereDto } from '../entities/prenotazione-parrucchiere-dto';
 import { RicercaAppuntamentoParrucchiereDto } from '../entities/ricerca-appuntamento-parrucchiere-dto';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-gestione-appuntamento-parrucchiere',
@@ -37,7 +38,10 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
   preloader = false;
   messaggio = "";
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient,
+    private router: Router,
+    private toastr: ToastrService
+  ) {
     this.aggiorna();
   }
 
@@ -56,6 +60,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
 
   conferma() {
     console.log("siamo in conferma");
+    this.toastr.success('Operazione riuscita.');
     this.showHidden = true;
     this.noAdd = false;
     this.showAdd = false;
@@ -83,6 +88,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
 
   annulla() {
     console.log("siamo nello stato annulla");
+    this.toastr.show('Operazione annullata.');
     this.prenotazioneParrucchiere = this.prenotazionePrecedente;
     this.stato = "V";
     this.noAdd = false;
@@ -105,6 +111,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
   modifica(pr: PrenotazioneParrucchiere) {
     console.log("siamo nello stato di modifica");
     this.stato = "M";
+    this.toastr.warning('Stai modificando un dato.');
     this.prenotazioneParrucchiere = Object.assign({}, pr);
     console.log("Stai modificando un dato.");
     this.showAdd = false;
@@ -123,6 +130,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
 
   elimina(pre: PrenotazioneParrucchiere) {
     this.stato = "R";
+    this.toastr.warning('Stai eliminando un dato.');
     this.prenotazioneParrucchiere = pre;
     this.prenotazionePrecedente = pre;
     this.showAdd = false;
@@ -141,6 +149,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
 
   aggiungi() {
     console.log("siamo nello stato aggiungi");
+    this.toastr.success('Prenotazione effettuata.');
     this.stato = "A";
     this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
     this.prenotazionePrecedente = new PrenotazioneParrucchiere();
@@ -200,6 +209,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
     if (this.prenotazioneParrucchiere.cliente == "" || this.prenotazioneParrucchiere.dataPrenotazione == null
       || this.prenotazioneParrucchiere.ora == "" || this.prenotazioneParrucchiere.tipoDiServizio == "") {
       console.log("errore: form non compilato correttamente");
+      this.toastr.error('Errore:form non compilato correttamente.');
       this.noAdd = true;
       this.showAdd = false;
       this.showDel = false;
@@ -216,6 +226,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
         , dto).subscribe(c =>
           this.prenotazioniParrucchiere = c.listaPrenotazioniParrucchiereDto
         );
+      this.toastr.success('Prenotazione effettuata.');
       this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
       this.aggiorna();
       this.showAdd = true;
@@ -242,6 +253,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
       this.prenotazioneParrucchiere.ora == "" ||
       this.prenotazioneParrucchiere.tipoDiServizio == "") {
       console.log("errore: impossibile modificare");
+      this.toastr.error('Errore:Impossibile effettuare questa operazione.')
       this.noMod = true;
       this.preloader = false;
       this.showMod = false;
@@ -261,6 +273,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
           this.stato = "V";
         });
       this.aggiorna();
+      this.toastr.success('Modifica effettuata.');
       this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
       this.preloader = false;
       this.showMod = true;
@@ -286,6 +299,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
         this.prenotazioniParrucchiere = c.listaPrenotazioniParrucchiereDto
         this.stato = "V";
       });
+    this.toastr.success('Eliminazione effettuata.');
     this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
     this.aggiorna();
     this.preloader = false;
@@ -306,22 +320,30 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
   ricerca() {
     let criterioRicercaAppuntamentoParrucchiere = new RicercaAppuntamentoParrucchiereDto();
     criterioRicercaAppuntamentoParrucchiere.ricercaAppuntamentoParrucchiereDto = this.cerca;
-    this.http.post<ListaPrenotazioniParrucchiereDto>(this.url + "ricercaAppuntamentoParrucchiere", criterioRicercaAppuntamentoParrucchiere)
-      .subscribe(r => this.prenotazioniParrucchiere = r.listaPrenotazioniParrucchiereDto
-      );
-    this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
-    this.preloader = false;
-    this.showAdd = false;
-    this.showNoMod = false;
-    this.showMod = false;
-    this.staiModificando = false;
-    this.staiEliminando = false;
-    this.showDel = false;
-    this.showNoDel = false;
-    this.showSearch = true;
-    this.cerca = "";
-  }
+    if (this.prenotazioneParrucchiere.cliente == "" ||
+      this.prenotazioneParrucchiere.dataPrenotazione == null ||
+      this.prenotazioneParrucchiere.ora == "" ||
+      this.prenotazioneParrucchiere.tipoDiServizio == "") {
+      console.log("Errore: il campo di ricerca è vuoto.");
+      this.toastr.error('Errore: il campo di ricerca è vuoto');
+    } else {
+      this.http.post<ListaPrenotazioniParrucchiereDto>(this.url + "ricercaAppuntamentoParrucchiere", criterioRicercaAppuntamentoParrucchiere)
+        .subscribe(r => this.prenotazioniParrucchiere = r.listaPrenotazioniParrucchiereDto
+        );
 
+      this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
+      this.preloader = false;
+      this.showAdd = false;
+      this.showNoMod = false;
+      this.showMod = false;
+      this.staiModificando = false;
+      this.staiEliminando = false;
+      this.showDel = false;
+      this.showNoDel = false;
+      this.showSearch = true;
+      this.cerca = "";
+    }
+  }
   //altro
   resetPreloader() {
     console.log("metodo resetPreloader");
