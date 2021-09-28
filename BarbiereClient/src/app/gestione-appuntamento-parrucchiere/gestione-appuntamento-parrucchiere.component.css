@@ -173,6 +173,15 @@ table {
     font-weight: bold;
 }
 
+.TaglioEPiega{
+    border: none;
+    background-color: inherit;
+    padding: 4px 4px;
+    font-size: 13px;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+}
 
 /*bottoni */
 

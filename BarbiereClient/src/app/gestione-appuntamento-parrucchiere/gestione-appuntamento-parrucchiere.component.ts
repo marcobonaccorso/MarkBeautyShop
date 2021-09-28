@@ -57,7 +57,9 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
   VediColori() {
     this.router.navigateByUrl("/app-area-colori");
   }
-
+  TaglioEPiega(){
+    this.router.navigateByUrl("/app-taglio-piega-donna");
+  }
   //stati
 
   conferma() {
