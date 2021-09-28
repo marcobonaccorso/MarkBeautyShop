@@ -104,7 +104,7 @@ td {
     color: black;
     font: bold;
     font-family: 'Lobster', cursive;
-    border-bottom: 7px solid rgb(231, 9, 9);
+    border-bottom: 7px solid #194635;
 }
 
 tr:hover {
@@ -114,11 +114,22 @@ tr:hover {
 }
 
 .HeadOfHeader{
+  margin: auto;
+  border: 15px outset #194635;
+  background-color: rgb(115, 115, 209);
+  color: white;
+  font: bold;
+  font-style: italic;
+}
+
+.categoriaCapelli{
     margin: auto;
-    border: 10px outset rgb(231, 9, 9);
+    text-align: center;
+    border: 15px outset #194635;
     background-color: rgb(115, 115, 209);
     color: white;
     font: bold;
+    font-style: italic;
 }
 
 table{
