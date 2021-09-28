@@ -106,7 +106,6 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showSearch = false;
     this.notFoundSearch = false;
     this.prenotazione = new Prenotazione();
-
   }
 
   modifica(pr: Prenotazione) {
@@ -257,6 +256,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.notFoundSearch = false;
     }
   }
+  
   salvaModifica() {
     console.log("siamo nel metodo salvaModifica");
     let dto = new PrenotazioneDto();
