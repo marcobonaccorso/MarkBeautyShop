@@ -152,7 +152,6 @@ export class AreaPrenotazioniComponent implements OnInit {
   }
 
   aggiungi() {
-    this.toastr.success('Prenotazione effettuata.');
     console.log("siamo nello stato aggiungi");
     this.stato = "A";
     this.prenotazione = new Prenotazione();
@@ -241,6 +240,7 @@ export class AreaPrenotazioniComponent implements OnInit {
             this.preloader = false;
           }
         });
+      this.toastr.success('Prenotazione effettuata.');
       this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.showAdd = true;
@@ -317,6 +317,7 @@ export class AreaPrenotazioniComponent implements OnInit {
         this.stato = "V";
         this.preloader = false;
       });
+    this.toastr.success('Dato eliminato correttamente.');
     this.aggiorna();
     this.prenotazione = new Prenotazione();
     this.preloader = false;
