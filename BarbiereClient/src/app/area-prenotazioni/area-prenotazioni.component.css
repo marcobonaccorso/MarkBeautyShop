@@ -27,7 +27,7 @@
       .topnav a:hover {
         background-color: #ddd;
         text-align: center;
-        color: rgb(115, 115, 209);
+        color: black;
       }
       
       /* Add a color to the active/current link */
