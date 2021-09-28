@@ -17,7 +17,8 @@
     </div>
     <br><br>
     <div class="intestazioneEstetica">
-        <h2>Prenota qui il tuo appuntamento per una rimessa a nuovo!</h2>
+        <h1>MARK'S BEAUTY SHOP</h1>
+        <h1>Sezione estetica</h1>
     </div>
     <br> <br>
     <div class="immaginiEstetica">
@@ -71,6 +72,10 @@
         </tr>
     </table>
     <br> <br>
+    <div class="Prenota" *ngIf="!preloader">
+        <h3> Per prenotare un appuntamento, compila il form sottostante.</h3>
+    </div>
+    <br><br>
     <div class="bottoneAppuntamento">
         <button class="btn btn-outline-primary" (click)="ShowForm()">Prenota appuntamento</button>
     </div>

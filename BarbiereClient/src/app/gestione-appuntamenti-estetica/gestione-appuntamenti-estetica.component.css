@@ -1,9 +1,10 @@
    
    .topnav {
-    background-color:rgb(141, 141, 141);
+    background-color:rgb(37, 34, 34);
+    color: white;
     overflow: hidden;
     text-align: center;
-    border: 10px outset rgb(231, 9, 9);
+    border: 10px outset rgb(190, 190, 190);
   }
   
   /* Style the links inside the navigation bar */
@@ -79,11 +80,21 @@ table {
 }
 
 .intestazioneEstetica {
-    padding: 10px;
+    margin: auto;
     text-align: center;
+    border: 10px outset rgb(231, 9, 9);
     background-color: rgb(115, 115, 209);
-    color: gold;
-    font-size: 15px;
+    color: white;
+    font: bold;
+}
+
+
+.Prenota{
+    margin: auto;
+    border: 10px outset rgb(231, 9, 9);
+    background-color: rgb(115, 115, 209);
+    color: white;
+    font: bold;
 }
 
 

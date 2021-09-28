@@ -6,11 +6,14 @@
 
 <body>
     <button class="btn btn-primary" (click)="indietro()">Indietro</button> <br> <br>
+    <div class="topnav" style="text-align: center;">
+        <a href="app-home-page"> Torna alla HomePage</a>
+        <a href="app-lista-prodotti">Vedi la lista dei prodotti</a>
+    </div>
     <header *ngIf="!preloader">
         <div class="HeadOfHeader" *ngIf="!preloader">
             <h1>MARK'S BEAUTY SHOP</h1>
-            <h1>Area Uomo</h1>
-            <h2> Di Marco Bonaccorso</h2>
+            <h1>Area maschile</h1>
         </div>
     </header>
     <div class="logo" *ngIf="!preloader">
@@ -23,7 +26,7 @@
         <strong>
             <h1>The Mark's Barber Shop offre i seguenti trattamenti: </h1>
         </strong>
-        <h1> <strong> Attenzione: alcune celle della tabella sono interattive, fai click su di esse per consultare i
+        <h1> <strong> Attenzione: alcune celle della tabella sono interattive,fai click su di esse per consultare i
                 contenuti!</strong></h1>
     </div>
     <br>
@@ -38,7 +41,7 @@
         </h3>
     </div>
     <br> <br>
-    <table class="TabellaServizi" *ngIf="!preloader">
+    <table class="table-dark" *ngIf="!preloader">
         <tr>
             <td>servizio</td>
             <td>prezzo</td>
@@ -119,83 +122,7 @@
     <br>
     <hr>
     <br>
-    <!-- <div class="Abbonamenti" *ngIf="!preloader">
-        <table class="TabellaAbbonamenti">
-            <tr>
-                <td>
-                    Abbonamenti per 10 servizi
-                </td>
-                <td>
-                    Prezzo
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Taglio capelli
-                </td>
-                <td>
-                    160€
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Taglio bimbo
-                </td>
-                <td>
-                    120€
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Taglio + Shampoo
-                </td>
-                <td>
-                    180€
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Rasatura capelli a macchinetta
-                </td>
-                <td>
-                    80€
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Rasatura capelli a lametta
-                </td>
-                <td>
-                    90€
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Rasatura barba a lametta
-                </td>
-                <td>
-                    80€
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Sfoltitura barba
-                </td>
-                <td>
-                    55€
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Trattamento barba
-                </td>
-                <td>
-                    80€
-                </td>
-            </tr>
-        </table>
-    </div>
-    <br> -->
+   
     <div class="Contatti" *ngIf="!preloader">
         <h3> Per prenotare un appuntamento, compila il form sottostante.</h3>
     </div>
