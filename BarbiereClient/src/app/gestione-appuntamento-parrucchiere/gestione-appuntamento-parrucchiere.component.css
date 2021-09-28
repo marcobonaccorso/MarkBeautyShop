@@ -4,6 +4,7 @@
     color: white;
     overflow: hidden;
     text-align: center;
+    font-style: italic;
     border: 10px outset rgb(190, 190, 190);
   }
   
@@ -12,7 +13,7 @@
     float: left;
     color: #f2f2f2;
     text-align: center;
-
+    font-style: italic;
     
     text-align: center;
     padding: 20px 16px;
@@ -25,12 +26,14 @@
     background-color: #ddd;
     text-align: center;
     color: black;
+    font-style: italic;
   }
   
   /* Add a color to the active/current link */
   .topnav a.active {
     /* background-color: #bd3030; */
     color: white;
+    font-style: italic;
   }
 
 body {
