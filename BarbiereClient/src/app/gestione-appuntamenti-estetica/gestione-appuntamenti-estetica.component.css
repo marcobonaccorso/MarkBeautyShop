@@ -47,7 +47,8 @@ header {
 body {
     background-color: white;
     background-image: url("https://i.pinimg.com/originals/7e/fc/2c/7efc2cb33ee4eb9d7625ca1eca702506.gif");
-
+    font-style: italic;
+    font: bold;
 }
 
 .bottoneAppuntamento{
@@ -58,6 +59,7 @@ body {
 th,
 td {
     padding: 8px;
+    font-style: italic;
     text-align: left;
     color: black;
     font-weight: bold;
@@ -94,6 +96,7 @@ table {
 
 .Prenota{
     margin: auto;
+    text-align: center;
     border: 10px outset rgb(231, 9, 9);
     background-color: rgb(115, 115, 209);
     color: white;

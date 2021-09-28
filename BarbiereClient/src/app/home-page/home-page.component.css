@@ -43,12 +43,13 @@
         background: rgb(255, 255, 255);
         color: black;
         font-size: 15px;
+        font-style: italic;
         
     }
     
     .HeadOfHeader {
         margin: auto;
-        border: 10px outset rgb(231, 9, 9);
+        border: 10px outset rgb(184, 31, 31);
         background-color: rgb(115, 115, 209);
         color: white;
         font: bold;
@@ -57,13 +58,15 @@
     
     body {
         background: rgb(255, 255, 255);
+        font-style: italic;
+        font: bold;
         background-image: url("https://i.pinimg.com/originals/7e/fc/2c/7efc2cb33ee4eb9d7625ca1eca702506.gif");
     }
     
     .sloganUno {
         text-align: center;
         margin: auto;
-        border: 10px outset rgb(231, 9, 9);
+        border: 10px outset rgb(184, 31, 31);
         background-color: silver;
         color: black;
         font: bold;
@@ -81,7 +84,7 @@
     .Storia {
         width: 900px;
         margin: auto;
-        border: 10px outset rgb(231, 9, 9);
+        border: 10px outset rgb(184, 31, 31);
         background-color: silver;
         color: white;
         font: bold;
@@ -96,7 +99,7 @@
     .DescrizioneOrari {
         width: 430px;
         margin: auto;
-        border: 10px outset rgb(231, 9, 9);
+        border: 10px outset rgb(184, 31, 31);
         background-color: rgb(115, 115, 209);
         color: white;
         font: bold;
@@ -104,6 +107,7 @@
     
     .TabellaOrari {
         margin-left: auto;
+        font-style: italic;
         margin-right: auto;
     }
     
@@ -116,7 +120,7 @@
     .SezioneMaschileStoria {
         text-align: center;
         margin: auto;
-        border: 10px outset rgb(231, 9, 9);
+        border: 10px outset rgb(184, 31, 31);
         background-color: silver;
         color: black;
         font: bold;
@@ -126,7 +130,7 @@
     .StoricoFemminile {
         text-align: center;
         margin: auto;
-        border: 10px outset rgb(231, 9, 9);
+        border: 10px outset rgb(184, 31, 31);
         background-color: silver;
         color: black;
         font: bold;
@@ -156,7 +160,7 @@
     .sloganDue {
         text-align: center;
         margin: auto;
-        border: 62px outset rgb(231, 9, 9);
+        border: 35px outset rgb(184, 31, 31);
         background-color: white;
         color: black;
         font: bold;
@@ -171,7 +175,7 @@
         color: black;
         font: bold;
         font-family: 'Lobster', cursive;
-        border-bottom: 7px solid rgb(231, 9, 9);
+        border-bottom: 7px solid rgb(184, 31, 31);
     }
     
     tr:hover {
@@ -189,7 +193,7 @@
     
     .borders {
         border: 5px solid blue;
-        outline: 5px solid red;
+        outline: 5px solid rgb(184, 31, 31);
         background-color: blue;
     }
     /*     

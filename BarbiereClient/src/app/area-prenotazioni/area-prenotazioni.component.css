@@ -54,6 +54,8 @@
     }
     
     body {
+        font-style: italic;
+        font: bold;
         background: rgb(255, 255, 255);
         background-image: url("https://i.pinimg.com/originals/7e/fc/2c/7efc2cb33ee4eb9d7625ca1eca702506.gif");
     }
@@ -75,6 +77,7 @@
     th,
     td {
         padding: 8px;
+        font-style: italic;
         text-align: left;
         color: black;
         font: bold;

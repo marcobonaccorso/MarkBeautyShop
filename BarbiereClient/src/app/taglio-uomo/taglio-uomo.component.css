@@ -38,6 +38,8 @@
 
 body {
     background: rgb(255, 255, 255);
+    font-style: italic;
+    font: bold;
     background-image: url("https://i.pinimg.com/originals/7e/fc/2c/7efc2cb33ee4eb9d7625ca1eca702506.gif");
 }
 
@@ -49,6 +51,7 @@ td {
     border: 1px solid #e05a3b;
     color: white;
     margin: auto;
+    font-style: italic;
     font-weight: bold;
     background-color: rgb(0, 0, 80);
 }
