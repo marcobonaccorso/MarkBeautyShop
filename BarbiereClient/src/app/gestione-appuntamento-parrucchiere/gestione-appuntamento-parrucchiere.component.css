@@ -39,11 +39,12 @@ body {
 
 }
 .HeadOfHeader {
-    margin: auto;
-    border: 10px outset rgb(231, 9, 9);
-    background-color: rgb(115, 115, 209);
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(216, 168, 176);
+    border: 10px outset rgb(0, 0, 182);
     color: white;
-    font: bold;
+    font-size: 15px;
 }
 
 .bottoneAppuntamento{
@@ -78,6 +79,14 @@ table {
     float: right;
 }
 
+.compilaForm{
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(216, 168, 176);
+    border: 10px outset rgb(0, 0, 182);
+    color: white;
+    font-size: 15px;
+}
 
 /*Messaggi su schermo */
 
