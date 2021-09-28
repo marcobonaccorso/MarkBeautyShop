@@ -42,7 +42,7 @@ body {
     padding: 10px;
     text-align: center;
     background-color: rgb(216, 168, 176);
-    border: 10px outset rgb(0, 0, 182);
+    border: 15px outset rgb(0, 0, 182);
     color: white;
     font-size: 15px;
 }
@@ -83,7 +83,7 @@ table {
     padding: 10px;
     text-align: center;
     background-color: rgb(216, 168, 176);
-    border: 10px outset rgb(0, 0, 182);
+    border: 15px outset rgb(0, 0, 182);
     color: white;
     font-size: 15px;
 }
