@@ -1,4 +1,6 @@
- <div class="DescrizioneTabellaServizi">
+tabella area maschile  
+
+<div class="DescrizioneTabellaServizi">
         <p>The Mark's Barber Shop offre i seguenti trattamenti: </p>
     </div>
     <br>
@@ -29,6 +31,8 @@
             <td>15€</td>
         </tr>
     </table>
+------------------------------------------------------------------------------------------------------------------------------------
+
 
 
  <!--Messaggi su schermo-->
@@ -71,3 +75,21 @@
         <div class="alert alert-warning" *ngIf="staiModificando">
             <h3> Stai modificando un dato</h3>
         </div>
+
+----------------------------------------------------------------------------------------------------------------------------
+
+bottoni sezione donna
+ <!-- <br>
+    <button class="btn btn-outline-primary" (click)="SezioneDonnaServiziParrucchieri()">vai alla sezione Servizi
+        Parrucchieri</button>
+    <button class="btn btn-outline-primary" (click)="sezioneDonnaServiziEstetica()" style="float: right">Vai all'area
+        Servizi estetica</button>
+    <br> <br> <br> -->
+
+---------------------------------------------------------------------------------------------------------------------------------
+vecchio logo sezione donna
+
+<div class="logo">
+        <img src="https://image.freepik.com/free-vector/gradient-hair-salon-logo-template_23-2148859355.jpg"
+            alt="logo donna">
+    </div>

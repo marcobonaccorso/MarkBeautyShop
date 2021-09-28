@@ -1,10 +1,11 @@
 
    
    .topnav {
-    background-color:rgb(141, 141, 141);
+    background-color:black;
+    color: white;
     overflow: hidden;
     text-align: center;
-    border: 10px outset rgb(231, 9, 9);
+    border: 10px outset rgb(190, 190, 190);
   }
   
   /* Style the links inside the navigation bar */
@@ -37,8 +38,8 @@
 header {
     padding: 10px;
     text-align: center;
-    background-color: rgb(115, 115, 209);
-    border: 10px outset rgb(231, 9, 9);
+    background-color: rgb(216, 168, 176);
+    border: 10px outset rgb(0, 0, 182);
     color: white;
     font-size: 15px;
 }
@@ -49,17 +50,26 @@ body {
 }
 
 .logo {
-    display: block;
-    margin: 0px auto;
-    text-align: center;
-    border: 10px outset rgb(231, 9, 9);
+  display: block;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.slogan{
+  text-align: center;
+  margin: auto;
+  text-align: center;
+  background-color: rgb(216, 168, 176);
+  border: 30px outset rgb(0, 0, 182);
+  color: black;
+  font: bold;
+  position: relative;
 }
 
 .DescrizioneSezioneDonna {
-    border: 1px solid gold;
-    color: white;
-    background-color: rgb(141, 141, 141);
-    border: 10px outset rgb(231, 9, 9);
+  text-align: center;
+  background-color: rgb(216, 168, 176);
+  border: 10px outset rgb(0, 0, 182);
     margin: auto;
 }
 /* 
