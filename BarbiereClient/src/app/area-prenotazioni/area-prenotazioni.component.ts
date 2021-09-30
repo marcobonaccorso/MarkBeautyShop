@@ -243,7 +243,6 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.showAdd = true;
-      this.toastr.success('Prenotazione effettuata');
       this.noAdd = false;
       this.showDel = false;
       this.showNoDel = false;

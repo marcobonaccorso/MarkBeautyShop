@@ -48,7 +48,7 @@
     .HeadOfHeader {
         margin: auto;
         border: 10px outset rgb(184, 31, 31);
-        background-color: rgb(115, 115, 209);
+        background-color: rgb(161, 161, 255);
         color: white;
         font: bold;
     }
@@ -66,10 +66,12 @@
         text-align: center;
     }
     
+
+
 .storia{
     margin: auto;
     border: 10px outset rgb(184, 31, 31);
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(161, 161, 255);
     color: white;
     font: bold;
 }
@@ -86,9 +88,9 @@
     }
     
     tr:hover {
-        background-color: rgb(101, 159, 226);
+        background-color: rgb(161, 161, 255);
         height: 8px;
-        background-color: rgb(115, 115, 209);
+        background-color: rgb(161, 161, 255);
     }
     
     h1,
@@ -123,7 +125,7 @@
     .intestazione {
         margin: auto;
         border: 10px outset rgb(184, 31, 31);
-        background-color: rgb(115, 115, 209);
+        background-color: rgb(161, 161, 255);
         color: white;
         font: bold;
     }
@@ -131,7 +133,7 @@
     .Contatti {
         margin: auto;
         border: 16px outset rgb(184, 31, 31);
-        background-color: rgb(115, 115, 209);
+        background-color: rgb(161, 161, 255);
         color: white;
         font: bold;
         text-align: center;

@@ -50,7 +50,7 @@
     .HeadOfHeader {
         margin: auto;
         border: 10px outset rgb(184, 31, 31);
-        background-color: silver;
+        background-color: rgb(161, 161, 255);
         color: white;
         font: bold;
         font-style: italic;
@@ -67,7 +67,7 @@
         text-align: center;
         margin: auto;
         border: 10px outset rgb(184, 31, 31);
-        background-color: silver;
+        background-color: rgb(161, 161, 255);
         color: black;
         font: bold;
         position: relative;
@@ -85,7 +85,7 @@
         width: 900px;
         margin: auto;
         border: 10px outset rgb(184, 31, 31);
-        background-color: silver;
+        background-color: rgb(161, 161, 255);
         color: white;
         font: bold;
     }
@@ -100,7 +100,7 @@
         width: 430px;
         margin: auto;
         border: 10px outset rgb(184, 31, 31);
-        background-color: silver;
+        background-color: rgb(161, 161, 255);
         color: white;
         font: bold;
     }
@@ -161,7 +161,7 @@
         text-align: center;
         margin: auto;
         border: 35px outset rgb(184, 31, 31);
-        background-color: white;
+        background-color: rgb(161, 161, 255);
         color: black;
         font: bold;
         position: relative;
@@ -179,7 +179,7 @@
     }
     
     tr:hover {
-        background-color: rgb(86, 116, 199);
+        background-color: rgb(161, 161, 255);
     }
     
     h1,
