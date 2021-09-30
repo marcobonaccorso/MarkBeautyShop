@@ -50,7 +50,7 @@
     .HeadOfHeader {
         margin: auto;
         border: 10px outset rgb(184, 31, 31);
-        background-color: rgb(115, 115, 209);
+        background-color: silver;
         color: white;
         font: bold;
         font-style: italic;
@@ -100,7 +100,7 @@
         width: 430px;
         margin: auto;
         border: 10px outset rgb(184, 31, 31);
-        background-color: rgb(115, 115, 209);
+        background-color: silver;
         color: white;
         font: bold;
     }

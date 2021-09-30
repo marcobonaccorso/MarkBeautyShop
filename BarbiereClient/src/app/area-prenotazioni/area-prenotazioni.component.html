@@ -47,7 +47,7 @@
             <td>prezzo</td>
         </tr>
         <tr>
-            <td><button class="BottoneTaglio" (click)="Taglio()">Taglio</button></td>
+            <td><button class="btn btn-link" (click)="Taglio()">Taglio</button></td>
             <td>20€</td>
         </tr>
         <tr>
@@ -141,6 +141,7 @@
         <div class="Ricerca" style="float: right;" *ngIf="showScelta">
             <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
             <button class="btn btn-outline-primary" (click)="ricerca()">cerca</button>&nbsp;
+            
         </div>
         <br> <br> <br>
         <h2 *ngIf="messaggio">{{messaggio}}</h2>
@@ -166,7 +167,7 @@
                 <td>alle ore {{p.ora}}</td>
                 <td> per {{p.tipoDiServizio}}</td>
                 <td>
-                    <button class="btn btn-warning" (click)="modifica(p)">Modifica</button>
+                    <button class="btn btn-warning"  (click)="modifica(p)">Modifica</button>
                 </td>
                 <td>
                     <button class="btn btn-danger" (click)="elimina(p)">Elimina</button>
