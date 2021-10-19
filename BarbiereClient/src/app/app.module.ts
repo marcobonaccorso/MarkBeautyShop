@@ -20,6 +20,7 @@ import { TaglioPiegaDonnaComponent } from './taglio-piega-donna/taglio-piega-don
 import { TaglioUomoComponent } from './taglio-uomo/taglio-uomo.component';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TaglioUomoComponent
   ],
   imports: [
+    MatSliderModule, //angular material
     BrowserModule,
     CommonModule,
     ToastrModule.forRoot(), // ToastrModule added

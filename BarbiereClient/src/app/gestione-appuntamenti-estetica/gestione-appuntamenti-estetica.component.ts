@@ -230,7 +230,6 @@ export class GestioneAppuntamentiEsteticaComponent implements OnInit {
       this.staiEliminando = false;
       this.showDel = false;
       this.showNoDel = false;
-      // this.showSearch = true;
       this.search = "";
     }
   }
