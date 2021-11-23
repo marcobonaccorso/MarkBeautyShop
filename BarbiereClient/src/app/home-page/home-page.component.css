@@ -22,9 +22,44 @@ td {
     background-color: rgb(255, 255, 255);
 }
 
+tfoot{
+    text-align: center;
+}
+
 h1,h2,h3,h4 {
     font-family: 'Lobster', cursive;
     color: black;
     font: bold;
 }
 
+.HeadOfHeader{
+    margin: auto;
+}
+section{
+    background-color: rgb(162, 240, 240);
+    text-align: center;
+    border: 10px solid rgb(118, 118, 221);
+}
+main{
+    padding: 5px;
+    background-color: rgb(162, 240, 240);
+    text-align: center;
+    border: 10px solid rgb(118, 118, 221);
+
+}
+
+aside{
+    padding: 5px;
+    background-color: rgb(162, 240, 240);
+    text-align: center;
+    border: 10px solid rgb(118, 118, 221);
+
+}
+
+.frase1{
+    float: left;
+    margin-left: 40px;
+    background-color: rgb(162, 240, 240);
+    text-align: center;
+    border: 10px solid rgb(118, 118, 221);
+}
