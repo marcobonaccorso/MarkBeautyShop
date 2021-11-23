@@ -1,6 +1,6 @@
 .nav-link{
     font-weight: bold;
-    color: white;
+    color: black;
 }
    
   table{
@@ -8,3 +8,13 @@
     margin-right: auto;
     font-style: italic;
   }
+
+  tr:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+h1,h2,h3,h4 {
+    font-family: 'Lobster', cursive;
+    color: black;
+    font: bold;
+}
