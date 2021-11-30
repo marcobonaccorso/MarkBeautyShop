@@ -13,7 +13,7 @@ th,
 td {
     padding: 8px;
     text-align: left;
-    color: black;
+    color: white;
     font: bold;
     font-family: 'Lobster', cursive;
 }
@@ -28,7 +28,7 @@ tfoot{
 
 h1,h2,h3,h4 {
     font-family: 'Lobster', cursive;
-    color: black;
+    color: white;
     font: bold;
 }
 
@@ -36,13 +36,14 @@ h1,h2,h3,h4 {
     margin: auto;
 }
 section{
-    background-color: rgb(162, 240, 240);
+    background-color: black;
+    /* color: white; */
     text-align: center;
     border: 10px solid rgb(118, 118, 221);
 }
 main{
     padding: 5px;
-    background-color: rgb(162, 240, 240);
+    background-color: black;
     text-align: center;
     border: 10px solid rgb(118, 118, 221);
 
@@ -50,7 +51,7 @@ main{
 
 aside{
     padding: 5px;
-    background-color: rgb(162, 240, 240);
+    background-color: black;
     text-align: center;
     border: 10px solid rgb(118, 118, 221);
 
@@ -59,7 +60,7 @@ aside{
 .frase1{
     float: left;
     margin-left: 40px;
-    background-color: rgb(162, 240, 240);
+    background-color: black;
     text-align: center;
     border: 10px solid rgb(118, 118, 221);
 }
