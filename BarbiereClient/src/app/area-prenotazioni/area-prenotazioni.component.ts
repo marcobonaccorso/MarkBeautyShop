@@ -5,7 +5,7 @@ import { CriterioRicercaDto } from '../entities/criterio-ricerca-dto';
 import { ListaPrenotazioniDto } from '../entities/lista-prenotazioni-dto';
 import { Prenotazione } from '../entities/prenotazione';
 import { PrenotazioneDto } from '../entities/prenotazione-dto';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-area-prenotazioni',
@@ -40,7 +40,7 @@ export class AreaPrenotazioniComponent implements OnInit {
 
   constructor(private http: HttpClient,
     private router: Router,
-    private toastr: ToastrService
+    // private toastr: ToastrService
   ) {
     this.aggiorna();
   }
@@ -88,7 +88,7 @@ export class AreaPrenotazioniComponent implements OnInit {
   }
 
   annulla() {
-    this.toastr.show('Operazione annullata.');
+    console.log('Operazione annullata.');
     console.log("siamo nello stato annulla");
     this.prenotazione = this.prenotazionePrecedente;
     this.stato = "V";
@@ -109,7 +109,7 @@ export class AreaPrenotazioniComponent implements OnInit {
   }
 
   modifica(pr: Prenotazione) {
-    this.toastr.warning('Stai modificando un dato');
+    console.log('Stai modificando un dato');
     console.log("siamo nello stato di modifica");
     this.stato = "M";
     this.prenotazione = Object.assign({}, pr);
@@ -130,7 +130,7 @@ export class AreaPrenotazioniComponent implements OnInit {
   }
 
   elimina(pre: Prenotazione) {
-    this.toastr.warning('Stai eliminando un dato');
+    console.log('Stai eliminando un dato');
     console.log("siamo nello stato elimina");
     this.stato = "R";
     this.prenotazione = pre;
@@ -213,7 +213,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     dto.prenotazioneDto = this.prenotazione;
     if (this.prenotazione.cliente == "" || this.prenotazione.dataPrenotazione == null
       || this.prenotazione.ora == "" || this.prenotazione.tipoDiServizio == "") {
-      this.toastr.error('Errore: form non compilato correttamente.');
+        console.log('Errore: form non compilato correttamente.');
       console.log("errore: form non compilato");
       this.noAdd = true;
       this.showAdd = false;
@@ -239,7 +239,7 @@ export class AreaPrenotazioniComponent implements OnInit {
             this.preloader = false;
           }
         });
-      this.toastr.success('Prenotazione effettuata.');
+        console.log('Prenotazione effettuata.');
       this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.showAdd = true;
@@ -262,7 +262,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     dto.prenotazioneDto = this.prenotazione;
     if (this.prenotazione.cliente == "" || this.prenotazione.dataPrenotazione == null
       || this.prenotazione.ora == "" || this.prenotazione.tipoDiServizio == "") {
-      this.toastr.error('Questa azione non è possibile: non puoi svuotare una o più celle e salvare. Premi annulla per proseguire');
+        console.log('Questa azione non è possibile: non puoi svuotare una o più celle e salvare. Premi annulla per proseguire');
       console.log("errore: impossibile modificare");
       this.noMod = true;
       this.preloader = false;
@@ -288,7 +288,7 @@ export class AreaPrenotazioniComponent implements OnInit {
             this.preloader = false;
           }
         });
-      this.toastr.success('Modifica salvata correttamente.');
+        console.log('Modifica salvata correttamente.');
       this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.preloader = false;
@@ -316,7 +316,7 @@ export class AreaPrenotazioniComponent implements OnInit {
         this.stato = "V";
         this.preloader = false;
       });
-    this.toastr.success('Dato eliminato correttamente.');
+      console.log('Dato eliminato correttamente.');
     this.aggiorna();
     this.prenotazione = new Prenotazione();
     this.preloader = false;
@@ -341,7 +341,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     criterio.stringa = this.search;
     if (this.search == "") {
       console.log("errore:campo di ricerca vuoto");
-      this.toastr.error('Errore: il campo di ricerca è vuoto.');
+      console.log('Errore: il campo di ricerca è vuoto.');
       this.aggiorna();
       this.showScelta = true;
       this.preloader = false;

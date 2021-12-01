@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ListaProdottiCapelliDto } from '../entities/lista-prodotti-capelli-dto';
 import { ProdottoCapelli } from '../entities/prodotto-capelli';
-import { ToastrService } from 'ngx-toastr';
 import { ProdottoCapelliDto } from '../entities/prodotto-capelli-dto';
 import { RicercaProdottoDto } from '../entities/ricerca-prodotto-dto';
 
@@ -40,7 +39,6 @@ export class ListaProdottiComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private toastr: ToastrService
   ) {
     this.aggiorna();
   }
@@ -81,7 +79,7 @@ export class ListaProdottiComponent implements OnInit {
     console.log("siamo nello stato annulla");
     this.prodotto = this.prodottoPrecedente;
     this.stato = "V";
-    this.toastr.show('operazione annullata.');
+    console.log('operazione annullata.');
     this.noAdd = false;
     this.showAdd = false;
     this.showAdd = false;
@@ -100,7 +98,7 @@ export class ListaProdottiComponent implements OnInit {
   modifica(pr: ProdottoCapelli) {
     console.log("siamo nello stato di modifica");
     this.stato = "M";
-    this.toastr.warning('Stai modificando un dato');
+    console.log('Stai modificando un dato');
     this.prodotto = Object.assign({}, pr);
     this.prodottoPrecedente = pr;
     this.showAdd = false;
@@ -135,7 +133,7 @@ export class ListaProdottiComponent implements OnInit {
   }
 
   elimina(pre: ProdottoCapelli) {
-    this.toastr.warning('Stai eliminando un dato');
+    console.log('Stai eliminando un dato');
     this.stato = "R";
     this.prodotto = pre;
     this.prodottoPrecedente = pre;
@@ -157,7 +155,7 @@ export class ListaProdottiComponent implements OnInit {
     let dto = new ProdottoCapelliDto();
     dto.prodottoCapelliDto = this.prodotto;
     if (this.prodotto.nome == "" || this.prodotto.prezzo == null) {
-      this.toastr.error('errore: form non compilato correttamente');
+      console.log('errore: form non compilato correttamente');
       console.log("errore: form non compilato correttamente");
       this.noAdd = true;
       this.showAdd = false;
@@ -176,7 +174,7 @@ export class ListaProdottiComponent implements OnInit {
           this.prodotti = p.listaProdottiCapelliDto
         );
       this.prodotto = new ProdottoCapelli();
-      this.toastr.success('Prodotto aggiunto con successo');
+      console.log('Prodotto aggiunto con successo');
       this.showAdd = true;
       this.noAdd = false;
       this.showDel = false;
@@ -210,7 +208,7 @@ export class ListaProdottiComponent implements OnInit {
     this.staiModificando = false;
     this.staiEliminando = false;
     this.showDel = true;
-    this.toastr.error('prodotto eliminato con successo');
+    console.log('prodotto eliminato con successo');
     this.noAdd = false;
     this.showNoDel = false;
     this.noSearch = false;
@@ -225,7 +223,7 @@ export class ListaProdottiComponent implements OnInit {
     dto.prodottoCapelliDto = this.prodotto;
     if (this.prodotto.nome == "" || this.prodotto.prezzo == null) {
       console.log("errore: impossibile modificare se il form è vuoto.");
-      this.toastr.error('errore: Non puoi svuotare uno o più campi e salvare. Premi annulla per proseguire.');
+      console.log('errore: Non puoi svuotare uno o più campi e salvare. Premi annulla per proseguire.');
       this.noMod = true;
       this.preloader = false;
       this.showMod = false;
@@ -248,7 +246,7 @@ export class ListaProdottiComponent implements OnInit {
       this.prodotto = new ProdottoCapelli();
       this.aggiorna();
       this.preloader = false;
-      this.toastr.success('operazione avvenuta con successo');
+      console.log('operazione avvenuta con successo');
       this.showMod = true;
       this.noMod = false;
       this.noAdd = false;
@@ -268,7 +266,7 @@ export class ListaProdottiComponent implements OnInit {
     let ricercaProdotto = new RicercaProdottoDto();
     ricercaProdotto.ricercaProdottoDto = this.search;
     if (this.search == "") {
-      this.toastr.error('errore: il campo di ricerca è vuoto');
+      console.log('errore: il campo di ricerca è vuoto');
       console.log("errore:campo di ricerca vuoto");
       this.noSearch = true; //messaggio errore
       this.preloader = false;
@@ -293,7 +291,7 @@ export class ListaProdottiComponent implements OnInit {
         });
       this.prodotto = new ProdottoCapelli();
       this.preloader = false;
-      this.toastr.success('ricerca avvenuta con successo');
+      console.log('ricerca avvenuta con successo');
       this.preloader = false;
       this.showAdd = false;
       this.showNoMod = false;

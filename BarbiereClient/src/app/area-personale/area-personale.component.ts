@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { Appuntamento } from '../entities/appuntamento';
 import { AppuntamentoDto } from '../entities/appuntamento-dto';
 import { ListaAppuntamentiDto } from '../entities/lista-appuntamenti-dto';
@@ -20,7 +19,7 @@ export class AreaPersonaleComponent implements OnInit {
   constructor(
     private http: HttpClient,
      private router: Router,
-     private toastr: ToastrService
+    //  private toastr: ToastrService
      ) {
     this.aggiorna();
   }

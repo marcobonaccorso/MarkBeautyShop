@@ -19,7 +19,7 @@ import { AreaColoriComponent } from './area-colori/area-colori.component';
 import { TaglioPiegaDonnaComponent } from './taglio-piega-donna/taglio-piega-donna.component';
 import { TaglioUomoComponent } from './taglio-uomo/taglio-uomo.component';
 import { CommonModule } from '@angular/common';
-import { ToastrModule } from 'ngx-toastr';
+// import { ToastrModule } from 'ngx-toastr';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
@@ -44,7 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSliderModule, //angular material
     BrowserModule,
     CommonModule,
-    ToastrModule.forRoot(), // ToastrModule added
+    // ToastrModule.forRoot(), // ToastrModule added
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
