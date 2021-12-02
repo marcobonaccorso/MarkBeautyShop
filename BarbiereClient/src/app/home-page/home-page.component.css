@@ -44,21 +44,25 @@ section{
     background-color: black;
     /* color: white; */
     text-align: center;
-    border: 10px solid rgb(118, 118, 221);
+    border: 10px outset silver;
 }
 main{
     padding: 5px;
     background-color: black;
     text-align: center;
-    border: 10px solid rgb(118, 118, 221);
+    border: 10px outset silver;
 
+}
+
+.container-fluid{
+    background-color: rgb(230, 219, 219);
 }
 
 aside{
     padding: 5px;
     background-color: black;
     text-align: center;
-    border: 10px solid rgb(118, 118, 221);
+    border: 10px outset silver;
 
 }
 
@@ -67,5 +71,24 @@ aside{
     margin-left: 40px;
     background-color: black;
     text-align: center;
-    border: 10px solid rgb(118, 118, 221);
+    border: 10px outset silver;
+}
+
+.DescrizioneOrari{
+    background-color: black;
+    /* color: white; */
+    text-align: center;
+    border: 10px outset silver;
+}
+
+.immaginePole{
+    border: 10px outset silver;
+    padding-left: 10px;
+}
+
+.sloganDue{
+    background-color: black;
+    /* color: white; */
+    text-align: center;
+    border: 10px outset silver;
 }
