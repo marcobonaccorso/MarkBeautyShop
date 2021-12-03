@@ -1,8 +1,13 @@
-.nav-link{
+.container {
+    display: grid;
+    place-items: center;
+}
+
+.nav-link {
     font-weight: bold;
     color: black;
 }
-   
+
 .TabellaOrari {
     margin-left: auto;
     font-style: italic;
@@ -18,55 +23,57 @@ td {
     font-family: 'Lobster', cursive;
 }
 
-  tr:hover {
+tr:hover {
     background-color: rgb(255, 255, 255);
 }
 
-tfoot{
+tfoot {
     text-align: center;
 }
 
-h1,h2,h3,h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Lobster', cursive;
     color: white;
     font: bold;
 }
 
-.HeadOfHeader{
+.HeadOfHeader {
     margin: auto;
 }
 
-.imgSala{
+.imgSala {
     padding: 5px;
 }
 
-section{
+section {
     background-color: black;
     /* color: white; */
     text-align: center;
     border: 10px outset silver;
 }
-main{
+
+main {
     padding: 5px;
     background-color: black;
     text-align: center;
     border: 10px outset silver;
-
 }
 
-.container-fluid{
+.container-fluid {
     background-color: rgb(230, 219, 219);
 }
 
-aside{
+aside {
     padding: 5px;
     background-color: black;
     text-align: center;
     border: 10px outset silver;
-
 }
 
-.frase1{
+.frase1 {
     float: left;
     margin-left: 40px;
     background-color: black;
@@ -74,19 +81,19 @@ aside{
     border: 10px outset silver;
 }
 
-.DescrizioneOrari{
+.DescrizioneOrari {
     background-color: black;
     /* color: white; */
     text-align: center;
     border: 10px outset silver;
 }
 
-.immaginePole{
+.immaginePole {
     border: 10px outset silver;
     padding-left: 10px;
 }
 
-.sloganDue{
+.sloganDue {
     background-color: black;
     /* color: white; */
     text-align: center;
