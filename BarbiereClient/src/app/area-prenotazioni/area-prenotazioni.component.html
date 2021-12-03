@@ -31,13 +31,9 @@
     </div>
     <br>
     <div class="storia">
-        <h3> Divenuto nel corso degli anni un vero e proprio punto di riferimento per i cultori del
-            grooming, The Mark beauty shop offre servizi barba e capelli di altissima qualità. Ogni dettaglio è curato
-            per accompagnarvi in un’esperienza di taglio e rasatura autentica in un ambiente dal tono formale e vintage. 
-            Tutti i servizi proposti rappresentano la perfetta combinazione tra l’arte della rasatura italiana 
-            e le migliori tecniche provenienti da barberie americane ed inglesi.
-            The Mark's beauty shop offre inoltre ai propri clienti una linea completa di prodotti ed accessori Bullfrog
-            che contribuiscono a rendere il grooming un vero e proprio culto old school (vedere  <a href="app-lista-prodotti" style="color: black;">Sezione acquisti -> lista prodotti</a>).
+        <h3> Divenuto nel corso degli anni un vero e proprio punto di riferimento per i cultori del grooming, The Mark beauty shop offre servizi barba e capelli di altissima qualità. Ogni dettaglio è curato per accompagnarvi in un’esperienza di taglio e rasatura
+            autentica in un ambiente dal tono formale e vintage. Tutti i servizi proposti rappresentano la perfetta combinazione tra l’arte della rasatura italiana e le migliori tecniche provenienti da barberie americane ed inglesi. The Mark's beauty
+            shop offre inoltre ai propri clienti una linea completa di prodotti ed accessori Bullfrog che contribuiscono a rendere il grooming un vero e proprio culto old school (vedere <a href="app-lista-prodotti" style="color: black;">Sezione acquisti -> lista prodotti</a>).
         </h3>
     </div>
     <br> <br>
@@ -122,7 +118,7 @@
     <br>
     <hr>
     <br>
-   
+
     <div class="Contatti" *ngIf="!preloader">
         <h3> Per prenotare un appuntamento, compila il form sottostante.</h3>
     </div>
@@ -133,15 +129,28 @@
     </div> <br><br><br>
     <div class="form" *ngIf="showHidden && !preloader">
         <br> &nbsp;
-        <input type="text" [(ngModel)]="prenotazione.cliente" placeholder="inserisci nome"> &nbsp;
-        <input type="date" [(ngModel)]="prenotazione.dataPrenotazione"> &nbsp;
-        <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione"> &nbsp;
-        <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto"> &nbsp;
+        <!-- <div> -->
+        <input type="text" [(ngModel)]="prenotazione.cliente" placeholder="inserisci nome" required #validCliente="ngModel" minlength="3" maxlength="35" pattern="[a-zA-Z\s]*"> &nbsp;
+
+        <!-- <div *ngIf="validCliente.invalid" class="fieldRequired">
+
+                <div class="alert-danger" *ngIf="validCliente.errors.required">
+                    Questo campo è obbligatorio.
+                </div>
+
+            </div> -->
+
+        <!-- </div> -->
+
+        <input type="date" [(ngModel)]="prenotazione.dataPrenotazione" required placeholder="Inserisci data di prenotazione"> &nbsp;
+        <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione" required> &nbsp;
+        <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto" required minlength="6" pattern="[a-zA-Z\s]*"> &nbsp;
         <button class="btn btn-outline-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"> Prenota</button>
         <div class="Ricerca" style="float: right;" *ngIf="showScelta">
             <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
             <button class="btn btn-outline-primary" (click)="ricerca()">cerca</button>&nbsp;
-            
+            <button class="btn btn-outline-primary" (click)="aggiornaDopoRicerca()" [disabled]="stato !='S' ">Aggiorna tutto</button>&nbsp;
+
         </div>
         <br> <br> <br>
         <h2 *ngIf="messaggio">{{messaggio}}</h2>
@@ -167,7 +176,7 @@
                 <td>alle ore {{p.ora}}</td>
                 <td> per {{p.tipoDiServizio}}</td>
                 <td>
-                    <button class="btn btn-warning"  (click)="modifica(p)">Modifica</button>
+                    <button class="btn btn-warning" (click)="modifica(p)">Modifica</button>
                 </td>
                 <td>
                     <button class="btn btn-danger" (click)="elimina(p)">Elimina</button>

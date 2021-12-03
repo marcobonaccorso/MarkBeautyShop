@@ -32,7 +32,7 @@ export class AreaPrenotazioniComponent implements OnInit {
   noSearch = false; //Errore: campo di ricerca non compilato 
   notFoundSearch = false; // dato non trovato
   search = "";
-  // stati possibili: Aggiungi, Modifica, Rimozione, Visualizza, Transitorio
+  // stati possibili: Aggiungi, Modifica, Rimozione, Visualizza, Transitorio, Ricerca effettuata
   stato = "V";
   preloader = false;
   messaggio = "";
@@ -213,7 +213,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     dto.prenotazioneDto = this.prenotazione;
     if (this.prenotazione.cliente == "" || this.prenotazione.dataPrenotazione == null
       || this.prenotazione.ora == "" || this.prenotazione.tipoDiServizio == "") {
-        console.log('Errore: form non compilato correttamente.');
+      console.log('Errore: form non compilato correttamente.');
       console.log("errore: form non compilato");
       this.noAdd = true;
       this.showAdd = false;
@@ -239,7 +239,7 @@ export class AreaPrenotazioniComponent implements OnInit {
             this.preloader = false;
           }
         });
-        console.log('Prenotazione effettuata.');
+      console.log('Prenotazione effettuata.');
       this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.showAdd = true;
@@ -255,14 +255,14 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.notFoundSearch = false;
     }
   }
-  
+
   salvaModifica() {
     console.log("siamo nel metodo salvaModifica");
     let dto = new PrenotazioneDto();
     dto.prenotazioneDto = this.prenotazione;
     if (this.prenotazione.cliente == "" || this.prenotazione.dataPrenotazione == null
       || this.prenotazione.ora == "" || this.prenotazione.tipoDiServizio == "") {
-        console.log('Questa azione non è possibile: non puoi svuotare una o più celle e salvare. Premi annulla per proseguire');
+      console.log('Questa azione non è possibile: non puoi svuotare una o più celle e salvare. Premi annulla per proseguire');
       console.log("errore: impossibile modificare");
       this.noMod = true;
       this.preloader = false;
@@ -288,7 +288,7 @@ export class AreaPrenotazioniComponent implements OnInit {
             this.preloader = false;
           }
         });
-        console.log('Modifica salvata correttamente.');
+      console.log('Modifica salvata correttamente.');
       this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.preloader = false;
@@ -316,7 +316,7 @@ export class AreaPrenotazioniComponent implements OnInit {
         this.stato = "V";
         this.preloader = false;
       });
-      console.log('Dato eliminato correttamente.');
+    console.log('Dato eliminato correttamente.');
     this.aggiorna();
     this.prenotazione = new Prenotazione();
     this.preloader = false;
@@ -364,8 +364,8 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.http.post<ListaPrenotazioniDto>(this.url + "ricerca", criterio)
         .subscribe(r => this.prenotazioni = r.listaPrenotazioniDto
         );
-      this.aggiorna();
       this.prenotazione = new Prenotazione();
+    this.stato = 'S'; //stato di ricerca effettuata
       this.preloader = false;
       this.showScelta = true;
       this.showAdd = false;
@@ -386,6 +386,10 @@ export class AreaPrenotazioniComponent implements OnInit {
   }
 
   //altro
+
+  aggiornaDopoRicerca() {
+    this.aggiorna();
+  }
 
   resetPreloader() {
     console.log("metodo resetPreloader");
