@@ -149,7 +149,7 @@
         <div class="Ricerca" style="float: right;" *ngIf="showScelta">
             <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
             <button class="btn btn-outline-primary" (click)="ricerca()">cerca</button>&nbsp;
-            <button class="btn btn-outline-primary" (click)="aggiornaDopoRicerca()" [disabled]="stato !='S' ">Aggiorna tutto</button>&nbsp;
+            <button class="btn btn-primary" (click)="aggiornaDopoRicerca()" [disabled]="stato != 'S'">Aggiorna tutto</button>&nbsp;
 
         </div>
         <br> <br> <br>

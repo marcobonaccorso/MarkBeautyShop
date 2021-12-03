@@ -188,7 +188,6 @@ export class AreaPrenotazioniComponent implements OnInit {
   }
 
   ShowHidden(): void {
-    this.aggiorna();
     this.showScelta = true;
     this.showHidden = !this.showHidden;
     this.showAdd = false; //variabile che fa comparire il messaggio di ringraziamento dopo aver prenotato
@@ -388,6 +387,7 @@ export class AreaPrenotazioniComponent implements OnInit {
   //altro
 
   aggiornaDopoRicerca() {
+    this.stato="V";
     this.aggiorna();
   }
 
