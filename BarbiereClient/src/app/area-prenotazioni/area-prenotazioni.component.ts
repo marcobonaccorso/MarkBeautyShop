@@ -227,6 +227,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.noSearch = false;
       this.noMod = false;
       this.notFoundSearch = false;
+      throw new Error('Errore: form non compilato correttamente.');
     } else {
       this.http.post<ListaPrenotazioniDto>(this.url + "aggiungi"
         , dto).subscribe(c => {
@@ -276,6 +277,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.showSearch = false;
       this.noSearch = false;
       this.notFoundSearch = false;
+      // throw new Error('Errore:impossibile modificare');
     } else {
       this.http.post<ListaPrenotazioniDto>(this.url + "modificaPrenotazione"
         , dto).subscribe(c => {
