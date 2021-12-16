@@ -366,7 +366,7 @@ export class AreaPrenotazioniComponent implements OnInit {
         .subscribe(r => this.prenotazioni = r.listaPrenotazioniDto
         );
       this.prenotazione = new Prenotazione();
-    this.stato = 'S'; //stato di ricerca effettuata
+      this.stato = 'S'; //stato di ricerca effettuata
       this.preloader = false;
       this.showScelta = true;
       this.showAdd = false;
@@ -389,7 +389,7 @@ export class AreaPrenotazioniComponent implements OnInit {
   //altro
 
   aggiornaDopoRicerca() {
-    this.stato="V";
+    this.stato = "V";
     this.aggiorna();
   }
 
