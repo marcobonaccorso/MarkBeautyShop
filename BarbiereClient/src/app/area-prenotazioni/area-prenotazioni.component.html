@@ -1,12 +1,6 @@
-<!-- <button class="btn btn-primary" (click)="indietro()">Indietro</button> <br> <br> -->
-<!-- <div class="topnav" style="text-align: center;">
-    <a href="app-home-page"> Torna alla HomePage</a>
-    <a href="app-lista-prodotti">Vedi la lista dei prodotti</a>
-</div> -->
+<div class="container-fluid">
 
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -20,249 +14,249 @@
                 </li>
             </ul>
         </div>
+    </nav>
+
+    <br><br>
+
+
+    <header *ngIf="!preloader">
+        <div class="HeadOfHeader" *ngIf="!preloader">
+            <h1>MARK'S BEAUTY SHOP</h1>
+            <h1>Area maschile</h1>
+        </div>
+    </header>
+    <div class="logo" *ngIf="!preloader">
+        <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo sinistro" style="float: left">
+        <img src="https://image.freepik.com/premium-vector/workplace-beauty-salon-interior-horizontal_48369-23905.jpg" class="img-fluid" alt="immagine sala">
+        <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo destro" style="float:right">
     </div>
-</nav>
-
-<br><br>
-
-
-<header *ngIf="!preloader">
-    <div class="HeadOfHeader" *ngIf="!preloader">
-        <h1>MARK'S BEAUTY SHOP</h1>
-        <h1>Area maschile</h1>
-    </div>
-</header>
-<div class="logo" *ngIf="!preloader">
-    <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo sinistro" style="float: left">
-    <img src="https://image.freepik.com/premium-vector/workplace-beauty-salon-interior-horizontal_48369-23905.jpg" class="img-fluid" alt="immagine sala">
-    <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo destro" style="float:right">
-</div>
-<br> <br>
-<div class="intestazione" *ngIf="!preloader">
-    <strong>
+    <br> <br>
+    <div class="intestazione" *ngIf="!preloader">
+        <strong>
             <h1>The Mark's Barber Shop offre i seguenti trattamenti: </h1>
         </strong>
-    <h1> <strong> Attenzione: alcune celle della tabella sono interattive,fai click su di esse per consultare i
+        <h1> <strong> Attenzione: alcune celle della tabella sono interattive,fai click su di esse per consultare i
                 contenuti!</strong></h1>
-</div>
-<br>
-<div class="storia">
-    <h3> Divenuto nel corso degli anni un vero e proprio punto di riferimento per i cultori del grooming, The Mark beauty shop offre servizi barba e capelli di altissima qualità. Ogni dettaglio è curato per accompagnarvi in un’esperienza di taglio e rasatura
-        autentica in un ambiente dal tono formale e vintage. Tutti i servizi proposti rappresentano la perfetta combinazione tra l’arte della rasatura italiana e le migliori tecniche provenienti da barberie americane ed inglesi. The Mark's beauty shop
-        offre inoltre ai propri clienti una linea completa di prodotti ed accessori Bullfrog che contribuiscono a rendere il grooming un vero e proprio culto old school (vedere <a href="app-lista-prodotti" style="color: black;">Sezione acquisti -> lista prodotti</a>).
-    </h3>
-</div>
-<br> <br>
-<table class="table-dark" *ngIf="!preloader">
-    <tr>
-        <td>servizio</td>
-        <td>prezzo</td>
-    </tr>
-    <tr>
-        <td><button class="btn btn-link" (click)="Taglio()" style="color: black;">Taglio</button></td>
-        <td>20€</td>
-    </tr>
-    <tr>
-        <td>Taglio bimbo (fino a 12 anni)</td>
-        <td>15€</td>
-    </tr>
-    <tr>
-        <td> Taglio + shampoo</td>
-        <td>22€</td>
-    </tr>
-    <tr>
-        <td> Rasatura capelli a macchinetta</td>
-        <td>10€</td>
-    </tr>
-    <tr>
-        <td>
-            Rasatura capelli a lametta
-        </td>
-        <td>
-            12€
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Rasatura barba a lametta
-        </td>
-        <td>
-            8€
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Sfoltitura barba
-        </td>
-        <td>
-            7€
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Trattamento Barba
-        </td>
-        <td>
-            10€
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Shampoo
-        </td>
-        <td>
-            5€
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Disegno sopracciglie
-        </td>
-        <td>
-            5€
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Trattamento sopracciglia
-        </td>
-        <td>
-            5€
-        </td>
-    </tr>
-</table>
-<br>
-<hr>
-<br>
-
-<div class="Contatti" *ngIf="!preloader">
-    <h3> Per prenotare un appuntamento, compila il form sottostante.</h3>
-</div>
-<!-- Area Prenotazioni-->
-<div class="BottonePrenotaAppuntamento" *ngIf="!preloader">
-    <br> <br> &nbsp;<button class="btn btn-primary" (click)="ShowHidden()">Clicca qui per compilare il form.</button>
-</div> <br><br><br>
-<div class="form" *ngIf="showHidden && !preloader">
-    <br> &nbsp;
-    <input type="text" [(ngModel)]="prenotazione.cliente" placeholder="inserisci nome" required #validCliente="ngModel" minlength="3" maxlength="35" pattern="[a-zA-Z\s]*"> &nbsp;
-
-    <input type="date" [(ngModel)]="prenotazione.dataPrenotazione" required placeholder="Inserisci data di prenotazione"> &nbsp;
-
-    <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione" required> &nbsp;
-
-    <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto" required minlength="6" pattern="[a-zA-Z\s]*"> &nbsp;
-
-    <button class="btn btn-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"><i class="fa fa-plus"></i> Prenota</button> &nbsp;
-    <button class="btn btn-info" (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i> Reset</button> &nbsp;
-
-
-
-    <div class="Ricerca" style="float: right;" *ngIf="showScelta">
-
-        <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
-
-        <button class="btn btn-primary" (click)="ricerca()"><i class="fa fa-search"></i> Cerca</button>&nbsp;
-
-        <button class="btn btn-primary" (click)="aggiornaDopoRicerca()" [disabled]="stato != 'S'"> <i class="fa fa-refresh" aria-hidden="true"></i> Aggiorna tutto</button>&nbsp;
-
-    </div>
-
-    <br> <br> <br>
-
-    <h2 *ngIf="messaggio">{{messaggio}}</h2>
-
-
-    <div class="row">
-        <div class="col-12">
-            <div class="alert alert-success" role="alert" style="text-align: center;" *ngIf="showAdd">
-                <h3> <i class="fa fa-check"></i> Prenotazione effettuata.</h3>
-            </div>
-        </div>
-
-        <div class="col-12">
-            <div class="alert alert-danger" role="alert" *ngIf="noAdd">
-                <h3> <i class="fa fa-exclamation-triangle"></i> Errore: uno o più campi non sono stati compilati.</h3>
-            </div>
-        </div>
-
-
-
-        <div class="col-12">
-
-            <div class="alert alert-warning" *ngIf="stato=='T'"><i class="fa fa-sync"></i></div>
-
-            <div class="alert alert-success" *ngIf="showSearch">
-                <h3> <i class="fa fa-check"></i> Ricerca completata.</h3>
-            </div>
-            <div class="alert alert-danger" *ngIf="notFoundSearch">
-                <h3> <i class="fa fa-exclamation-triangle"></i> Errore: dato non trovato.</h3>
-            </div>
-            <div class="alert alert-warning" *ngIf="showMod">
-                <h3> <i class="fa fa-check"></i>Prenotazione modificata con successo.</h3>
-            </div>
-            <div class="alert alert-danger" *ngIf="showNoMod">
-                <h3> <i class="fa fa-check"></i>Operazione annullata con successo</h3>
-            </div>
-            <div class="alert alert-danger" *ngIf="noMod">
-                <h3><i class="fa fa-exclamation-triangle"></i> Errore. Impossibile effettuare questa modifica:</h3>
-                <h3>Non puoi svuotare una cella e salvare, annulla l'operazione per proseguire.</h3>
-            </div>
-            <div class="alert alert-danger" role="alert" *ngIf="noSearch">
-                <h3><i class="fa fa-exclamation-triangle"></i> La ricerca non ha prodotto nessun risultato.</h3>
-            </div>
-            <div class="alert alert-danger" *ngIf="showDel">
-                <h3> <i class="fa fa-check"></i>Prenotazione disdetta con successo.</h3>
-            </div>
-            <div class="alert alert-warning" *ngIf="staiEliminando">
-                <h3> <i class="fa fa-exclamation-triangle"></i> Stai eliminando un dato, sei sicuro di voler effettuare questa operazione?</h3>
-            </div>
-            <div class="alert alert-warning" *ngIf="staiModificando">
-                <h3> <i class="fa fa-exclamation-triangle"></i> Stai modificando un dato, sei sicuro di voler effettuare questa operazione?</h3>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="Scelta" *ngIf="!preloader">
-        <button class="btn btn-success" (click)="conferma()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'"> <i class="fa fa-check"></i> Conferma</button>
-        <button class="btn btn-danger" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'"> <i class="fa fa-window-close"></i> Annulla</button>
     </div>
     <br>
+    <div class="storia">
+        <h3> Divenuto nel corso degli anni un vero e proprio punto di riferimento per i cultori del grooming, The Mark beauty shop offre servizi barba e capelli di altissima qualità. Ogni dettaglio è curato per accompagnarvi in un’esperienza di taglio e rasatura
+            autentica in un ambiente dal tono formale e vintage. Tutti i servizi proposti rappresentano la perfetta combinazione tra l’arte della rasatura italiana e le migliori tecniche provenienti da barberie americane ed inglesi. The Mark's beauty
+            shop offre inoltre ai propri clienti una linea completa di prodotti ed accessori Bullfrog che contribuiscono a rendere il grooming un vero e proprio culto old school (vedere <a href="app-lista-prodotti" style="color: black;">Sezione acquisti -> lista prodotti</a>).
+        </h3>
+    </div>
+    <br> <br>
+    <table class="table-dark" *ngIf="!preloader">
+        <tr>
+            <td>servizio</td>
+            <td>prezzo</td>
+        </tr>
+        <tr>
+            <td><button class="btn btn-link" (click)="Taglio()" style="color: black;">Taglio</button></td>
+            <td>20€</td>
+        </tr>
+        <tr>
+            <td>Taglio bimbo (fino a 12 anni)</td>
+            <td>15€</td>
+        </tr>
+        <tr>
+            <td> Taglio + shampoo</td>
+            <td>22€</td>
+        </tr>
+        <tr>
+            <td> Rasatura capelli a macchinetta</td>
+            <td>10€</td>
+        </tr>
+        <tr>
+            <td>
+                Rasatura capelli a lametta
+            </td>
+            <td>
+                12€
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Rasatura barba a lametta
+            </td>
+            <td>
+                8€
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Sfoltitura barba
+            </td>
+            <td>
+                7€
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Trattamento Barba
+            </td>
+            <td>
+                10€
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Shampoo
+            </td>
+            <td>
+                5€
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Disegno sopracciglie
+            </td>
+            <td>
+                5€
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Trattamento sopracciglia
+            </td>
+            <td>
+                5€
+            </td>
+        </tr>
+    </table>
     <br>
-    <div class="tabella">
-        <table *ngIf="!preloader">
-            <tr>
-                <th>Cliente </th>
-                <th>Data prenotazione</th>
-                <th>Ora prenotazione</th>
-                <th>Tipo di servizio</th>
-                <th>Modifica</th>
-                <th>Elimina</th>
-            </tr>
-            <tr *ngFor="let p of prenotazioni">
-                <td>Il sig. {{p.cliente}} verrà</td>
-                <td>il giorno {{p.dataPrenotazione}}</td>
-                <td>alle ore {{p.ora}}</td>
-                <td> per {{p.tipoDiServizio}}</td>
-                <td>
+    <hr>
+    <br>
 
-                    <button class="btn btn-warning" (click)="modifica(p)">
+    <div class="Contatti" *ngIf="!preloader">
+        <h3> Per prenotare un appuntamento, compila il form sottostante.</h3>
+    </div>
+    <!-- Area Prenotazioni-->
+    <div class="BottonePrenotaAppuntamento" *ngIf="!preloader">
+        <br> <br> &nbsp;<button class="btn btn-primary" (click)="ShowHidden()">Clicca qui per compilare il form.</button>
+    </div> <br><br><br>
+    <div class="form" *ngIf="showHidden && !preloader">
+        <br> &nbsp;
+        <input type="text" [(ngModel)]="prenotazione.cliente" placeholder="inserisci nome" required #validCliente="ngModel" minlength="3" maxlength="35" pattern="[a-zA-Z\s]*"> &nbsp;
+
+        <input type="date" [(ngModel)]="prenotazione.dataPrenotazione" required placeholder="Inserisci data di prenotazione"> &nbsp;
+
+        <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione" required> &nbsp;
+
+        <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto" required minlength="6" pattern="[a-zA-Z\s]*"> &nbsp;
+
+        <button class="btn btn-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"><i class="fa fa-plus"></i> Prenota</button> &nbsp;
+        <button class="btn btn-info" (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i> Reset</button> &nbsp;
+
+
+
+        <div class="Ricerca" style="float: right;" *ngIf="showScelta">
+
+            <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
+
+            <button class="btn btn-primary" (click)="ricerca()"><i class="fa fa-search"></i> Cerca</button>&nbsp;
+
+            <button class="btn btn-primary" (click)="aggiornaDopoRicerca()" [disabled]="stato != 'S'"> <i class="fa fa-refresh" aria-hidden="true"></i> Aggiorna tutto</button>&nbsp;
+
+        </div>
+
+        <br> <br> <br>
+
+        <h2 *ngIf="messaggio">{{messaggio}}</h2>
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-success" role="alert" style="text-align: center;" *ngIf="showAdd">
+                    <h3> <i class="fa fa-check"></i> Prenotazione effettuata.</h3>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="alert alert-danger" role="alert" *ngIf="noAdd">
+                    <h3> <i class="fa fa-exclamation-triangle"></i> Errore: uno o più campi non sono stati compilati.</h3>
+                </div>
+            </div>
+
+
+
+            <div class="col-12">
+
+                <div class="alert alert-warning" *ngIf="stato=='T'"><i class="fa fa-sync"></i></div>
+
+                <div class="alert alert-success" *ngIf="showSearch">
+                    <h3> <i class="fa fa-check"></i> Ricerca completata.</h3>
+                </div>
+                <div class="alert alert-danger" *ngIf="notFoundSearch">
+                    <h3> <i class="fa fa-exclamation-triangle"></i> Errore: dato non trovato.</h3>
+                </div>
+                <div class="alert alert-warning" *ngIf="showMod">
+                    <h3> <i class="fa fa-check"></i>Prenotazione modificata con successo.</h3>
+                </div>
+                <div class="alert alert-danger" *ngIf="showNoMod">
+                    <h3> <i class="fa fa-check"></i>Operazione annullata con successo</h3>
+                </div>
+                <div class="alert alert-danger" *ngIf="noMod">
+                    <h3><i class="fa fa-exclamation-triangle"></i> Errore. Impossibile effettuare questa modifica:</h3>
+                    <h3>Non puoi svuotare una cella e salvare, annulla l'operazione per proseguire.</h3>
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="noSearch">
+                    <h3><i class="fa fa-exclamation-triangle"></i> La ricerca non ha prodotto nessun risultato.</h3>
+                </div>
+                <div class="alert alert-danger" *ngIf="showDel">
+                    <h3> <i class="fa fa-check"></i>Prenotazione disdetta con successo.</h3>
+                </div>
+                <div class="alert alert-warning" *ngIf="staiEliminando">
+                    <h3> <i class="fa fa-exclamation-triangle"></i> Stai eliminando un dato, sei sicuro di voler effettuare questa operazione?</h3>
+                </div>
+                <div class="alert alert-warning" *ngIf="staiModificando">
+                    <h3> <i class="fa fa-exclamation-triangle"></i> Stai modificando un dato, sei sicuro di voler effettuare questa operazione?</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="Scelta" *ngIf="!preloader">
+            <button class="btn btn-success" (click)="conferma()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'"> <i class="fa fa-check"></i> Conferma</button>
+            <button class="btn btn-danger" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'"> <i class="fa fa-window-close"></i> Annulla</button>
+        </div>
+        <br>
+        <br>
+        <div class="tabella">
+            <table *ngIf="!preloader">
+                <tr>
+                    <th>Cliente </th>
+                    <th>Data prenotazione</th>
+                    <th>Ora prenotazione</th>
+                    <th>Tipo di servizio</th>
+                    <th>Modifica</th>
+                    <th>Elimina</th>
+                </tr>
+                <tr *ngFor="let p of prenotazioni">
+                    <td>Il sig. {{p.cliente}} verrà</td>
+                    <td>il giorno {{p.dataPrenotazione}}</td>
+                    <td>alle ore {{p.ora}}</td>
+                    <td> per {{p.tipoDiServizio}}</td>
+                    <td>
+
+                        <button class="btn btn-warning" (click)="modifica(p)">
                         <i class="fa fa-edit"></i>Modifica</button>
 
-                </td>
-                <td>
-                    <i class="fas fa-trash-alt"></i>
-                    <button class="btn btn-danger" (click)="elimina(p)">
+                    </td>
+                    <td>
+                        <i class="fas fa-trash-alt"></i>
+                        <button class="btn btn-danger" (click)="elimina(p)">
                         <i class="fa fa-trash"></i>
                         Elimina</button>
-                </td>
-            </tr>
-        </table>
-    </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
-</div>
-<br> <br> <br><br><br><br><br><br> <br>
-<div *ngIf="preloader">
-    Errore: controllare il server.
-    <img src="https://acegif.com/wp-content/uploads/loading-53.gif" alt="In attesa di risposta dal server...">
+    </div>
+    <br> <br> <br><br><br><br><br><br> <br>
+    <div *ngIf="preloader">
+        Errore: controllare il server.
+        <img src="https://acegif.com/wp-content/uploads/loading-53.gif" alt="In attesa di risposta dal server...">
+    </div>
 </div>

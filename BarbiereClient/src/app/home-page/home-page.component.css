@@ -8,23 +8,25 @@
     color: black;
 }
 
-.TabellaOrari {
-    margin-left: auto;
+.Tabella-orari {
     font-style: italic;
-    margin-right: auto;
+    margin-left: 250px;
 }
 
 th,
 td {
     padding: 8px;
+    font-style: italic;
     text-align: left;
-    color: white;
+    color: black;
     font: bold;
     font-family: 'Lobster', cursive;
+    border-bottom: 7px solid rgb(0, 0, 0);
 }
 
 tr:hover {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(219, 219, 235);
+    height: 8px;
 }
 
 tfoot {
@@ -45,12 +47,11 @@ h4 {
 }
 
 .imgSala {
-    padding: 5px;
+    background-image: url('BackgroundHomePage.png');
 }
 
 section {
     background-color: black;
-    /* color: white; */
     text-align: center;
     border: 10px outset silver;
 }
@@ -60,6 +61,7 @@ main {
     background-color: black;
     text-align: center;
     border: 10px outset silver;
+    margin-right: 50px
 }
 
 .container-fluid {
@@ -83,8 +85,6 @@ aside {
 
 .DescrizioneOrari {
     background-color: black;
-    /* color: white; */
-    text-align: center;
     border: 10px outset silver;
 }
 
