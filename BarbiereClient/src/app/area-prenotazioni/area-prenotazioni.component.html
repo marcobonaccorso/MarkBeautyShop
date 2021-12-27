@@ -53,7 +53,7 @@
                         <td>prezzo</td>
                     </tr>
                     <tr>
-                        <td> <a (click)="Taglio()"> Taglio </a></td>
+                        <td class="tdTaglio"> <a href="app-taglio-uomo"> Taglio </a></td>
                         <td>20€</td>
                     </tr>
 
@@ -137,7 +137,7 @@
 
             <div class="Ricerca" style="float: right;" *ngIf="showScelta">
 
-                <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
+                <input type="text" [(ngModel)]="search" placeholder="Cerca cliente">&nbsp;&nbsp;
 
                 <button class="btn btn-primary" (click)="ricerca()"><i class="fa fa-search"></i> Cerca</button>&nbsp;
 
@@ -171,6 +171,9 @@
 
                     <div class="alert alert-success" *ngIf="showSearch">
                         <h3> <i class="fa fa-check"></i> Ricerca completata.</h3>
+                    </div>
+                    <div class="alert alert-success" *ngIf="resetted">
+                        <h3> <i class="fa fa-check"></i> Form resettato.</h3>
                     </div>
                     <div class="alert alert-danger" *ngIf="notFoundSearch">
                         <h3> <i class="fa fa-exclamation-triangle"></i> Errore: dato non trovato.</h3>

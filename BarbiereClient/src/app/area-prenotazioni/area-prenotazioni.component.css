@@ -4,7 +4,7 @@
 }
 
 .container-fluid {
-    background-color: rgb(171, 255, 255);
+    background-color: rgb(204, 204, 221);
 }
 
 header {
@@ -15,10 +15,10 @@ header {
 }
 
 .HeadOfHeader {
-    background-color: black;
+    background-color: rgb(232, 220, 220);
     color: #FFFFFF;
     text-align: center;
-    border: 10px outset silver;
+    border: 10px outset rgb(68, 208, 121);
 }
 
 body {
@@ -34,10 +34,10 @@ body {
 }
 
 .storia {
-    background-color: black;
+    background-color: rgb(232, 220, 220);
     color: white;
     text-align: center;
-    border: 10px outset silver;
+    border: 10px outset rgb(68, 208, 121);
 }
 
 th,
@@ -48,7 +48,7 @@ td {
     color: black;
     font: bold;
     font-family: 'Lobster', cursive;
-    border-bottom: 7px solid rgb(0, 0, 0);
+    border-bottom: 7px solid rgb(232, 49, 49);
 }
 
 tr:hover {
@@ -62,7 +62,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: white;
+    color: black;
     font-family: 'Lobster', cursive;
     font: bold;
 }
@@ -90,17 +90,17 @@ table {
 }
 
 .intestazione {
-    background-color: black;
+    background-color: rgb(232, 220, 220);
     color: #FFFFFF;
     text-align: center;
-    border: 10px outset silver;
+    border: 10px outset rgb(68, 208, 121);
 }
 
 .Contatti {
-    background-color: black;
-    color: #FFFFFF;
+    background-color: rgb(232, 220, 220);
+    color: black;
     text-align: center;
-    border: 10px outset silver;
+    border: 10px outset rgb(68, 208, 121);
 }
 
 .Scelta {

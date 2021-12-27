@@ -30,7 +30,7 @@ export class AreaPrenotazioniComponent implements OnInit {
   showNoDel = false; //eliminazione annullata
   showSearch = false; //ricerca effettuata
   noSearch = false; //Errore: campo di ricerca non compilato 
-  resetted=false; //se true, il form viene resettato
+  resetted = false; //se true, il form viene resettato
   notFoundSearch = false; // dato non trovato
   search = "";
   // stati possibili: Aggiungi, Modifica, Rimozione, Visualizza, Transitorio, Ricerca effettuata,reset
@@ -49,21 +49,11 @@ export class AreaPrenotazioniComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  //rotte
-
-  indietro() {
-    this.router.navigateByUrl("/app-home-page");
-  }
-
-  Taglio() {
-    this.router.navigateByUrl("/app-taglio-uomo");
-  }
-
   //stati
 
   conferma() {
     console.log("siamo in conferma");
-    this.resetted=false;
+    this.resetted = false;
     this.showScelta = false;
     this.showHidden = true;
     this.noAdd = false;
@@ -73,6 +63,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.noMod = false;
     this.noSearch = false;
     this.notFoundSearch = false;
+    this.resetted = false;
     this.resetPreloader();
     switch (this.stato) {
       case "A":
@@ -107,6 +98,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.noSearch = false;
     this.showSearch = false;
     this.notFoundSearch = false;
+    this.resetted = false;
     this.prenotazione = new Prenotazione();
   }
 
@@ -129,6 +121,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showSearch = false;
     this.noSearch = false;
     this.notFoundSearch = false;
+    this.resetted = false;
   }
 
   elimina(pre: Prenotazione) {
@@ -150,6 +143,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showSearch = false;
     this.noSearch = false;
     this.notFoundSearch = false;
+    this.resetted = false;
   }
 
   aggiungi() {
@@ -169,6 +163,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showSearch = false;
     this.noSearch = false;
     this.notFoundSearch = false;
+    this.resetted = false;
   }
 
   //bottoni
@@ -187,7 +182,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.noSearch = false;
     this.noMod = false;
     this.notFoundSearch = false;
-    
+
   }
 
   ShowHidden(): void {
@@ -229,6 +224,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.preloader = false;
       this.showSearch = false;
       this.noSearch = false;
+      this.resetted = false;
       this.noMod = false;
       this.notFoundSearch = false;
       throw new Error('Errore: form non compilato correttamente.');
@@ -247,6 +243,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.aggiorna();
       this.prenotazione = new Prenotazione();
       this.showAdd = true;
+      this.resetted = false;
       this.noAdd = false;
       this.showDel = false;
       this.showNoDel = false;
@@ -262,8 +259,19 @@ export class AreaPrenotazioniComponent implements OnInit {
 
   resetForm() {
     this.prenotazione = new Prenotazione();
-    this.resetted=true;
-    this.aggiorna();
+    this.resetted = true;
+    this.showAdd = false;
+    this.noAdd = false;
+    this.showDel = false;
+    this.showMod = false;
+    this.noMod = false;
+    this.staiModificando = false;
+    this.staiEliminando = false;
+    this.showNoMod = false;
+    this.showNoDel = false;
+    this.showSearch = false;
+    this.noSearch = false;
+    this.notFoundSearch = false;
   }
 
   salvaModifica() {
@@ -277,6 +285,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.noMod = true;
       this.preloader = false;
       this.showMod = false;
+      this.resetted = false;
       this.showScelta = false;
       this.noAdd = false;
       this.staiModificando = false;
@@ -308,6 +317,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.noAdd = false;
       this.staiModificando = false;
       this.staiEliminando = false;
+      this.resetted = false;
       this.showNoMod = false;
       this.showDel = false;
       this.showNoDel = false;
@@ -343,6 +353,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.noSearch = false;
     this.showSearch = false;
     this.notFoundSearch = false;
+    this.resetted = false;
   }
 
 
@@ -370,6 +381,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.showSearch = false;
       this.notFoundSearch = false;
       this.search = "";
+      this.resetted = false;
     }
     else {
       this.http.post<ListaPrenotazioniDto>(this.url + "ricerca", criterio)
@@ -387,6 +399,7 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.staiEliminando = false;
       this.showDel = false;
       this.noAdd = false;
+      this.resetted = false;
       this.showNoDel = false;
       this.showSearch = true;
       this.noSearch = false;
@@ -408,6 +421,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.aggiorna();
     this.preloader = true;
     this.messaggio = "";
+    this.resetted = false;
     this.noMod = false;
     this.showScelta = true;
     this.showSearch = false;
