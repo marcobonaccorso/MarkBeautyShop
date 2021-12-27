@@ -1,8 +1,31 @@
 <!-- <button class="btn btn-primary" (click)="indietro()">Indietro</button> <br> <br> -->
-<div class="topnav" style="text-align: center;">
+<!-- <div class="topnav" style="text-align: center;">
     <a href="app-home-page"> Torna alla HomePage</a>
     <a href="app-lista-prodotti">Vedi la lista dei prodotti</a>
-</div>
+</div> -->
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="app-home-page"><i class="fa fa-home"></i> Torna alla home page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="app-lista-prodotti"> <i class="fa fa-cart-plus"></i> Vedi la lista dei prodotti</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br><br>
+
+
 <header *ngIf="!preloader">
     <div class="HeadOfHeader" *ngIf="!preloader">
         <h1>MARK'S BEAUTY SHOP</h1>
@@ -117,42 +140,35 @@
 </div>
 <!-- Area Prenotazioni-->
 <div class="BottonePrenotaAppuntamento" *ngIf="!preloader">
-    <br> <br> &nbsp;<button class="btn btn-primary" (click)="ShowHidden()">Clicca qui per compilare il
-            form.</button>
+    <br> <br> &nbsp;<button class="btn btn-primary" (click)="ShowHidden()">Clicca qui per compilare il form.</button>
 </div> <br><br><br>
 <div class="form" *ngIf="showHidden && !preloader">
     <br> &nbsp;
-    <!-- <div> -->
     <input type="text" [(ngModel)]="prenotazione.cliente" placeholder="inserisci nome" required #validCliente="ngModel" minlength="3" maxlength="35" pattern="[a-zA-Z\s]*"> &nbsp;
 
-    <!-- <div *ngIf="validCliente.invalid" class="fieldRequired">
-
-                <div class="alert-danger" *ngIf="validCliente.errors.required">
-                    Questo campo è obbligatorio.
-                </div>
-
-            </div> -->
-
-    <!-- </div> -->
-
     <input type="date" [(ngModel)]="prenotazione.dataPrenotazione" required placeholder="Inserisci data di prenotazione"> &nbsp;
+
     <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione" required> &nbsp;
+
     <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto" required minlength="6" pattern="[a-zA-Z\s]*"> &nbsp;
-    <button class="btn btn-outline-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'">
-        <i class="fa fa-plus"></i>
-        Prenota</button>
+
+    <button class="btn btn-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"><i class="fa fa-plus"></i> Prenota</button> &nbsp;
+    <button class="btn btn-info" (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i> Reset</button> &nbsp;
+
+
 
     <div class="Ricerca" style="float: right;" *ngIf="showScelta">
 
         <input type="text" [(ngModel)]="search" placeholder="ricerca">&nbsp;&nbsp;
 
-        <button class="btn btn-outline-primary" (click)="ricerca()">
-            <i class="fa fa-search"></i>
-            cerca</button>&nbsp;
-        <button class="btn btn-primary" (click)="aggiornaDopoRicerca()" [disabled]="stato != 'S'">Aggiorna tutto</button>&nbsp;
+        <button class="btn btn-primary" (click)="ricerca()"><i class="fa fa-search"></i> Cerca</button>&nbsp;
+
+        <button class="btn btn-primary" (click)="aggiornaDopoRicerca()" [disabled]="stato != 'S'"> <i class="fa fa-refresh" aria-hidden="true"></i> Aggiorna tutto</button>&nbsp;
 
     </div>
+
     <br> <br> <br>
+
     <h2 *ngIf="messaggio">{{messaggio}}</h2>
 
 
@@ -213,34 +229,37 @@
     </div>
     <br>
     <br>
-    <table class="" *ngIf="!preloader">
-        <tr>
-            <th>Cliente </th>
-            <th>Data prenotazione</th>
-            <th>Ora prenotazione</th>
-            <th>Tipo di servizio</th>
-            <th>Modifica</th>
-            <th>Elimina</th>
-        </tr>
-        <tr *ngFor="let p of prenotazioni">
-            <td>Il sig. {{p.cliente}} verrà</td>
-            <td>il giorno {{p.dataPrenotazione}}</td>
-            <td>alle ore {{p.ora}}</td>
-            <td> per {{p.tipoDiServizio}}</td>
-            <td>
+    <div class="tabella">
+        <table *ngIf="!preloader">
+            <tr>
+                <th>Cliente </th>
+                <th>Data prenotazione</th>
+                <th>Ora prenotazione</th>
+                <th>Tipo di servizio</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
+            </tr>
+            <tr *ngFor="let p of prenotazioni">
+                <td>Il sig. {{p.cliente}} verrà</td>
+                <td>il giorno {{p.dataPrenotazione}}</td>
+                <td>alle ore {{p.ora}}</td>
+                <td> per {{p.tipoDiServizio}}</td>
+                <td>
 
-                <button class="btn btn-warning" (click)="modifica(p)">
-                    <i class="fa fa-edit"></i>Modifica</button>
+                    <button class="btn btn-warning" (click)="modifica(p)">
+                        <i class="fa fa-edit"></i>Modifica</button>
 
-            </td>
-            <td>
-                <i class="fas fa-trash-alt"></i>
-                <button class="btn btn-danger" (click)="elimina(p)">
-                    <i class="fa fa-trash"></i>
-                    Elimina</button>
-            </td>
-        </tr>
-    </table>
+                </td>
+                <td>
+                    <i class="fas fa-trash-alt"></i>
+                    <button class="btn btn-danger" (click)="elimina(p)">
+                        <i class="fa fa-trash"></i>
+                        Elimina</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
 </div>
 <br> <br> <br><br><br><br><br><br> <br>
 <div *ngIf="preloader">

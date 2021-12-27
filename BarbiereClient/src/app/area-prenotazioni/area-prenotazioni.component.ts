@@ -30,9 +30,10 @@ export class AreaPrenotazioniComponent implements OnInit {
   showNoDel = false; //eliminazione annullata
   showSearch = false; //ricerca effettuata
   noSearch = false; //Errore: campo di ricerca non compilato 
+  resetted=false; //se true, il form viene resettato
   notFoundSearch = false; // dato non trovato
   search = "";
-  // stati possibili: Aggiungi, Modifica, Rimozione, Visualizza, Transitorio, Ricerca effettuata
+  // stati possibili: Aggiungi, Modifica, Rimozione, Visualizza, Transitorio, Ricerca effettuata,reset
   stato = "V";
   preloader = false;
   messaggio = "";
@@ -62,6 +63,7 @@ export class AreaPrenotazioniComponent implements OnInit {
 
   conferma() {
     console.log("siamo in conferma");
+    this.resetted=false;
     this.showScelta = false;
     this.showHidden = true;
     this.noAdd = false;
@@ -185,6 +187,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.noSearch = false;
     this.noMod = false;
     this.notFoundSearch = false;
+    
   }
 
   ShowHidden(): void {
@@ -212,7 +215,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     dto.prenotazioneDto = this.prenotazione;
     if (this.prenotazione.cliente == "" || this.prenotazione.dataPrenotazione == null
       || this.prenotazione.ora == "" || this.prenotazione.tipoDiServizio == "") {
-        // this.stato='T';
+      // this.stato='T';
       console.log('Errore: form non compilato correttamente.');
       console.log("errore: form non compilato");
       this.noAdd = true;
@@ -255,6 +258,12 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.noMod = false;
       this.notFoundSearch = false;
     }
+  }
+
+  resetForm() {
+    this.prenotazione = new Prenotazione();
+    this.resetted=true;
+    this.aggiorna();
   }
 
   salvaModifica() {
