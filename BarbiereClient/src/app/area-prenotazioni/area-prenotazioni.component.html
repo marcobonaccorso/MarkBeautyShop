@@ -16,9 +16,6 @@
         </div>
     </nav>
 
-    <br><br>
-
-
     <header *ngIf="!preloader">
         <div class="HeadOfHeader" *ngIf="!preloader">
             <h1>MARK'S BEAUTY SHOP</h1>
@@ -30,104 +27,83 @@
         <img src="https://image.freepik.com/premium-vector/workplace-beauty-salon-interior-horizontal_48369-23905.jpg" class="img-fluid" alt="immagine sala">
         <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo destro" style="float:right">
     </div>
-    <br> <br>
-    <div class="intestazione" *ngIf="!preloader">
-        <strong>
-            <h1>The Mark's Barber Shop offre i seguenti trattamenti: </h1>
-        </strong>
-        <h1> <strong> Attenzione: alcune celle della tabella sono interattive,fai click su di esse per consultare i
-                contenuti!</strong></h1>
-    </div>
     <br>
-    <div class="storia">
-        <h3> Divenuto nel corso degli anni un vero e proprio punto di riferimento per i cultori del grooming, The Mark beauty shop offre servizi barba e capelli di altissima qualità. Ogni dettaglio è curato per accompagnarvi in un’esperienza di taglio e rasatura
-            autentica in un ambiente dal tono formale e vintage. Tutti i servizi proposti rappresentano la perfetta combinazione tra l’arte della rasatura italiana e le migliori tecniche provenienti da barberie americane ed inglesi. The Mark's beauty
-            shop offre inoltre ai propri clienti una linea completa di prodotti ed accessori Bullfrog che contribuiscono a rendere il grooming un vero e proprio culto old school (vedere <a href="app-lista-prodotti" style="color: black;">Sezione acquisti -> lista prodotti</a>).
-        </h3>
-    </div>
-    <br> <br>
-    <table class="table-dark" *ngIf="!preloader">
-        <tr>
-            <td>servizio</td>
-            <td>prezzo</td>
-        </tr>
-        <tr>
-            <td><button class="btn btn-link" (click)="Taglio()" style="color: black;">Taglio</button></td>
-            <td>20€</td>
-        </tr>
-        <tr>
-            <td>Taglio bimbo (fino a 12 anni)</td>
-            <td>15€</td>
-        </tr>
-        <tr>
-            <td> Taglio + shampoo</td>
-            <td>22€</td>
-        </tr>
-        <tr>
-            <td> Rasatura capelli a macchinetta</td>
-            <td>10€</td>
-        </tr>
-        <tr>
-            <td>
-                Rasatura capelli a lametta
-            </td>
-            <td>
-                12€
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Rasatura barba a lametta
-            </td>
-            <td>
-                8€
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Sfoltitura barba
-            </td>
-            <td>
-                7€
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Trattamento Barba
-            </td>
-            <td>
-                10€
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Shampoo
-            </td>
-            <td>
-                5€
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Disegno sopracciglie
-            </td>
-            <td>
-                5€
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Trattamento sopracciglia
-            </td>
-            <td>
-                5€
-            </td>
-        </tr>
-    </table>
-    <br>
-    <hr>
-    <br>
+    <div class="row">
 
+        <div class="col-6">
+            <div class="intestazione" *ngIf="!preloader">
+                <strong>
+                    <h4>The Mark's Barber Shop offre i seguenti trattamenti: </h4>
+                </strong>
+                <h3> <strong> Attenzione: alcune celle della tabella sono interattive,fai click su di esse per consultare i contenuti!</strong></h3>
+            </div>
+            <br>
+            <table class="table-dark" *ngIf="!preloader">
+                <tr>
+                    <td>servizio</td>
+                    <td>prezzo</td>
+                </tr>
+                <tr>
+                    <td> <a (click)="Taglio()"> Taglio </a></td>
+                    <td>20€</td>
+                </tr>
+
+                <tr>
+                    <td> Taglio + shampoo</td>
+                    <td>22€</td>
+                </tr>
+                <tr>
+                    <td> Rasatura capelli a macchinetta</td>
+                    <td>10€</td>
+                </tr>
+                <tr>
+                    <td>
+                        Rasatura capelli a lametta
+                    </td>
+                    <td>
+                        12€
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Rasatura barba a lametta
+                    </td>
+                    <td>
+                        8€
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Sfoltitura barba
+                    </td>
+                    <td>
+                        7€
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Trattamento Barba
+                    </td>
+                    <td>
+                        10€
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div class="col-6">
+            <div class="storia">
+                <h3> Divenuto nel corso degli anni un vero e proprio punto di riferimento per i cultori del grooming, The Mark beauty shop offre servizi barba e capelli di altissima qualità. Ogni dettaglio è curato per accompagnarvi in un’esperienza di taglio
+                    e rasatura autentica in un ambiente dal tono formale e vintage. Tutti i servizi proposti rappresentano la perfetta combinazione tra l’arte della rasatura italiana e le migliori tecniche provenienti da barberie americane ed inglesi.
+                    The Mark's beauty shop offre inoltre ai propri clienti una linea completa di prodotti ed accessori Bullfrog che contribuiscono a rendere il grooming un vero e proprio culto old school.
+                </h3>
+            </div>
+        </div>
+
+    </div>
+    <br>
     <div class="Contatti" *ngIf="!preloader">
         <h3> Per prenotare un appuntamento, compila il form sottostante.</h3>
     </div>

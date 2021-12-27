@@ -1,7 +1,8 @@
-.container {
+/* .container {
     display: grid;
+    background-image: url("https://i.pinimg.com/originals/7e/fc/2c/7efc2cb33ee4eb9d7625ca1eca702506.gif");
     place-items: center;
-}
+} */
 
 .nav-link {
     font-weight: bold;
@@ -10,6 +11,7 @@
 
 .Tabella-orari {
     font-style: italic;
+    /* background-image: url("https://previews.123rf.com/images/cobalt/cobalt2006/cobalt200600044/149707680-silver-elegant-background-metallic-vector-design-.jpg"); */
     margin-left: 250px;
 }
 

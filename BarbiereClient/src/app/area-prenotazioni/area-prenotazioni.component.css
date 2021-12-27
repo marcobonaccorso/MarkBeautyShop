@@ -1,135 +1,136 @@
- header {
-     padding: 10px;
-     text-align: center;
-     background: rgb(255, 255, 255);
-     color: black;
-     font-size: 15px;
- }
- 
- .HeadOfHeader {
-     margin: auto;
-     border: 10px outset rgb(184, 31, 31);
-     background-color: rgb(161, 161, 255);
-     color: white;
-     font: bold;
- }
- 
- body {
-     font-style: italic;
-     font: bold;
-     background: rgb(255, 255, 255);
- }
- 
- .logo {
-     display: block;
-     margin: 0px auto;
-     text-align: center;
- }
- 
- .storia {
-     margin: auto;
-     border: 10px outset rgb(184, 31, 31);
-     background-color: rgb(161, 161, 255);
-     color: white;
-     font: bold;
- }
- 
- th,
- td {
-     padding: 8px;
-     font-style: italic;
-     text-align: left;
-     color: black;
-     font: bold;
-     font-family: 'Lobster', cursive;
-     border-bottom: 7px solid rgb(0, 0, 0);
- }
- 
- tr:hover {
-     background-color: rgb(219, 219, 235);
-     height: 8px;
- }
- 
- h1,
- h2,
- h3,
- h4,
- h5,
- h6 {
-     font-family: 'Lobster', cursive;
-     color: black;
-     font: bold;
- }
- 
- table {
-     margin: auto;
- }
- 
- .col-12 {
-     text-align: center;
- }
- 
- .immaginebarbiere {
-     display: block;
-     margin-left: auto;
-     margin-right: auto;
-     width: 50%;
- }
- 
- .PoleBarberGif {
-     display: block;
-     margin-left: auto;
-     margin-right: auto;
-     width: 50%;
- }
- 
- .intestazione {
-     margin: auto;
-     border: 10px outset rgb(184, 31, 31);
-     background-color: rgb(161, 161, 255);
-     color: white;
-     font: bold;
- }
- 
- .Contatti {
-     margin: auto;
-     border: 16px outset rgb(184, 31, 31);
-     background-color: rgb(161, 161, 255);
-     color: white;
-     font: bold;
-     text-align: center;
- }
- 
- .Scelta {
-     padding: 10px;
-     text-align: center;
-     color: black;
-     font-size: 15px;
- }
- 
- .Ricerca {
-     float: right;
- }
- 
- .BottonePrenotaAppuntamento {
-     text-align: center;
-     margin: auto;
- }
- 
- .BottoneTaglio {
-     border: none;
-     background-color: inherit;
-     padding: 4px 4px;
-     font-size: 13px;
-     cursor: pointer;
-     color: black;
-     font-weight: bold;
- }
- 
- hr {
-     border: 10px outset rgb(231, 9, 9);
- }
- 
- input.ng-invalid {
-     border: 3px solid red;
- }
+.nav-link {
+    font-weight: bold;
+    color: black;
+}
+
+header {
+    padding: 10px;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    color: black;
+    font-size: 15px;
+}
+
+.HeadOfHeader {
+    background-color: black;
+    color: #FFFFFF;
+    text-align: center;
+    border: 10px outset silver;
+}
+
+body {
+    font-style: italic;
+    font: bold;
+    background: rgb(255, 255, 255);
+}
+
+.logo {
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.storia {
+    background-color: black;
+    color: white;
+    text-align: center;
+    border: 10px outset silver;
+}
+
+th,
+td {
+    padding: 8px;
+    font-style: italic;
+    text-align: left;
+    color: black;
+    font: bold;
+    font-family: 'Lobster', cursive;
+    border-bottom: 7px solid rgb(0, 0, 0);
+}
+
+tr:hover {
+    background-color: rgb(219, 219, 235);
+    height: 8px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: white;
+    font-family: 'Lobster', cursive;
+    font: bold;
+}
+
+table {
+    margin: auto;
+}
+
+.col-12 {
+    text-align: center;
+}
+
+.immaginebarbiere {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.PoleBarberGif {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.intestazione {
+    background-color: black;
+    color: #FFFFFF;
+    text-align: center;
+    border: 10px outset silver;
+}
+
+.Contatti {
+    background-color: black;
+    color: #FFFFFF;
+    text-align: center;
+    border: 10px outset silver;
+}
+
+.Scelta {
+    padding: 10px;
+    text-align: center;
+    color: black;
+    font-size: 15px;
+}
+
+.Ricerca {
+    float: right;
+}
+
+.BottonePrenotaAppuntamento {
+    text-align: center;
+    margin: auto;
+}
+
+.BottoneTaglio {
+    border: none;
+    background-color: inherit;
+    padding: 4px 4px;
+    font-size: 13px;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+}
+
+
+/* hr {
+     border: 10px outset rgb(0, 0, 0);
+ } */
+
+input.ng-invalid {
+    border: 3px solid red;
+}
