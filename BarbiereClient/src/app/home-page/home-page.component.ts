@@ -9,12 +9,21 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
   storySubtitle = false;
-  englishSubtitleWomanSection=false;
+  englishSubtitleWomanSection = false;
 
   constructor(private http: HttpClient, private router: Router) { }
 
 
   ngOnInit(): void {
+  }
+
+
+  scroll() {
+    window.scrollTo({
+      top: 100,
+      left: 100,
+    });
+
   }
 
   AreaUomo() { //prenotazione appuntamento
@@ -38,9 +47,9 @@ export class HomePageComponent implements OnInit {
     this.storySubtitle = !this.storySubtitle;
   }
 
-  MostraSottotitoliDonna(){
-    this.englishSubtitleWomanSection=!this.englishSubtitleWomanSection;
+  MostraSottotitoliDonna() {
+    this.englishSubtitleWomanSection = !this.englishSubtitleWomanSection;
   }
 
-  
+
 }
