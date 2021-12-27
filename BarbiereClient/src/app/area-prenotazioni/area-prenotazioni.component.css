@@ -3,10 +3,13 @@
     color: black;
 }
 
+.container-fluid {
+    background-color: rgb(171, 255, 255);
+}
+
 header {
     padding: 10px;
     text-align: center;
-    background: rgb(255, 255, 255);
     color: black;
     font-size: 15px;
 }
