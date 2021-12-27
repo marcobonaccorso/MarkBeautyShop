@@ -212,6 +212,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     dto.prenotazioneDto = this.prenotazione;
     if (this.prenotazione.cliente == "" || this.prenotazione.dataPrenotazione == null
       || this.prenotazione.ora == "" || this.prenotazione.tipoDiServizio == "") {
+        // this.stato='T';
       console.log('Errore: form non compilato correttamente.');
       console.log("errore: form non compilato");
       this.noAdd = true;
