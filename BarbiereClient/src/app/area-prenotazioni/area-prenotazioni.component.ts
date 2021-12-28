@@ -276,6 +276,24 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.notFoundSearch = false;
   }
 
+  resetSearchForm() {
+    this.search = "";
+    this.showAdd = false;
+    this.noAdd = false;
+    this.showDel = false;
+    this.showMod = false;
+    this.noMod = false;
+    this.staiModificando = false;
+    this.staiEliminando = false;
+    this.showNoMod = false;
+    this.showNoDel = false;
+    this.showSearch = false;
+    this.noSearch = false;
+    this.notFoundSearch = false;
+    this.resetted = false;
+
+  }
+
   salvaModifica() {
     console.log("siamo nel metodo salvaModifica");
     let dto = new PrenotazioneDto();

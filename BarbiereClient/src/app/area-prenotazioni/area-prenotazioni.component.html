@@ -140,6 +140,7 @@
                 <input type="text" [(ngModel)]="search" placeholder="Cerca cliente">&nbsp;&nbsp;
 
                 <button class="btn btn-primary" (click)="ricerca()"><i class="fa fa-search"></i> Cerca</button>&nbsp;
+                <button class="btn btn-info" (click)="resetSearchForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i> Reset</button> &nbsp;
 
                 <button class="btn btn-primary" (click)="aggiornaDopoRicerca()" [disabled]="stato != 'S'"> <i class="fa fa-refresh" aria-hidden="true"></i> Aggiorna tutto</button>&nbsp;
 
@@ -170,7 +171,7 @@
                     <div class="alert alert-warning" *ngIf="stato=='T'"><i class="fa fa-sync"></i></div>
 
                     <div class="alert alert-success" *ngIf="showSearch">
-                        <h3> <i class="fa fa-check"></i> Ricerca completata.</h3>
+                        <h3> <i class="fa fa-check"></i> La ricerca ha prodotto i seguenti risultati:</h3>
                     </div>
                     <div class="alert alert-success" *ngIf="resetted">
                         <h3> <i class="fa fa-check"></i> Form resettato.</h3>
