@@ -18,7 +18,7 @@ header {
     background-color: rgb(232, 220, 220);
     color: #FFFFFF;
     text-align: center;
-    border: 10px outset rgb(68, 208, 121);
+    border: 10px outset rgb(136, 136, 136);
 }
 
 body {
@@ -37,7 +37,7 @@ body {
     background-color: rgb(232, 220, 220);
     color: white;
     text-align: center;
-    border: 10px outset rgb(68, 208, 121);
+    border: 10px outset rgb(136, 136, 136);
 }
 
 th,
@@ -93,14 +93,14 @@ table {
     background-color: rgb(232, 220, 220);
     color: #FFFFFF;
     text-align: center;
-    border: 10px outset rgb(68, 208, 121);
+    border: 10px outset rgb(136, 136, 136);
 }
 
 .Contatti {
     background-color: rgb(232, 220, 220);
     color: black;
     text-align: center;
-    border: 10px outset rgb(68, 208, 121);
+    border: 10px outset rgb(136, 136, 136);
 }
 
 .Scelta {
@@ -119,7 +119,8 @@ table {
     margin: auto;
 }
 
-.BottoneTaglio {
+
+/* .BottoneTaglio {
     border: none;
     background-color: inherit;
     padding: 4px 4px;
@@ -127,7 +128,7 @@ table {
     cursor: pointer;
     color: black;
     font-weight: bold;
-}
+} */
 
 
 /* hr {

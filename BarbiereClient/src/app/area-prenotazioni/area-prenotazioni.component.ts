@@ -181,6 +181,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showSearch = false;
     this.noSearch = false;
     this.noMod = false;
+    this.resetted = false;
     this.notFoundSearch = false;
 
   }
@@ -200,6 +201,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showSearch = false; //ricerca effettuata
     this.noSearch = false; //Errore: campo di ricerca non compilato o dato non trovato
     this.search = "";
+    this.resetted = false;
     this.notFoundSearch = false;
   }
 
@@ -281,7 +283,6 @@ export class AreaPrenotazioniComponent implements OnInit {
     if (this.prenotazione.cliente == "" || this.prenotazione.dataPrenotazione == null
       || this.prenotazione.ora == "" || this.prenotazione.tipoDiServizio == "") {
       console.log('Questa azione non è possibile: non puoi svuotare una o più celle e salvare. Premi annulla per proseguire');
-      console.log("errore: impossibile modificare");
       this.noMod = true;
       this.preloader = false;
       this.showMod = false;
@@ -296,7 +297,6 @@ export class AreaPrenotazioniComponent implements OnInit {
       this.showSearch = false;
       this.noSearch = false;
       this.notFoundSearch = false;
-      // throw new Error('Errore:impossibile modificare');
     } else {
       this.http.post<ListaPrenotazioniDto>(this.url + "modificaPrenotazione"
         , dto).subscribe(c => {
