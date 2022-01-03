@@ -18,7 +18,7 @@ header {
     background-color: rgb(232, 220, 220);
     color: #FFFFFF;
     text-align: center;
-    border: 10px outset rgb(136, 136, 136);
+    border: 10px outset rgb(58, 58, 255);
 }
 
 body {
@@ -37,7 +37,7 @@ body {
     background-color: rgb(232, 220, 220);
     color: white;
     text-align: center;
-    border: 10px outset rgb(136, 136, 136);
+    border: 10px outset rgb(58, 58, 255);
 }
 
 th,
@@ -93,14 +93,14 @@ table {
     background-color: rgb(232, 220, 220);
     color: #FFFFFF;
     text-align: center;
-    border: 10px outset rgb(136, 136, 136);
+    border: 10px outset rgb(58, 58, 255);
 }
 
 .Contatti {
     background-color: rgb(232, 220, 220);
     color: black;
     text-align: center;
-    border: 10px outset rgb(136, 136, 136);
+    border: 10px outset rgb(58, 58, 255);
 }
 
 .Scelta {

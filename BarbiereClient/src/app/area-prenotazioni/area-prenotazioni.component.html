@@ -211,35 +211,37 @@
             </div>
             <br>
             <br>
-            <div class="tabella">
-                <table *ngIf="!preloader">
-                    <tr>
-                        <th>Cliente </th>
-                        <th>Data prenotazione</th>
-                        <th>Ora prenotazione</th>
-                        <th>Tipo di servizio</th>
-                        <th>Modifica</th>
-                        <th>Elimina</th>
-                    </tr>
-                    <tr *ngFor="let p of prenotazioni">
-                        <td>Il sig. {{p.cliente}} verrà</td>
-                        <td>il giorno {{p.dataPrenotazione}}</td>
-                        <td>alle ore {{p.ora}}</td>
-                        <td> per {{p.tipoDiServizio}}</td>
-                        <td>
+            <div class="col-12">
+                <div class="tabella">
+                    <table *ngIf="!preloader">
+                        <tr>
+                            <th>Cliente </th>
+                            <th>Data prenotazione</th>
+                            <th>Ora prenotazione</th>
+                            <th>Tipo di servizio</th>
+                            <th>Modifica</th>
+                            <th>Elimina</th>
+                        </tr>
+                        <tr *ngFor="let p of prenotazioni">
+                            <td>Il sig. {{p.cliente}} verrà</td>
+                            <td>il giorno {{p.dataPrenotazione}}</td>
+                            <td>alle ore {{p.ora}}</td>
+                            <td> per {{p.tipoDiServizio}}</td>
+                            <td>
 
-                            <button class="btn btn-warning" (click)="modifica(p)">
+                                <button class="btn btn-warning" (click)="modifica(p)">
                         <i class="fa fa-edit"></i>Modifica</button>
 
-                        </td>
-                        <td>
-                            <i class="fas fa-trash-alt"></i>
-                            <button class="btn btn-danger" (click)="elimina(p)">
+                            </td>
+                            <td>
+                                <i class="fas fa-trash-alt"></i>
+                                <button class="btn btn-danger" (click)="elimina(p)">
                         <i class="fa fa-trash"></i>
                         Elimina</button>
-                        </td>
-                    </tr>
-                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
         </div>

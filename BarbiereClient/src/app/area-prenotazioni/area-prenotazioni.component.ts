@@ -85,6 +85,8 @@ export class AreaPrenotazioniComponent implements OnInit {
     console.log("siamo nello stato annulla");
     this.prenotazione = this.prenotazionePrecedente;
     this.stato = "V";
+    this.prenotazione = new Prenotazione();
+
     this.showScelta = true;
     this.noAdd = false;
     this.showAdd = false;
@@ -99,7 +101,6 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.showSearch = false;
     this.notFoundSearch = false;
     this.resetted = false;
-    this.prenotazione = new Prenotazione();
   }
 
   modifica(pr: Prenotazione) {
@@ -108,6 +109,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.stato = "M";
     this.prenotazione = Object.assign({}, pr);
     this.prenotazionePrecedente = pr;
+
     this.showAdd = false;
     this.showScelta = false;
     this.showDel = false;
@@ -130,6 +132,7 @@ export class AreaPrenotazioniComponent implements OnInit {
     this.stato = "R";
     this.prenotazione = pre;
     this.prenotazionePrecedente = pre;
+
     this.showAdd = false;
     this.staiModificando = false;
     this.staiEliminando = true;
