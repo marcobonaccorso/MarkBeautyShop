@@ -1,53 +1,96 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="sezione-donna.component.css">
+    <title>Mark'sBeauty Saloon-sezione donna</title>
 </head>
 
 <body>
-<!--     
-    <button class="btn btn-primary" (click)="indietro()" style="float: left;">Indietro</button> <br> <br> -->
-    <div class="topnav" style="text-align: center;">
-        <a href="app-home-page">Torna alla "HomePage"</a>
-        <a href="app-gestione-appuntamento-parrucchiere">Vai alla "sezione parrucchiere"</a>
-        <a href="app-gestione-appuntamenti-estetica">Vai alla "sezione estetica"</a>
-    </div>
-    <br>
-    <header>
 
-        <h1><strong>MARK'S BEAUTY SHOP</strong></h1>
-        <h2><strong>Area femminile </strong></h2>
-        <br>
-    </header>
-    <br>
-    <div class="logo">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzFH5zo9kHyd_PzruviQU3ajX2NmuG3h_40A&usqp=CAU" alt="Logo sezione femminile.">
-    </div>
-    <br>
-    <div class="slogan">
-        <h1><strong>Se la vita prende una brutta piega, fattene fare una migliore dal tuo parrucchiere!</strong></h1>
-    </div>
-    <br><br><br>
-    <div class="DescrizioneSezioneDonna">
+    <div class="container-fluid">
 
-        <h2> &nbsp;Benvenuti nella sezione femminile dell'app. Questa sezione si suddivide in due sotto sezioni: Sezione
-            Parrucchiere e Sezione estetica. Scopri i servizi che offriamo.
-        </h2>
-        <h2>Sezione femminile: per la sezione femminile sono previsti servizi parrucchieri ed estetici di ogni genere e
-            con prodotti di ottima qualità.
-            <br> Come lavoriamo? Semplice:
-            <br>- Capire bene il desiderio della cliente
-            <br>- Capire se il desiderio è apportato alla salute dei suoi capelli e alla vita che fa.
-            <br>- Studiare lo stato attuale dei suoi capelli
-            <br>- Studiare la morfologia del viso
-            <br>-Verificare insieme quale sia la strada più giusta da prendere in modo da mantenere la salute dei
-            capelli e sopratutto dare comodità e bellezza.
-           
-        </h2>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="app-home-page"><i class="fa fa-home"></i> Torna alla home page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="app-gestione-appuntamento-parrucchiere"> Vai alla sezione parrucchieri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="app-gestione-appuntamenti-estetica"> Vai alla sezione estetica</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-6">
+                <header>
+                    <h1><strong>MARK'S BEAUTY SALOON</strong></h1>
+                    <h2><strong>Area donna </strong></h2>
+                </header>
+            </div>
+            <div class="col-6">
+                <div class="logo-header">
+                    <img src="https://www.sangavinomonreale.net/wp-content/uploads/2021/04/sangavino-4.jpg" alt="logo femminile" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+        <div class="row">
+            <div class="col-4">
+                <div class="logo-sinistro">
+                    <img src="https://i.pinimg.com/originals/00/8a/1b/008a1b25580113acf5e175c6882b6a3b.jpg" alt="logo sinistro" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="logo ">
+                    <img src="https://image.freepik.com/premium-vector/workplace-beauty-salon-interior-horizontal_48369-23905.jpg" class="img-fluid" alt="Logo sezione femminile. ">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="logo-destro">
+                    <img src="https://i.pinimg.com/originals/00/8a/1b/008a1b25580113acf5e175c6882b6a3b.jpg" alt="logo sinistro" class="img-fluid">
+                </div>
+            </div>
+        </div> -->
+
+
+        <div class="DescrizioneSezioneDonna ">
+
+            <h2>Benvenuti nella sezione femminile dell'app. Questa sezione si suddivide in due sotto sezioni: Sezione Parrucchiere e Sezione estetica. Scopri i servizi che offriamo. Sezione femminile: per la sezione femminile sono previsti servizi parrucchieri
+                ed estetici di ogni genere e con prodotti di ottima qualità. Come lavoriamo? Semplice:
+            </h2>
+            <h2>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-dark">Capire bene il desiderio della cliente</li>
+                    <li class="list-group-item list-group-item-dark">Capire se il desiderio è apportato alla salute dei suoi capelli e alla vita che fa.</li>
+                    <li class="list-group-item list-group-item-dark">Studiare lo stato attuale dei suoi capelli</li>
+                    <li class="list-group-item list-group-item-dark">Studiare la morfologia del viso</li>
+                    <li class="list-group-item list-group-item-dark">Verificare insieme quale sia la strada più giusta da prendere in modo da mantenere la salute dei capelli e sopratutto dare comodità e bellezza.</li>
+                </ul>
+            </h2>
+        </div>
+
+        <div class="row" style="margin-bottom: 15px;">
+            <div class="col-4">
+                <img src="https://www.abr24.it/sito/wp-content/uploads/2020/12/parrucchiere.jpg" alt="Immagine footer 1" class="img-fluid">
+            </div>
+            <div class="col-4">
+                <img src="https://www.galatina.it/sites/default/files/preview//18104preview.jpg" alt="Immagine footer 2" class="img-fluid">
+            </div>
+            <div class="col-4">
+                <img src="https://www.methairdresser.it/wp-content/uploads/2020/05/AdobeStock_302853723.jpeg" alt="Immagine footer 3" class="img-fluid">
+            </div>
+
+        </div>
     </div>
-    <br>
-    
-   <br>
+
+
 
 </body>
 

@@ -1,98 +1,50 @@
-   
-   .topnav {
-    background-color:rgb(37, 34, 34);
-    color: white;
-    overflow: hidden;
-    text-align: center;
-    font-style: italic;
-    border: 10px outset rgb(190, 190, 190);
-  }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    font-style: italic;
-    
-    text-align: center;
-    padding: 20px 16px;
-    text-decoration: none;
-    font-size: 25px;
-  }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: #ddd;
-    text-align: center;
-    color: black;
-    font-style: italic;
-  }
-  
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    /* background-color: #bd3030; */
-    color: white;
-    font-style: italic;
-  }
-    
-
 header {
-    padding: 10px;
+    padding: 168px;
     text-align: center;
-    background-color: rgb(216, 168, 176);
-    border: 10px outset rgb(0, 0, 182);
+    background-color: rgb(204, 204, 221);
     color: black;
     font-size: 15px;
+    /* background-image: url("immagini/logoNeroSezFemm.png"); */
 }
 
-body {
+.logo-header {
+    margin-bottom: 10px;
+}
+
+.container-fluid {
+    background-color: rgb(204, 204, 221);
     font-style: italic;
     font: bold;
-    background-color: white;
-    background-image: url("https://i.pinimg.com/originals/7e/fc/2c/7efc2cb33ee4eb9d7625ca1eca702506.gif");
 }
 
 .logo {
-  display: block;
-  margin: 0px auto;
-  text-align: center;
+    margin-top: 10px;
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-.slogan{
-  text-align: center;
-  margin: auto;
-  text-align: center;
-  background-color: rgb(216, 168, 176);
-  border: 30px outset rgb(0, 0, 182);
-  color: black;
-  font: bold;
-  position: relative;
+.logo-sinistro {
+    margin-left: 50px;
+}
+
+.logo-destro {
+    margin-right: 50px;
 }
 
 .DescrizioneSezioneDonna {
-  text-align: center;
-  background-color: rgb(216, 168, 176);
-  border: 10px outset rgb(0, 0, 182);
-    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    background-color: rgb(190, 190, 216);
+    padding-bottom: 10px;
 }
-/* 
-.bottonBack {
-    position: relative;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    text-shadow: -1px -1px #000;
-    user-select: none;
-    padding: .8em 2em;
-    outline: none;
-    background-color: rgb(87, 21, 87);
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, .0) 30%, rgba(255, 255, 255, .8), rgba(255, 255, 255, .0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .5) 50%, rgba(0, 0, 0, 0) 50%);
-    background-repeat: no-repeat;
-    background-size: 200% 100%, auto;
-    background-position: 200% 0, 0 0;
-    box-shadow: rgba(0, 0, 0, .3) 0 2px 5px;
-} */
+
+ul {
+    color: rgb(190, 190, 216);
+    font-style: italic;
+    font: bold;
+}
 
 .SezioneDonnaServiziParrucchieri {
     position: relative;
