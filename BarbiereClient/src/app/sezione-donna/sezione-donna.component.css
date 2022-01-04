@@ -1,14 +1,14 @@
+.nav-link {
+    font-weight: bold;
+    color: black;
+}
+
 header {
     padding: 168px;
     text-align: center;
     background-color: rgb(204, 204, 221);
     color: black;
     font-size: 15px;
-    /* background-image: url("immagini/logoNeroSezFemm.png"); */
-}
-
-.logo-header {
-    margin-bottom: 10px;
 }
 
 .container-fluid {
