@@ -9,6 +9,8 @@ header {
     background-color: rgb(204, 204, 221);
     color: black;
     font-size: 15px;
+    font-style: italic;
+    font: bold;
 }
 
 .container-fluid {
