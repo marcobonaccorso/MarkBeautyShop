@@ -7,9 +7,11 @@ header {
     padding: 168px;
     text-align: center;
     background-color: rgb(204, 204, 221);
+    background-image: url("https://img.freepik.com/premium-vector/girl-head-illustration_6317-1363.jpg?size=338&ext=jpg");
     color: black;
     font-size: 15px;
     font-style: italic;
+    margin-right: 60px;
     font: bold;
 }
 
