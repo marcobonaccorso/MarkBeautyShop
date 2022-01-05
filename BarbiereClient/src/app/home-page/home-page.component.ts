@@ -22,7 +22,6 @@ export class HomePageComponent implements OnInit {
     window.scrollTo({
       top: 0,
     });
-
   }
 
   AreaUomo() { //prenotazione appuntamento
