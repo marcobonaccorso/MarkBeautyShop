@@ -20,8 +20,7 @@ export class HomePageComponent implements OnInit {
 
   scroll() {
     window.scrollTo({
-      top: 100,
-      left: 100,
+      top: 10,
     });
 
   }

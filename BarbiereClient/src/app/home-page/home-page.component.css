@@ -3,10 +3,6 @@
     color: black;
 }
 
-.container-fluid {
-    background-color: rgb(92, 161, 161);
-}
-
 .Tabella-orari {
     font-style: italic;
     margin-left: 250px;
@@ -32,30 +28,45 @@ tfoot {
     text-align: center;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    font-family: 'Lobster', cursive;
-    color: white;
-    font: bold;
-}
-
-.imgSala {
-    background-image: url('BackgroundHomePage.png');
-}
-
 header {
-    background-color: black;
     text-align: center;
-    border: 10px outset silver;
+    font-family: 'Lobster', cursive;
+    font: bold;
+    color: white;
+    background-image: url("https://www.thecrazyfifties.es/wp-content/uploads/2019/05/Sillon-de-Barbero-Vintage-Gold-2.jpg");
+    padding-bottom: 800px;
+    padding-top: 10px;
 }
 
 main {
     margin: auto;
-    background-color: black;
+    background-color: rgb(245, 241, 179);
+    font-family: 'Lobster', cursive;
+    font: bold;
+    color: black;
     text-align: center;
-    border: 10px outset silver;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.sezione-servizi {
+    margin: auto;
+    padding: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.servizio-capelli:hover {
+    /* background-image: url("https://manforhimself.com/wp-content/uploads/2020/03/TOP-5-LONDON-BARBERS-BARBERSHOPS-MAN-FOR-HIMSELF-LAND.jpg"); */
+    background-color: rgb(245, 241, 179);
+}
+
+.servizio-barba:hover {
+    background-color: rgb(245, 241, 179);
+}
+
+.servizio-estetica:hover {
+    background-color: rgb(245, 241, 179);
 }
 
 .container-fluid {
@@ -84,6 +95,11 @@ aside {
 .DescrizioneOrari {
     background-color: black;
     text-align: center;
+    padding: 30px;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    font: bold;
+    color: white;
     border: 10px outset silver;
 }
 
