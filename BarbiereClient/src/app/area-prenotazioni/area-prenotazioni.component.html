@@ -26,94 +26,60 @@
         </nav>
 
         <header *ngIf="!preloader">
-            <div class="HeadOfHeader" *ngIf="!preloader">
-                <h1>MARK'S BEAUTY SALOON</h1>
+            <div class="intestazione-pagina" *ngIf="!preloader">
+                <h1>MARK'S BEAUTY SALON</h1>
                 <h1>Sezione maschile</h1>
             </div>
         </header>
-        <div class="logo" *ngIf="!preloader">
-            <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo sinistro" style="float: left">
-            <img src="https://image.freepik.com/premium-vector/workplace-beauty-salon-interior-horizontal_48369-23905.jpg" class="img-fluid" alt="immagine sala">
-            <img src="http://barbiereroma.it/wp-content/uploads/2017/07/palo2.gif" class="img-fluid" alt="logo destro" style="float:right">
-        </div>
-        <br>
+
         <div class="row">
-
-            <div class="col-6">
-                <div class="intestazione" *ngIf="!preloader">
-                    <strong>
-                    <h4>The Mark's Barber Saloon offre i seguenti trattamenti: </h4>
-                </strong>
-                    <h3> <strong> Attenzione: alcune celle della tabella sono interattive,fai click su di esse per consultare i contenuti!</strong></h3>
-                </div>
-                <br>
-                <table class="table-dark" *ngIf="!preloader">
-                    <tr>
-                        <td>servizio</td>
-                        <td>prezzo</td>
-                    </tr>
-                    <tr>
-                        <td class="tdTaglio"> <a href="app-taglio-uomo" style="color: black;"> Taglio </a></td>
-                        <td>20€</td>
-                    </tr>
-
-                    <tr>
-                        <td> Taglio + shampoo</td>
-                        <td>22€</td>
-                    </tr>
-                    <tr>
-                        <td> Rasatura capelli a macchinetta</td>
-                        <td>10€</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Rasatura capelli a lametta
-                        </td>
-                        <td>
-                            12€
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Rasatura barba a lametta
-                        </td>
-                        <td>
-                            8€
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Sfoltitura barba
-                        </td>
-                        <td>
-                            7€
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Trattamento Barba
-                        </td>
-                        <td>
-                            10€
-                        </td>
-                    </tr>
-
-                </table>
-
+            <div class="col-12">
+                <main>
+                    <h1>Un pò di storia:</h1>
+                    <h2> Divenuto nel corso degli anni un vero e proprio punto di riferimento per i cultori del grooming, The Mark's beauty salon offre servizi a barba e capelli di altissima qualità. Ogni dettaglio è curato per accompagnarvi in un’esperienza
+                        autentica in un ambiente dal tono formale e moderno. Tutti i servizi proposti rappresentano la perfetta combinazione tra l’arte della rasatura italiana e le migliori tecniche provenienti da barberie americane ed inglesi. The Mark's
+                        beauty salon offre inoltre ai propri clienti una linea completa di prodotti ed accessori Bullfrog che contribuiscono a rendere il grooming un vero e proprio culto old school.
+                    </h2>
+                </main>
             </div>
-
-            <div class="col-6">
-                <div class="storia">
-                    <h3> Divenuto nel corso degli anni un vero e proprio punto di riferimento per i cultori del grooming, The Mark beauty shop offre servizi barba e capelli di altissima qualità. Ogni dettaglio è curato per accompagnarvi in un’esperienza di
-                        taglio e rasatura autentica in un ambiente dal tono formale e vintage. Tutti i servizi proposti rappresentano la perfetta combinazione tra l’arte della rasatura italiana e le migliori tecniche provenienti da barberie americane
-                        ed inglesi. The Mark's beauty shop offre inoltre ai propri clienti una linea completa di prodotti ed accessori Bullfrog che contribuiscono a rendere il grooming un vero e proprio culto old school.
-                    </h3>
-                </div>
-            </div>
-
         </div>
-        <br>
-        <div class="Contatti" *ngIf="!preloader">
+
+
+        <section class="sezione-servizi">
+            <div class="row">
+                <h1 style="margin-bottom: 15px;">I nostri servizi</h1>
+                <div class="col-3">
+                    <div class="taglio-shampoo">
+                        <i class="fa fa-star"></i>
+                        <h3>Taglio+shampoo</h3>
+                        <h4>Shampoo pre-taglio, esecuzione del taglio accordato e shampoo finale.</h4>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="rasatura-completa">
+                        <i class="fa fa-star"></i>
+                        <h3>Rasatura completa</h3>
+                        <h4>Rasatura dei capelli a macchinetta e lametta</h4>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="rasatura-barba">
+                        <i class="fa fa-star"></i>
+                        <h3>Rasatura barba a lametta</h3>
+                        <h4>Rasatura della barba con rasoio a mano libera "King cutter", tra i migliori sul mercato</h4>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="trattamento-barba">
+                        <i class="fa fa-star"></i>
+                        <h3>Trattamento alla barba</h3>
+                        <h4>Trattamento pre-taglio con panno caldo, esecuzione della rasatura accordata e applicazione di dopobarba "Bullfrog"</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="prenotazione" *ngIf="!preloader">
             <h3> Per prenotare un appuntamento, compila il form sottostante.</h3>
         </div>
         <!-- Area Prenotazioni-->
@@ -122,14 +88,18 @@
         </div> <br><br><br>
         <div class="form" *ngIf="showHidden && !preloader">
             <br> &nbsp;
-            <input type="text" [(ngModel)]="prenotazione.cliente" placeholder="inserisci nome" required #validCliente="ngModel" minlength="3" maxlength="35" pattern="[a-zA-Z\s]*"> &nbsp;
-
+            <input type="text" [(ngModel)]="prenotazione.cliente" placeholder="Inserisci nome" required #validCliente="ngModel" minlength="3" maxlength="35" pattern="[a-zA-Z\s]*"> &nbsp;
             <input type="date" [(ngModel)]="prenotazione.dataPrenotazione" required placeholder="Inserisci data di prenotazione"> &nbsp;
 
             <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione" required> &nbsp;
 
-            <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto" required minlength="6" pattern="[a-zA-Z\s]*"> &nbsp;
-
+            <!-- <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto" required minlength="6" pattern="[a-zA-Z\s]*"> &nbsp; -->
+            <select class="tipo-servizio" name="servizio" [(ngModel)]="prenotazione.tipoDiServizio" required minlength="6" pattern="[a-zA-Z\s]*">
+                <option value="Taglio" style="font-size: 1.5em;">Taglio+shampoo</option>
+                <option value="rasatura" style="font-size: 1.5em;">Rasatura completa</option>
+                <option value="rasaturaBarba" style="font-size: 1.5em;">Rasatura barba a lametta</option>
+                <option value="trattamentoBarba" style="font-size: 1.5em;">Trattamento alla barba</option>
+                </select> &nbsp;
             <button class="btn btn-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"><i class="fa fa-plus"></i> Prenota</button> &nbsp;
             <button class="btn btn-info" (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i> Reset</button> &nbsp;
 

@@ -4,27 +4,51 @@
 }
 
 .container-fluid {
-    background-color: rgb(204, 204, 221);
+    background-color: rgb(230, 219, 219);
 }
 
 header {
-    padding: 10px;
     text-align: center;
-    color: black;
-    font-size: 15px;
+    color: white;
+    font-family: 'Lobster', cursive;
+    font: bold;
 }
 
-.HeadOfHeader {
-    background-color: rgb(232, 220, 220);
-    color: #FFFFFF;
+.intestazione-pagina {
     text-align: center;
-    border: 10px outset rgb(58, 58, 255);
+    font-family: 'Lobster', cursive;
+    font: bold;
+    background-color: black;
+    background-image: url("https://www.thecrazyfifties.es/wp-content/uploads/2019/05/Sillon-de-Barbero-Vintage-Gold-2.jpg");
+    padding-bottom: 800px;
+    padding-top: 10px;
 }
 
 body {
     font-style: italic;
     font: bold;
-    background: rgb(255, 255, 255);
+}
+
+.sezione-servizi {
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.taglio-shampoo:hover {
+    background-color: rgb(245, 241, 179);
+}
+
+.rasatura-completa:hover {
+    background-color: rgb(245, 241, 179);
+}
+
+.rasatura-barba:hover {
+    background-color: rgb(245, 241, 179);
+}
+
+.trattamento-barba:hover {
+    background-color: rgb(245, 241, 179);
 }
 
 .logo {
@@ -33,11 +57,15 @@ body {
     text-align: center;
 }
 
-.storia {
-    background-color: rgb(232, 220, 220);
-    color: white;
+main {
+    margin: auto;
+    background-color: rgb(245, 241, 179);
+    font-family: 'Lobster', cursive;
+    font: bold;
+    color: black;
     text-align: center;
-    border: 10px outset rgb(58, 58, 255);
+    margin-bottom: 20px;
+    padding: 10px;
 }
 
 th,
@@ -48,23 +76,12 @@ td {
     color: black;
     font: bold;
     font-family: 'Lobster', cursive;
-    border-bottom: 7px solid rgb(232, 49, 49);
+    border-bottom: 7px solid black;
 }
 
 tr:hover {
     background-color: rgb(219, 219, 235);
     height: 8px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: black;
-    font-family: 'Lobster', cursive;
-    font: bold;
 }
 
 table {
@@ -89,18 +106,20 @@ table {
     width: 50%;
 }
 
-.intestazione {
-    background-color: rgb(232, 220, 220);
-    color: #FFFFFF;
-    text-align: center;
-    border: 10px outset rgb(58, 58, 255);
-}
-
-.Contatti {
-    background-color: rgb(232, 220, 220);
+.intestazione-servizi {
+    background-color: rgb(245, 241, 179);
     color: black;
     text-align: center;
-    border: 10px outset rgb(58, 58, 255);
+}
+
+.prenotazione {
+    background-color: rgb(245, 241, 179);
+    text-align: center;
+    padding: 30px;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    font: bold;
+    color: black;
 }
 
 .Scelta {
@@ -151,4 +170,29 @@ input[type=time] {
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
+}
+
+.tipo-servizio {
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 12px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+}
+
+input[type=text]::placeholder {
+    color: black;
+    font-size: 1.5em;
+}
+
+input[type=date]::placeholder {
+    color: black;
+    font-size: 1.5em;
+}
+
+input[type=time]::placeholder {
+    color: black;
+    font-size: 1.5em;
 }
