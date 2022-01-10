@@ -20,9 +20,12 @@ import { TaglioPiegaDonnaComponent } from './taglio-piega-donna/taglio-piega-don
 import { TaglioUomoComponent } from './taglio-uomo/taglio-uomo.component';
 import { CommonModule } from '@angular/common';
 // import { ToastrModule } from 'ngx-toastr';
+import {MatButtonModule} from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrandsComponent } from './brands/brands.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +53,8 @@ import { BrandsComponent } from './brands/brands.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatFormFieldModule,
     HttpClientModule
   ],
   providers: [],

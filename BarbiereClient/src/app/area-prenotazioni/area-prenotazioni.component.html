@@ -10,16 +10,20 @@
     <div class="container-fluid">
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="app-home-page"><i class="fa fa-home"></i> Torna alla home page</a>
+                        <a class="nav-link active" aria-current="page" href="app-home-page"><i class="fa fa-home"></i>
+                            Torna alla home page</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="app-sezione-acquisti"> <i class="fa fa-cart-plus"></i> Vedi la sezione acquisti</a>
+                        <a class="nav-link" href="app-sezione-acquisti"> <i class="fa fa-cart-plus"></i> Vedi la sezione
+                            acquisti</a>
                     </li>
                 </ul>
             </div>
@@ -36,9 +40,14 @@
             <div class="col-12">
                 <main>
                     <h1>Un pò di storia:</h1>
-                    <h2> Divenuto nel corso degli anni un vero e proprio punto di riferimento per i cultori del grooming, The Mark's beauty salon offre servizi a barba e capelli di altissima qualità. Ogni dettaglio è curato per accompagnarvi in un’esperienza
-                        autentica in un ambiente dal tono formale e moderno. Tutti i servizi proposti rappresentano la perfetta combinazione tra l’arte della rasatura italiana e le migliori tecniche provenienti da barberie americane ed inglesi. The Mark's
-                        beauty salon offre inoltre ai propri clienti una linea completa di prodotti ed accessori Bullfrog che contribuiscono a rendere il grooming un vero e proprio culto old school.
+                    <h2> Divenuto nel corso degli anni un vero e proprio punto di riferimento per i cultori del
+                        grooming, The Mark's beauty salon offre servizi a barba e capelli di altissima qualità. Ogni
+                        dettaglio è curato per accompagnarvi in un’esperienza
+                        autentica in un ambiente dal tono formale e moderno. Tutti i servizi proposti rappresentano la
+                        perfetta combinazione tra l’arte della rasatura italiana e le migliori tecniche provenienti da
+                        barberie americane ed inglesi. The Mark's
+                        beauty salon offre inoltre ai propri clienti una linea completa di prodotti ed accessori
+                        Bullfrog che contribuiscono a rendere il grooming un vero e proprio culto old school.
                     </h2>
                 </main>
             </div>
@@ -76,7 +85,8 @@
                     <div class="trattamento-barba">
                         <i class="fa fa-star"></i>
                         <h3>Trattamento alla barba</h3>
-                        <h4>Trattamento con panno caldo, esecuzione della rasatura accordata e applicazione di prodotti "Bullfrog" per un ottimale risultato</h4>
+                        <h4>Trattamento con panno caldo, esecuzione della rasatura accordata e applicazione di prodotti
+                            "Bullfrog" per un ottimale risultato</h4>
                         <h5>15€</h5>
                     </div>
                 </div>
@@ -86,22 +96,30 @@
         <div class="prenotazione" *ngIf="!preloader">
             <h3> Per prenotare un appuntamento, compila il form sottostante.</h3>
         </div>
+
+
         <!-- Area Prenotazioni-->
         <div class="BottonePrenotaAppuntamento" *ngIf="!preloader">
-            <br> <br> &nbsp;<button class="btn btn-primary" (click)="ShowHidden()">Clicca qui per compilare il form.</button>
+            <br> <br> &nbsp;<button mat-flat-button color="primary" (click)="ShowHidden()">Clicca qui per compilare il
+                    form.</button>
         </div>
         <div class="form" *ngIf="showHidden && !preloader">
 
-            <input type="text" [(ngModel)]="prenotazione.cliente" placeholder="Inserisci nome" required #validCliente="ngModel" minlength="3" maxlength="50" pattern="[A-Za-z]*"> &nbsp;
-            <input type="date" [(ngModel)]="prenotazione.dataPrenotazione" required placeholder="Inserisci data di prenotazione"> &nbsp;
+            <input type="text" [(ngModel)]="prenotazione.cliente" placeholder="Inserisci nome" required
+                #validCliente="ngModel" minlength="3" maxlength="50" pattern="[A-Za-z]*"> &nbsp;
+            <input type="date" [(ngModel)]="prenotazione.dataPrenotazione" required
+                placeholder="Inserisci data di prenotazione"> &nbsp;
 
             <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione" required> &nbsp;
 
-            <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto" required minlength="6" pattern="[A-Za-z]*"> &nbsp;
+            <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto" required
+                minlength="6" pattern="[A-Za-z]*"> &nbsp;
 
 
-            <button class="btn btn-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"><i class="fa fa-plus"></i> Prenota</button> &nbsp;
-            <button class="btn btn-info" (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i> Reset</button> &nbsp;
+            <button class="btn btn-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"><i
+                    class="fa fa-plus"></i> Prenota</button> &nbsp;
+            <button class="btn btn-info" (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i>
+                Reset</button> &nbsp;
 
 
 
@@ -110,9 +128,11 @@
                 <input type="text" [(ngModel)]="search" placeholder="Cerca cliente">&nbsp;&nbsp;
 
                 <button class="btn btn-primary" (click)="ricerca()"><i class="fa fa-search"></i> Cerca</button>&nbsp;
-                <button class="btn btn-info" (click)="resetSearchForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i> Reset</button> &nbsp;
+                <button class="btn btn-info" (click)="resetSearchForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i>
+                    Reset</button> &nbsp;
 
-                <button class="btn btn-primary" (click)="aggiornaDopoRicerca()" [disabled]="stato != 'S'"> <i class="fa fa-refresh" aria-hidden="true"></i> Aggiorna tutto</button>&nbsp;
+                <button class="btn btn-primary" (click)="aggiornaDopoRicerca()" [disabled]="stato != 'S'"> <i
+                        class="fa fa-refresh" aria-hidden="true"></i> Aggiorna tutto</button>&nbsp;
 
             </div>
 
@@ -130,7 +150,8 @@
 
                 <div class="col-12">
                     <div class="alert alert-danger" role="alert" *ngIf="noAdd">
-                        <h3> <i class="fa fa-exclamation-triangle"></i> Errore: uno o più campi non sono stati compilati.</h3>
+                        <h3> <i class="fa fa-exclamation-triangle"></i> Errore: uno o più campi non sono stati
+                            compilati.</h3>
                     </div>
                 </div>
 
@@ -156,7 +177,8 @@
                         <h3> <i class="fa fa-check"></i>Operazione annullata con successo</h3>
                     </div>
                     <div class="alert alert-danger" *ngIf="noMod">
-                        <h3><i class="fa fa-exclamation-triangle"></i> Errore. Impossibile effettuare questa modifica:</h3>
+                        <h3><i class="fa fa-exclamation-triangle"></i> Errore. Impossibile effettuare questa modifica:
+                        </h3>
                         <h3>Non puoi svuotare una cella e salvare, annulla l'operazione per proseguire.</h3>
                     </div>
                     <div class="alert alert-danger" role="alert" *ngIf="noSearch">
@@ -166,18 +188,22 @@
                         <h3> <i class="fa fa-check"></i>Prenotazione disdetta con successo.</h3>
                     </div>
                     <div class="alert alert-warning" *ngIf="staiEliminando">
-                        <h3> <i class="fa fa-exclamation-triangle"></i> Stai eliminando un dato, sei sicuro di voler effettuare questa operazione?</h3>
+                        <h3> <i class="fa fa-exclamation-triangle"></i> Stai eliminando un dato, sei sicuro di voler
+                            effettuare questa operazione?</h3>
                     </div>
                     <div class="alert alert-warning" *ngIf="staiModificando">
-                        <h3> <i class="fa fa-exclamation-triangle"></i> Stai modificando un dato, sei sicuro di voler effettuare questa operazione?</h3>
+                        <h3> <i class="fa fa-exclamation-triangle"></i> Stai modificando un dato, sei sicuro di voler
+                            effettuare questa operazione?</h3>
                     </div>
                 </div>
 
             </div>
 
             <div class="Scelta" *ngIf="!preloader">
-                <button class="btn btn-success" (click)="conferma()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'"> <i class="fa fa-check"></i> Conferma</button>
-                <button class="btn btn-danger" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'"> <i class="fa fa-window-close"></i> Annulla</button>
+                <button class="btn btn-success" (click)="conferma()"
+                    *ngIf="stato == 'A' || stato == 'M' || stato == 'R'"> <i class="fa fa-check"></i> Conferma</button>
+                <button class="btn btn-danger" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">
+                    <i class="fa fa-window-close"></i> Annulla</button>
             </div>
             <br>
             <div class="col-12">
@@ -199,20 +225,19 @@
                             <td>
 
                                 <button class="btn btn-warning" (click)="modifica(p)">
-                        <i class="fa fa-edit"></i>Modifica</button>
+                                    <i class="fa fa-edit"></i>Modifica</button>
 
                             </td>
                             <td>
                                 <i class="fas fa-trash-alt"></i>
                                 <button class="btn btn-danger" (click)="elimina(p)">
-                        <i class="fa fa-trash"></i>
-                        Elimina</button>
+                                    <i class="fa fa-trash"></i>
+                                    Elimina</button>
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
-
         </div>
         <br> <br> <br><br><br><br><br><br> <br>
         <div *ngIf="preloader">
