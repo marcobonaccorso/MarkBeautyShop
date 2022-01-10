@@ -22,6 +22,7 @@ import { CommonModule } from '@angular/common';
 // import { ToastrModule } from 'ngx-toastr';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrandsComponent } from './brands/brands.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GestioneAppuntamentiEsteticaComponent,
     AreaColoriComponent,
     TaglioPiegaDonnaComponent,
-    TaglioUomoComponent
+    TaglioUomoComponent,
+    BrandsComponent
   ],
   imports: [
     MatSliderModule, //angular material
