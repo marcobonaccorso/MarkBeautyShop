@@ -76,7 +76,7 @@
                     <div class="trattamento-barba">
                         <i class="fa fa-star"></i>
                         <h3>Trattamento alla barba</h3>
-                        <h4>Trattamento pre-taglio con panno caldo, esecuzione della rasatura accordata e applicazione di dopobarba "Bullfrog"</h4>
+                        <h4>Trattamento con panno caldo, esecuzione della rasatura accordata e applicazione di prodotti "Bullfrog" per un ottimale risultato</h4>
                         <h5>15€</h5>
                     </div>
                 </div>
@@ -99,12 +99,7 @@
 
             <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto" required minlength="6" pattern="[A-Za-z]*"> &nbsp;
 
-            <!-- <select class="tipo-servizio" name="servizio" [(ngModel)]="prenotazione.tipoDiServizio" required minlength="6" pattern="[a-zA-Z\s]*">
-                <option value="Taglio+shampoo" style="font-size: 1.5em;">Taglio+shampoo</option>
-                <option value="Rasatura completa" style="font-size: 1.5em;">Rasatura completa</option>
-                <option value="Rasatura barba" style="font-size: 1.5em;">Rasatura barba a lametta</option>
-                <option value="Trattamento barba" style="font-size: 1.5em;">Trattamento alla barba</option>
-                </select> &nbsp; -->
+
             <button class="btn btn-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"><i class="fa fa-plus"></i> Prenota</button> &nbsp;
             <button class="btn btn-info" (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i> Reset</button> &nbsp;
 
