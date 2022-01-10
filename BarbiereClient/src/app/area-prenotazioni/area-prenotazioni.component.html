@@ -96,12 +96,10 @@
         <div class="prenotazione" *ngIf="!preloader">
             <h3> Per prenotare un appuntamento, compila il form sottostante.</h3>
         </div>
-
-
         <!-- Area Prenotazioni-->
         <div class="BottonePrenotaAppuntamento" *ngIf="!preloader">
-            <br> <br> &nbsp;<button mat-flat-button color="primary" (click)="ShowHidden()">Clicca qui per compilare il
-                    form.</button>
+            <button mat-flat-button color="primary" (click)="ShowHidden()">Clicca qui per compilare il
+                form.</button>
         </div>
         <div class="form" *ngIf="showHidden && !preloader">
 
@@ -116,19 +114,17 @@
                 minlength="6" pattern="[A-Za-z]*"> &nbsp;
 
 
-            <button class="btn btn-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"><i
+                <button mat-flat-button color="primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"><i
                     class="fa fa-plus"></i> Prenota</button> &nbsp;
-            <button class="btn btn-info" (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i>
+                    <button mat-raised-button (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i>
                 Reset</button> &nbsp;
-
-
 
             <div class="Ricerca" style="float: right;" *ngIf="showScelta">
 
                 <input type="text" [(ngModel)]="search" placeholder="Cerca cliente">&nbsp;&nbsp;
 
-                <button class="btn btn-primary" (click)="ricerca()"><i class="fa fa-search"></i> Cerca</button>&nbsp;
-                <button class="btn btn-info" (click)="resetSearchForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i>
+                <button mat-flat-button color="primary" (click)="ricerca()"><i class="fa fa-search"></i> Cerca</button>&nbsp;
+                <button mat-raised-button (click)="resetSearchForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i>
                     Reset</button> &nbsp;
 
                 <button class="btn btn-primary" (click)="aggiornaDopoRicerca()" [disabled]="stato != 'S'"> <i

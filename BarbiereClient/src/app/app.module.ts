@@ -25,6 +25,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrandsComponent } from './brands/brands.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatDividerModule,
     HttpClientModule
   ],
   providers: [],
