@@ -41,7 +41,6 @@ export class AreaPrenotazioniComponent implements OnInit {
 
   constructor(private http: HttpClient,
     private router: Router,
-    // private toastr: ToastrService
   ) {
     this.aggiorna();
   }
@@ -433,6 +432,7 @@ export class AreaPrenotazioniComponent implements OnInit {
   //altro
 
   aggiornaDopoRicerca() {
+    console.log("metodo aggiornaDopoRicerca")
     this.stato = "V";
     this.aggiorna();
   }

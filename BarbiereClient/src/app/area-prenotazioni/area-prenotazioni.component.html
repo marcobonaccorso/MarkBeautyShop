@@ -27,7 +27,7 @@
 
         <header *ngIf="!preloader">
             <div class="intestazione-pagina" *ngIf="!preloader">
-                <h1>MARK'S BEAUTY SALON</h1>
+                <h1>THE MARK'S BEAUTY SALON</h1>
                 <h1>Sezione maschile</h1>
             </div>
         </header>
@@ -53,6 +53,7 @@
                         <i class="fa fa-star"></i>
                         <h3>Taglio+shampoo</h3>
                         <h4>Shampoo pre-taglio, esecuzione del taglio accordato e shampoo finale.</h4>
+                        <h5>18€</h5>
                     </div>
                 </div>
                 <div class="col-3">
@@ -60,6 +61,7 @@
                         <i class="fa fa-star"></i>
                         <h3>Rasatura completa</h3>
                         <h4>Rasatura dei capelli a macchinetta e lametta</h4>
+                        <h5>12€</h5>
                     </div>
                 </div>
                 <div class="col-3">
@@ -67,6 +69,7 @@
                         <i class="fa fa-star"></i>
                         <h3>Rasatura barba a lametta</h3>
                         <h4>Rasatura della barba con rasoio a mano libera "King cutter", tra i migliori sul mercato</h4>
+                        <h5>10€</h5>
                     </div>
                 </div>
                 <div class="col-3">
@@ -74,6 +77,7 @@
                         <i class="fa fa-star"></i>
                         <h3>Trattamento alla barba</h3>
                         <h4>Trattamento pre-taglio con panno caldo, esecuzione della rasatura accordata e applicazione di dopobarba "Bullfrog"</h4>
+                        <h5>15€</h5>
                     </div>
                 </div>
             </div>
@@ -85,21 +89,22 @@
         <!-- Area Prenotazioni-->
         <div class="BottonePrenotaAppuntamento" *ngIf="!preloader">
             <br> <br> &nbsp;<button class="btn btn-primary" (click)="ShowHidden()">Clicca qui per compilare il form.</button>
-        </div> <br><br><br>
+        </div>
         <div class="form" *ngIf="showHidden && !preloader">
-            <br> &nbsp;
-            <input type="text" [(ngModel)]="prenotazione.cliente" placeholder="Inserisci nome" required #validCliente="ngModel" minlength="3" maxlength="35" pattern="[a-zA-Z\s]*"> &nbsp;
+
+            <input type="text" [(ngModel)]="prenotazione.cliente" placeholder="Inserisci nome" required #validCliente="ngModel" minlength="3" maxlength="50" pattern="[A-Za-z]*"> &nbsp;
             <input type="date" [(ngModel)]="prenotazione.dataPrenotazione" required placeholder="Inserisci data di prenotazione"> &nbsp;
 
             <input type="time" [(ngModel)]="prenotazione.ora" placeholder="ora prenotazione" required> &nbsp;
 
-            <!-- <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto" required minlength="6" pattern="[a-zA-Z\s]*"> &nbsp; -->
-            <select class="tipo-servizio" name="servizio" [(ngModel)]="prenotazione.tipoDiServizio" required minlength="6" pattern="[a-zA-Z\s]*">
-                <option value="Taglio" style="font-size: 1.5em;">Taglio+shampoo</option>
-                <option value="rasatura" style="font-size: 1.5em;">Rasatura completa</option>
-                <option value="rasaturaBarba" style="font-size: 1.5em;">Rasatura barba a lametta</option>
-                <option value="trattamentoBarba" style="font-size: 1.5em;">Trattamento alla barba</option>
-                </select> &nbsp;
+            <input type="text" [(ngModel)]="prenotazione.tipoDiServizio" placeholder="servizio richiesto" required minlength="6" pattern="[A-Za-z]*"> &nbsp;
+
+            <!-- <select class="tipo-servizio" name="servizio" [(ngModel)]="prenotazione.tipoDiServizio" required minlength="6" pattern="[a-zA-Z\s]*">
+                <option value="Taglio+shampoo" style="font-size: 1.5em;">Taglio+shampoo</option>
+                <option value="Rasatura completa" style="font-size: 1.5em;">Rasatura completa</option>
+                <option value="Rasatura barba" style="font-size: 1.5em;">Rasatura barba a lametta</option>
+                <option value="Trattamento barba" style="font-size: 1.5em;">Trattamento alla barba</option>
+                </select> &nbsp; -->
             <button class="btn btn-primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"><i class="fa fa-plus"></i> Prenota</button> &nbsp;
             <button class="btn btn-info" (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i> Reset</button> &nbsp;
 
@@ -179,7 +184,6 @@
                 <button class="btn btn-success" (click)="conferma()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'"> <i class="fa fa-check"></i> Conferma</button>
                 <button class="btn btn-danger" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'"> <i class="fa fa-window-close"></i> Annulla</button>
             </div>
-            <br>
             <br>
             <div class="col-12">
                 <div class="tabella">
