@@ -58,6 +58,7 @@ main {
     font-family: 'Lobster', cursive;
     font: bold;
     color: black;
+    margin-bottom: 20px;
 }
 
 .Tabella-orari {
@@ -78,7 +79,7 @@ td {
 }
 
 tr:hover {
-    background-color: rgb(219, 219, 235);
+    background-color: rgb(245, 241, 179);
     height: 8px;
 }
 
