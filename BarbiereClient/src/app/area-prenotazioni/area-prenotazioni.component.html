@@ -196,9 +196,9 @@
             </div>
 
             <div class="Scelta" *ngIf="!preloader">
-                <button class="btn btn-success" (click)="conferma()"
+                <button mat-flat-button color="primary" (click)="conferma()" style="margin-right: 10px;"
                     *ngIf="stato == 'A' || stato == 'M' || stato == 'R'"> <i class="fa fa-check"></i> Conferma</button>
-                <button class="btn btn-danger" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">
+                    <button mat-flat-button color="warn" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">
                     <i class="fa fa-window-close"></i> Annulla</button>
             </div>
             <br>
