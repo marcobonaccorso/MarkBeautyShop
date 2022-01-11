@@ -1,21 +1,31 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="gestione-appuntamento-parrucchiere.component.css">
+    <title>Gestione appuntamento parrucchiere</title>
 </head>
 
 <body>
-    <!-- <button class="btn btn-primary" (click)="indietro()">Indietro</button> <br> <br> -->
-    <div class="topnav" style="text-align: center;">
-        <a href="app-home-page">Torna alla "HomePage"</a>
-        <a href="app-sezione-donna">Torna all' "area femminile"</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="app-sezione-donna"> <i class="fa fa-cart-plus"></i> Torna all' "area
+                        femminile"</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    </div> <br>
     <header *ngIf="!preloader">
-        <div class="HeadOfHeader" *ngIf="!preloader" style="text-align: center;">
-            <h1>MARK'S BEAUTY SHOP</h1>
+        <div class="HeadOfHeader" *ngIf="!preloader">
+            <h1>MARK'S BEAUTY SALON</h1>
             <h1>Sezione appuntamento parrucchiere</h1>
-            <h2> <strong>Attenzione: alcune celle della tabella sono interattive: fai click su di esse per visualizzarne il contenuto!</strong></h2>
+            <h2> <strong>Attenzione: alcune celle della tabella sono interattive: fai click su di esse per visualizzarne
+                    il contenuto!</strong></h2>
         </div> <br>
     </header>
     <br>
@@ -33,7 +43,7 @@
             <td>20€</td>
         </tr>
         <tr>
-            <td> <button class="btn btn-link" (click)="TaglioEPiega()">Taglio e piega</button>  </td>
+            <td> <button class="btn btn-link" (click)="TaglioEPiega()">Taglio e piega</button> </td>
             <td>39€</td>
             <td>41€</td>
             <td>43€</td>

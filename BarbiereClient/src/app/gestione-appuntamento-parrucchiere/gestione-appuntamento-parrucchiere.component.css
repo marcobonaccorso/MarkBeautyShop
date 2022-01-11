@@ -1,47 +1,11 @@
-   
-   .topnav {
-    background-color:rgb(37, 34, 34);
-    color: white;
-    overflow: hidden;
-    text-align: center;
-    font-style: italic;
-    border: 10px outset rgb(190, 190, 190);
-  }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    font-style: italic;
-    
-    text-align: center;
-    padding: 20px 16px;
-    text-decoration: none;
-    font-size: 25px;
-  }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: #ddd;
-    text-align: center;
-    color: black;
-    font-style: italic;
-  }
-  
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    /* background-color: #bd3030; */
-    color: white;
-    font-style: italic;
-  }
+
 
 body {
     background-color: white;
-    background-image: url("https://i.pinimg.com/originals/7e/fc/2c/7efc2cb33ee4eb9d7625ca1eca702506.gif");
     font-style: italic;
     font: bold;
 }
+
 .HeadOfHeader {
     padding: 10px;
     text-align: center;
