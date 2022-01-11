@@ -6,7 +6,7 @@ body {
     font: bold;
 }
 
-.HeadOfHeader {
+header {
     padding: 10px;
     text-align: center;
     background-color: rgb(216, 168, 176);
