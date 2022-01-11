@@ -130,11 +130,18 @@
             <input type="time" [(ngModel)]="prenotazioneParrucchiere.ora" placeholder="ora prenotazione"> &nbsp;
             <input type="text" [(ngModel)]="prenotazioneParrucchiere.tipoDiServizio" placeholder="tipo di servizio">
             &nbsp;
-            <button class="btn btn-outline-primary" (click)="aggiungiPrenotazioneParrucchiere()"
-                *ngIf="stato == 'V'">aggiungi prenotazione</button>
+            <button mat-flat-button color="primary" (click)="aggiungiPrenotazioneParrucchiere()"
+                *ngIf="stato == 'V'"><i class="fa fa-plus"></i> Aggiungi prenotazione</button> &nbsp;
+                <button mat-raised-button (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i>
+                    Reset</button> 
             <div class="Ricerca">
                 <input type="text" [(ngModel)]="cerca" placeholder="ricerca">&nbsp;&nbsp;
                 <button class="btn btn-outline-primary" (click)="ricerca()">Cerca</button>&nbsp;
+                <button mat-raised-button (click)="resetSearchForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i>
+                    Reset</button> &nbsp;
+
+                <button mat-flat-button color="primary" (click)="aggiornaDopoRicerca()" [disabled]="stato != 'S'"> <i
+                        class="fa fa-refresh" aria-hidden="true"></i> Aggiorna tutto</button>&nbsp;
             </div>
             <br>
 

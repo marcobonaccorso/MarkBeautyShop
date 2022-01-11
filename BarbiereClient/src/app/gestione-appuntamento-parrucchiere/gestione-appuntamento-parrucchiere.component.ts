@@ -55,7 +55,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
   VediColori() {
     this.router.navigateByUrl("/app-area-colori");
   }
-  TaglioEPiega(){
+  TaglioEPiega() {
     this.router.navigateByUrl("/app-taglio-piega-donna");
   }
   //stati
@@ -189,7 +189,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
 
 
   aggiorna() {
-   
+
     this.http.get<ListaPrenotazioniParrucchiereDto>(this.url + "aggiornaPrenotazioneParrucchiere"
     ).subscribe(c =>
       this.prenotazioniParrucchiere = c.listaPrenotazioniParrucchiereDto
@@ -202,7 +202,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
     this.noSearch = false;
     this.noMod = false;
     this.notFoundSearch = false;
-}
+  }
 
   aggiungiPrenotazioneParrucchiere() {
     console.log("siamo in aggiungiPrenotazione");
@@ -228,7 +228,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
         , dto).subscribe(c =>
           this.prenotazioniParrucchiere = c.listaPrenotazioniParrucchiereDto
         );
-        console.log('Prenotazione effettuata.');
+      console.log('Prenotazione effettuata.');
       this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
       this.showAdd = true;
       this.noAdd = false;
@@ -241,6 +241,22 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
       this.noMod = false;
       this.notFoundSearch = false;
     }
+  }
+
+  resetForm() {
+    this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
+    this.showAdd = false;
+    this.noAdd = false;
+    this.showDel = false;
+    this.showMod = false;
+    this.noMod = false;
+    this.staiModificando = false;
+    this.staiEliminando = false;
+    this.showNoMod = false;
+    this.showNoDel = false;
+    this.showSearch = false;
+    this.noSearch = false;
+    this.notFoundSearch = false;
   }
 
 
@@ -273,7 +289,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
           this.prenotazioniParrucchiere = c.listaPrenotazioniParrucchiereDto
           this.stato = "V";
         });
-        console.log('Modifica effettuata.');
+      console.log('Modifica effettuata.');
       this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
       this.preloader = false;
       this.showMod = true;
@@ -299,7 +315,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
         this.prenotazioniParrucchiere = c.listaPrenotazioniParrucchiereDto
         this.stato = "V";
       });
-      console.log('Eliminazione effettuata.');
+    console.log('Eliminazione effettuata.');
     this.prenotazioneParrucchiere = new PrenotazioneParrucchiere();
     this.preloader = false;
     this.showAdd = false;
@@ -319,7 +335,7 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
   ricerca() {
     let criterioRicercaAppuntamentoParrucchiere = new RicercaAppuntamentoParrucchiereDto();
     criterioRicercaAppuntamentoParrucchiere.ricercaAppuntamentoParrucchiereDto = this.cerca;
-    if (this.cerca=="") {
+    if (this.cerca == "") {
       console.log("Errore: il campo di ricerca è vuoto.");
       console.log('Errore: il campo di ricerca è vuoto');
     } else {
@@ -340,11 +356,38 @@ export class GestioneAppuntamentoParrucchiereComponent implements OnInit {
       this.cerca = "";
     }
   }
+
+
+  resetSearchForm() {
+    this.cerca = "";
+    this.showAdd = false;
+    this.noAdd = false;
+    this.showDel = false;
+    this.showMod = false;
+    this.noMod = false;
+    this.staiModificando = false;
+    this.staiEliminando = false;
+    this.showNoMod = false;
+    this.showNoDel = false;
+    this.showSearch = false;
+    this.noSearch = false;
+    this.notFoundSearch = false;
+
+  }
+
+
+
   //altro
   resetPreloader() {
     console.log("metodo resetPreloader");
     this.preloader = true;
     this.messaggio = "";
+  }
+
+  aggiornaDopoRicerca() {
+    console.log("metodo aggiornaDopoRicerca")
+    this.stato = "V";
+    this.aggiorna();
   }
 
 }
