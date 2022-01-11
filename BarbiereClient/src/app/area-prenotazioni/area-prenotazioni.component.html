@@ -114,20 +114,21 @@
                 minlength="6" pattern="[A-Za-z]*"> &nbsp;
 
 
-                <button mat-flat-button color="primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"><i
+            <button mat-flat-button color="primary" (click)="aggiungiPrenotazione()" *ngIf="stato == 'V'"><i
                     class="fa fa-plus"></i> Prenota</button> &nbsp;
-                    <button mat-raised-button (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i>
+            <button mat-raised-button (click)="resetForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i>
                 Reset</button> &nbsp;
 
             <div class="Ricerca" style="float: right;" *ngIf="showScelta">
 
                 <input type="text" [(ngModel)]="search" placeholder="Cerca cliente">&nbsp;&nbsp;
 
-                <button mat-flat-button color="primary" (click)="ricerca()"><i class="fa fa-search"></i> Cerca</button>&nbsp;
+                <button mat-flat-button color="primary" (click)="ricerca()"><i class="fa fa-search"></i>
+                    Cerca</button>&nbsp;
                 <button mat-raised-button (click)="resetSearchForm()" *ngIf="stato == 'V'"><i class="fa fa-undo"></i>
                     Reset</button> &nbsp;
 
-                <button class="btn btn-primary" (click)="aggiornaDopoRicerca()" [disabled]="stato != 'S'"> <i
+                <button mat-flat-button color="primary" (click)="aggiornaDopoRicerca()" [disabled]="stato != 'S'"> <i
                         class="fa fa-refresh" aria-hidden="true"></i> Aggiorna tutto</button>&nbsp;
 
             </div>
@@ -139,58 +140,61 @@
 
             <div class="row">
                 <div class="col-12">
-                    <div class="alert alert-success" role="alert" style="text-align: center;" *ngIf="showAdd">
+                    <mat-card *ngIf="showAdd" class="added">
                         <h3> <i class="fa fa-check"></i> Prenotazione effettuata.</h3>
-                    </div>
+                    </mat-card>
                 </div>
 
                 <div class="col-12">
-                    <div class="alert alert-danger" role="alert" *ngIf="noAdd">
+
+                    <mat-card *ngIf="noAdd">
                         <h3> <i class="fa fa-exclamation-triangle"></i> Errore: uno o più campi non sono stati
                             compilati.</h3>
-                    </div>
+                    </mat-card>
+
                 </div>
-
-
 
                 <div class="col-12">
 
-                    <div class="alert alert-warning" *ngIf="stato=='T'"><i class="fa fa-sync"></i></div>
-
-                    <div class="alert alert-success" *ngIf="showSearch">
+                    <mat-card *ngIf="showSearch">
                         <h3> <i class="fa fa-check"></i> La ricerca ha prodotto i seguenti risultati:</h3>
-                    </div>
-                    <!-- <div class="alert alert-success" *ngIf="resetted">
-                        <h3> <i class="fa fa-check"></i> Form resettato.</h3>
-                    </div> -->
-                    <div class="alert alert-danger" *ngIf="notFoundSearch">
+                    </mat-card>
+
+                    <mat-card *ngIf="notFoundSearch">
                         <h3> <i class="fa fa-exclamation-triangle"></i> Errore: dato non trovato.</h3>
-                    </div>
-                    <div class="alert alert-warning" *ngIf="showMod">
+                    </mat-card>
+
+                    <mat-card *ngIf="showMod">
                         <h3> <i class="fa fa-check"></i>Prenotazione modificata con successo.</h3>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="showNoMod">
+                    </mat-card>
+
+                    <mat-card *ngIf="showNoMod">
                         <h3> <i class="fa fa-check"></i>Operazione annullata con successo</h3>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="noMod">
-                        <h3><i class="fa fa-exclamation-triangle"></i> Errore. Impossibile effettuare questa modifica:
-                        </h3>
-                        <h3>Non puoi svuotare una cella e salvare, annulla l'operazione per proseguire.</h3>
-                    </div>
-                    <div class="alert alert-danger" role="alert" *ngIf="noSearch">
+                    </mat-card>
+
+                    <mat-card *ngIf="noMod">
+                        <h3><i class="fa fa-exclamation-triangle"></i> Errore. Impossibile effettuare questa
+                            modifica:Non puoi svuotare una cella e salvare, annulla l'operazione per proseguire. </h3>
+                    </mat-card>
+
+                    <mat-card *ngIf="noSearch">
                         <h3><i class="fa fa-exclamation-triangle"></i> La ricerca non ha prodotto nessun risultato.</h3>
-                    </div>
-                    <div class="alert alert-danger" *ngIf="showDel">
+                    </mat-card>
+
+                    <mat-card *ngIf="showDel">
                         <h3> <i class="fa fa-check"></i>Prenotazione disdetta con successo.</h3>
-                    </div>
-                    <div class="alert alert-warning" *ngIf="staiEliminando">
+                    </mat-card>
+
+                    <mat-card *ngIf="staiEliminando">
                         <h3> <i class="fa fa-exclamation-triangle"></i> Stai eliminando un dato, sei sicuro di voler
                             effettuare questa operazione?</h3>
-                    </div>
-                    <div class="alert alert-warning" *ngIf="staiModificando">
+                    </mat-card>
+
+                    <mat-card *ngIf="staiModificando">
                         <h3> <i class="fa fa-exclamation-triangle"></i> Stai modificando un dato, sei sicuro di voler
                             effettuare questa operazione?</h3>
-                    </div>
+                    </mat-card>
+                    
                 </div>
 
             </div>
@@ -198,12 +202,44 @@
             <div class="Scelta" *ngIf="!preloader">
                 <button mat-flat-button color="primary" (click)="conferma()" style="margin-right: 10px;"
                     *ngIf="stato == 'A' || stato == 'M' || stato == 'R'"> <i class="fa fa-check"></i> Conferma</button>
-                    <button mat-flat-button color="warn" (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">
+                <button mat-raised-button (click)="annulla()" *ngIf="stato == 'A' || stato == 'M' || stato == 'R'">
                     <i class="fa fa-window-close"></i> Annulla</button>
             </div>
-            <br>
             <div class="col-12">
-                <div class="tabella">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Data prenotazione</th>
+                            <th scope="col">Ora prenotazione</th>
+                            <th scope="col">Servizio</th>
+                            <th scope="col">Modifica</th>
+                            <th scope="col">Elimina</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of prenotazioni">
+
+                            <td>Il sig. {{p.cliente}} verrà</td>
+                            <td>il giorno {{p.dataPrenotazione}}</td>
+                            <td>alle ore {{p.ora}}</td>
+                            <td> per {{p.tipoDiServizio}}</td>
+                            <td>
+                                <button mat-flat-button color="primary" (click)="modifica(p)">
+                                    <i class="fa fa-edit"></i>Modifica</button>
+                            </td>
+                            <td>
+                                <i class="fas fa-trash-alt"></i>
+                                <button mat-raised-button (click)="elimina(p)">
+                                    <i class="fa fa-trash"></i>
+                                    Elimina</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- <div class="tabella">
                     <table *ngIf="!preloader">
                         <tr>
                             <th>Cliente </th>
@@ -232,7 +268,7 @@
                             </td>
                         </tr>
                     </table>
-                </div>
+                </div> -->
             </div>
         </div>
         <br> <br> <br><br><br><br><br><br> <br>

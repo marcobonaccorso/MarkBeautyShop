@@ -26,6 +26,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrandsComponent } from './brands/brands.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -52,11 +56,14 @@ import {MatDividerModule} from '@angular/material/divider';
     CommonModule,
     // ToastrModule.forRoot(), // ToastrModule added
     AppRoutingModule,
+    MatInputModule,
     FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatDatepickerModule,
     MatDividerModule,
+    MatCardModule,
     HttpClientModule
   ],
   providers: [],
