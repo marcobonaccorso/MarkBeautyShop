@@ -17,6 +17,9 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  scrolla(){
+    window.scrollTo(0, 960);
+  }
 
   scroll() {
     window.scrollTo({

@@ -14,16 +14,20 @@
             <span class="navbar-toggler-icon"></span>
           </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navbar">
                             <li class="nav-item">
-                                <a class="nav-link" href="app-area-prenotazioni"> <i class="fa fa-scissors" aria-hidden="true"></i> Sezione maschile</a>
+                                <a class="nav-link" (click)="scrolla()"> Chi siamo</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="app-sezione-donna"> <i class="fa fa-female"></i> Sezione femminile</a>
+                                <a class="nav-link" [routerLink]="['/app-area-prenotazioni']"> <i class="fa fa-scissors" aria-hidden="true"></i> Sezione maschile</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="app-sezione-acquisti"><i class="fa fa-cart-plus"></i> Sezione acquisti</a>
+                                <a class="nav-link" [routerLink]="['/app-sezione-donna']"> <i class="fa fa-female"></i> Sezione femminile</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" [routerLink]="['/app-sezione-acquisti']"><i class="fa fa-cart-plus"></i> Sezione acquisti</a>
+                            </li>
+                        
                         </ul>
                     </div>
                 </nav>
@@ -34,7 +38,7 @@
             <div class="col-12">
                 <header>
                     <h1>THE MARK'S BEAUTY SALON</h1>
-                    <h2>Home page</h2>
+                    <h2>Pagina principale</h2>
                 </header>
             </div>
         </div>
@@ -130,7 +134,7 @@
         <div class="gallery-man">
             <div class="row">
                 <div class="col-12">
-                    <h1>Gallery</h1>
+                    <h1>Galleria</h1>
                 </div>
                 <div class="row">
                     <div class="col-3">
