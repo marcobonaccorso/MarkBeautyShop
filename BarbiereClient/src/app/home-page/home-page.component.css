@@ -1,6 +1,16 @@
-.container-fluid {
+body {
     background-color: rgb(230, 219, 219);
+    color: black;
 }
+
+.dark-mode {
+    background-color: black;
+    color: white;
+  }
+
+/* .container-fluid{
+    background-color: rgb(230, 219, 219);
+} */
 
 #navbar{
      position: sticky;
@@ -123,7 +133,7 @@ aside {
 
 .gallery-woman {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 .gallery-woman img{
@@ -169,3 +179,20 @@ aside {
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
   }
+
+  /* mappa responsive*/
+
+  .google-maps {
+    position: relative;
+    padding-bottom: 75%; /* Definisco l'aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  .google-maps > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+

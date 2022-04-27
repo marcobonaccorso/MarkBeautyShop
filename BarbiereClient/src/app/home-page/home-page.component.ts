@@ -52,5 +52,10 @@ export class HomePageComponent implements OnInit {
     this.englishSubtitleWomanSection = !this.englishSubtitleWomanSection;
   }
 
+  mode(){
+    let element = document.body;
+    element.classList.toggle("dark-mode");
+    console.log("cisono")
+  }
 
 }

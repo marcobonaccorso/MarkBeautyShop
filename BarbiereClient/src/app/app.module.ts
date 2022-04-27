@@ -29,6 +29,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCardModule} from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import {MatCardModule} from '@angular/material/card';
     BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatTooltipModule,
     MatDatepickerModule,
     MatDividerModule,
     MatCardModule,
